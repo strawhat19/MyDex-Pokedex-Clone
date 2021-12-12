@@ -1,7 +1,7 @@
 <footer class="footer red">
     <div class="innerFooter">
         <div class="nameText">
-            <a class="customLink" href="https://github.com/strawhat19/" target="_blank" title="GitHub Pages Deployment">
+            <a class="customLink" href="https://github.com/strawhat19/" target="_blank" title="GitHub Repo">
                 <i class="fab fa-github"></i> | MyDex
             </a>
         </div>

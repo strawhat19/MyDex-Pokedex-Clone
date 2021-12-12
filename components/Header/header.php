@@ -7,14 +7,18 @@
                     <i class="fab fa-github"></i>
                 </a>
             </div>
-            <div class="mainNavLink">- Welcome, Login to Save Pokemon!</div>
+            <div class="mainNavLink">- Welcome</div>
         </div>
-        <div class="registrationButtons">
+        <div class="registration">
+            <form class="loginForm" id="loginForm">
+                <input id="usernameField" type="text" name="username" placeholder="Username" />
+                <input id="passwordField" type="password" name="password" placeholder="Password" />
+            </form>
             <a href="./about.php" title="About">
-                <i class="fas fa-sign-in-alt"></i> About
+                <i class="fas fa-sign-in-alt"></i> Login
             </a>
             <a href="./profile.php" title="Profile">
-                <i class="fas fa-user-plus"></i> Profile
+                <i class="fas fa-user-plus"></i> Register
             </a>
         </div>
         <div class="mobile-menu-option" id="mobile-menu-option">

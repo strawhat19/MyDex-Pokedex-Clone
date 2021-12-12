@@ -80,8 +80,35 @@ nav {
   border-radius: 100%;
 }
 
-.registrationButtons {
+.registration {
   display: flex;
+  form {
+    display: flex;
+    input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-gap: 0.4em;
+      width: auto;
+      padding: 0 15px;
+      margin: 0 15px;
+      text-decoration: none;
+      color: white !important;
+      font-weight: 600;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-right: 1px solid white;
+      border-left: 1px solid white;
+      transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+      &:hover {
+        padding: 15px;
+        border-color: var(--main);
+        background: var(--secondary);
+        transition: var(--transition);
+      }
+    }
+  }
   a {
     display: flex;
     justify-content: center;
@@ -106,6 +133,7 @@ nav {
       transition: var(--transition);
     }
   }
+
   @media (max-width: 992px) {
     display: none;
   }
@@ -173,30 +201,6 @@ ul li.nav-link {
     background: rgba(222, 28, 28, 0.6);
     cursor: pointer;
   }
-}
-
-nav .Projects a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 .mobile-menu {

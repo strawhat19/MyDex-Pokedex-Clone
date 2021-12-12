@@ -114,13 +114,19 @@ nav li {
   border-radius: 100%;
 }
 
-.registrationButtons {
+.registration {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.registrationButtons a {
+.registration form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.registration form input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -146,7 +152,41 @@ nav li {
   transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-.registrationButtons a:hover {
+.registration form input:hover {
+  padding: 15px;
+  border-color: var(--main);
+  background: var(--secondary);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.registration a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.4em;
+  width: auto;
+  padding: 0 15px;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.registration a:hover {
   padding: 15px;
   border-color: var(--main);
   background: var(--secondary);
@@ -155,7 +195,7 @@ nav li {
 }
 
 @media (max-width: 992px) {
-  .registrationButtons {
+  .registration {
     display: none;
   }
 }
@@ -251,34 +291,6 @@ ul li.nav-link {
 ul li.nav-link:hover {
   background: rgba(222, 28, 28, 0.6);
   cursor: pointer;
-}
-
-nav .Projects a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-nav .Projects.active a:hover {
-  border-right: 1px solid gray;
-  border-left: 1px solid gray;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 .mobile-menu {
