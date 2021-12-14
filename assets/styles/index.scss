@@ -199,6 +199,13 @@ a {
   position: relative;
 }
 
+.description {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 240px;
+}
+
 main {
   display: flex;
   justify-content: center;

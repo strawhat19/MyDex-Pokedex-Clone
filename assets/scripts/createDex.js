@@ -41,6 +41,9 @@ export const createDex = (gen, pokemon) => {
       `
         <div class="types" id="${pokemon.name}-types">
           <span class="type single ${pokemon.types[0].type.name}" id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</span>
+          <p class="description">
+            ${pokemon.description}
+          </p>
           <div class="viewDetails">
             <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
           </div>
@@ -55,6 +58,9 @@ export const createDex = (gen, pokemon) => {
         <div class="types" id="${pokemon.name}-types">
           <span class="type ${pokemon.types[0].type.name}" id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</span>
           <span class="type ${pokemon.types[1].type.name}" id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</span>
+          <p class="description">
+            ${pokemon.description}
+          </p>
           <div class="viewDetails">
             <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
           </div>

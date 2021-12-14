@@ -14,32 +14,39 @@ export const pokeFetch = async (url) => {
   return pokeData;
 };
 
-// Gen 1 Fetch
-let gen1 = [];
-asyncFetch(0, 151).then((generation1) => {
-  generation1.results.forEach((poke) =>
-    pokeFetch(poke.url).then((pokemonData) => {
-      console.log(pokemonData);
-      const newPokemon = new Pokemon(
-        pokemonData.name,
-        pokemonData.id,
-        pokemonData.types,
-        pokemonData.abilities,
-        pokemonData.sprites.front_default,
-        pokemonData.sprites.front_shiny,
-        pokemonData.sprites.front_female,
-        pokemonData.sprites.front_shiny_female,
-        pokemonData.sprites.other,
-        pokemonData.sprites.versions,
-        pokemonData.stats,
-        pokemonData.height,
-        pokemonData.weight
-      );
-      gen1.push(newPokemon);
-      localStorage.setItem(`Gen 1`, JSON.stringify(gen1));
-    })
-  );
-});
+// // Gen 1 Fetch
+// let gen1 = [];
+// asyncFetch(0, 151).then((generation1) => {
+//   generation1.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       pokeFetch(pokemonData.species.url).then(dexEntries => {
+//         let descriptions = dexEntries.flavor_text_entries.filter(description => {
+//           if (description.language.name == `en`) {
+//             return description
+//           }
+//         })
+//         let re = /\n/gi;
+//         let re2 = /\f/gi;
+//         let str = descriptions[0].flavor_text;
+//         let entry = str.replace(re, ` `);
+//         let pokeDescription = entry.replace(re2, ` `);
+//         const newPokemon = new Pokemon(
+//           pokemonData.name,
+//           pokemonData.id,
+//           pokemonData.types,
+//           pokemonData.sprites.front_default,
+//           pokemonData.sprites.front_shiny,
+//           pokemonData.stats,
+//           pokemonData.height,
+//           pokemonData.weight,
+//           pokeDescription
+//         );
+//         gen1.push(newPokemon);
+//         localStorage.setItem(`Gen 1`, JSON.stringify(gen1));
+//       });
+//     })
+//   });
+// });
 
 // // Gen 2 Fetch
 // let gen2 = [];
