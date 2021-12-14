@@ -8,24 +8,94 @@ let gen2 = $(`.gen2`);
 let gen3 = $(`.gen3`);
 let gen4 = $(`.gen4`);
 
+console.log(Gen1);
+
+const renderStatName = (statName) => {
+  switch (statName) {
+    case `hp`:
+      return `HP`;
+    case `attack`:
+      return `ATK`;
+    case `defense`:
+      return `DEF`;
+    case `special-attack`:
+      return `SPA`;
+    case `special-defense`:
+      return `SPD`;
+    case `speed`:
+      return `SPE`;
+  }
+};
+
 const createDex = (gen, pokemon) => {
   let pokeElement = $(
     `
-    <div class="pokemon ${pokemon.name}" id="${pokemon.id}" title="${pokemon.name}">
+    <div class="pokemon ${pokemon.name}" id="${pokemon.id}" title="${
+      pokemon.name
+    }">
         <div class="openModal hidden">
             <div class="pokeTitle">
                 <span class="pokeName">${pokemon.name}</span>
             </div>
-            <div id="${pokemon.id}" class="pokeImage ${pokemon.name}" alt="Image of ${pokemon.name}" style="background: url(${pokemon.image})"></div>
+            <div class="statsRow">
+              <div class="stats stats1">
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[0].stat.name
+                  )}">${renderStatName(pokemon.stats[0].stat.name)}: ${
+      pokemon.stats[0].base_stat
+    }</span>
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[1].stat.name
+                  )}">${renderStatName(pokemon.stats[1].stat.name)}: ${
+      pokemon.stats[1].base_stat
+    }</span>
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[2].stat.name
+                  )}">${renderStatName(pokemon.stats[2].stat.name)}: ${
+      pokemon.stats[2].base_stat
+    }</span>
+              </div>
+              <div id="${pokemon.id}" class="pokeImage ${
+      pokemon.name
+    }" alt="Image of ${pokemon.name}"></div>
+              <div class="stats stats2">
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[3].stat.name
+                  )}">${renderStatName(pokemon.stats[3].stat.name)}: ${
+      pokemon.stats[3].base_stat
+    }</span>
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[4].stat.name
+                  )}">${renderStatName(pokemon.stats[4].stat.name)}: ${
+      pokemon.stats[4].base_stat
+    }</span>
+                  <span class="stat ${renderStatName(
+                    pokemon.stats[5].stat.name
+                  )}">${renderStatName(pokemon.stats[5].stat.name)}: ${
+      pokemon.stats[5].base_stat
+    }</span>
+              </div>
+            </div>
         </div>
         <div class="modal">
-          <div class="modalContent" style="background: url(${pokemon.shiny}),linear-gradient(var(--main),var(--main))" id="${pokemon.id}">
+          <div class="normalContent" style="background: url(${
+            pokemon.image
+          }),linear-gradient(var(--main),var(--main))" id="${pokemon.id}">
               <div class="innerModal" id="${pokemon.id}">
-                <div class="pokeName">Shiny ${pokemon.name}</div>
+                <div class="pokeName">${pokemon.name}</div>
                 <div></div>
                 <div class="shinyText"></div>
               </div>
-          </div>
+            </div>
+            <div class="modalContent" style="background: url(${
+              pokemon.shiny
+            }),linear-gradient(black,black)" id="${pokemon.id}">
+                <div class="innerModal" id="${pokemon.id}">
+                  <div class="pokeName">Shiny ${pokemon.name}</div>
+                  <div></div>
+                  <div class="shinyText"></div>
+                </div>
+            </div>
       </div>
     </div>
       `
@@ -34,7 +104,7 @@ const createDex = (gen, pokemon) => {
   if (pokemon.types.length == 1) {
     let pokeTypes = $(
       `
-      <div class="types hidden">
+      <div class="types" id="${pokemon.name}-types">
         <span class="type single ${pokemon.types[0].type.name}" id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</span>
         <div class="viewDetails">
           <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
@@ -46,7 +116,7 @@ const createDex = (gen, pokemon) => {
   } else {
     let pokeTypes = $(
       `
-      <div class="types hidden">
+      <div class="types" id="${pokemon.name}-types">
         <span class="type ${pokemon.types[0].type.name}" id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</span>
         <span class="type ${pokemon.types[1].type.name}" id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</span>
         <div class="viewDetails">
@@ -77,16 +147,27 @@ const renderPokemon = () => {
   let modals = document.querySelectorAll(`.openModal`);
   modals.forEach((modal) => {
     let pokeName = modal.parentElement.title;
+    let pokeTypes = document.querySelector(`#${pokeName}-types`);
+    document.querySelector(
+      `.${pokeName} .normalContent`
+    ).style.display = `flex`;
     document.querySelector(`.${pokeName} .modalContent`).style.display = `none`;
     modal.addEventListener(`click`, (event) => {
       if (modal.classList.contains(`active`)) {
         modal.classList.remove(`active`);
         modal.classList.add(`hidden`);
+        pokeTypes.classList.remove(`active`);
+        pokeTypes.classList.add(`hidden`);
+
+        $(`.${pokeName} .normalContent`).fadeIn(150);
         $(`.${pokeName} .modalContent`).fadeOut(150);
       } else {
         $(`.${pokeName} .modalContent`).fadeIn(150);
+        $(`.${pokeName} .normalContent`).fadeOut(150);
         modal.classList.add(`active`);
         modal.classList.remove(`hidden`);
+        pokeTypes.classList.add(`active`);
+        pokeTypes.classList.remove(`hidden`);
       }
     });
   });

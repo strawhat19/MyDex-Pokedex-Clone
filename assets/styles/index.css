@@ -988,6 +988,61 @@ a {
   font-size: 5em;
 }
 
+.normalContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 15px;
+}
+
+.normalContent::after {
+  content: attr(id);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.28);
+  z-index: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 5em;
+}
+
+.active .stats {
+  color: white !important;
+}
+
+.active .viewDetails {
+  background: white !important;
+}
+
+.active .viewDetails a {
+  color: black !important;
+}
+
 .innerModal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1059,7 +1114,7 @@ main {
   min-width: 205px;
   min-height: 205px;
   position: relative;
-  border-radius: 15px !important;
+  border-radius: 20px !important;
   border: 3px solid black !important;
 }
 
@@ -1085,6 +1140,37 @@ main {
   font-size: 5em;
 }
 
+.pokedex .pokemon .statsRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pokedex .pokemon .statsRow .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 0.84em;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+
 .pokedex .pokemon .pokeImage {
   width: 118px;
   height: 118px;
@@ -1099,6 +1185,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   background-position: 50% 120% !important;
+  overflow: visible !important;
 }
 
 .pokedex .pokemon .pokeName {
