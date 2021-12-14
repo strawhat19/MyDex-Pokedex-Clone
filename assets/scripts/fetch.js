@@ -41,80 +41,80 @@ asyncFetch(0, 151).then((generation1) => {
   );
 });
 
-// Gen 2 Fetch
-let gen2 = [];
-asyncFetch(151, 100).then((generation2) => {
-  generation2.results.forEach((poke) =>
-    pokeFetch(poke.url).then((pokemonData) => {
-      const newPokemon = new Pokemon(
-        pokemonData.name,
-        pokemonData.id,
-        pokemonData.types,
-        pokemonData.abilities,
-        pokemonData.sprites.front_default,
-        pokemonData.sprites.front_shiny,
-        pokemonData.sprites.front_female,
-        pokemonData.sprites.front_shiny_female,
-        pokemonData.sprites.other,
-        pokemonData.sprites.versions,
-        pokemonData.stats,
-        pokemonData.height,
-        pokemonData.weight
-      );
-      gen2.push(newPokemon);
-      localStorage.setItem(`Gen 2`, JSON.stringify(gen2));
-    })
-  );
-});
+// // Gen 2 Fetch
+// let gen2 = [];
+// asyncFetch(151, 100).then((generation2) => {
+//   generation2.results.forEach((poke) =>
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       const newPokemon = new Pokemon(
+//         pokemonData.name,
+//         pokemonData.id,
+//         pokemonData.types,
+//         pokemonData.abilities,
+//         pokemonData.sprites.front_default,
+//         pokemonData.sprites.front_shiny,
+//         pokemonData.sprites.front_female,
+//         pokemonData.sprites.front_shiny_female,
+//         pokemonData.sprites.other,
+//         pokemonData.sprites.versions,
+//         pokemonData.stats,
+//         pokemonData.height,
+//         pokemonData.weight
+//       );
+//       gen2.push(newPokemon);
+//       localStorage.setItem(`Gen 2`, JSON.stringify(gen2));
+//     })
+//   );
+// });
 
-// Gen 3 Fetch
-let gen3 = [];
-asyncFetch(251, 135).then((generation3) => {
-  generation3.results.forEach((poke) =>
-    pokeFetch(poke.url).then((pokemonData) => {
-      const newPokemon = new Pokemon(
-        pokemonData.name,
-        pokemonData.id,
-        pokemonData.types,
-        pokemonData.abilities,
-        pokemonData.sprites.front_default,
-        pokemonData.sprites.front_shiny,
-        pokemonData.sprites.front_female,
-        pokemonData.sprites.front_shiny_female,
-        pokemonData.sprites.other,
-        pokemonData.sprites.versions,
-        pokemonData.stats,
-        pokemonData.height,
-        pokemonData.weight
-      );
-      gen3.push(newPokemon);
-      localStorage.setItem(`Gen 3`, JSON.stringify(gen3));
-    })
-  );
-});
+// // Gen 3 Fetch
+// let gen3 = [];
+// asyncFetch(251, 135).then((generation3) => {
+//   generation3.results.forEach((poke) =>
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       const newPokemon = new Pokemon(
+//         pokemonData.name,
+//         pokemonData.id,
+//         pokemonData.types,
+//         pokemonData.abilities,
+//         pokemonData.sprites.front_default,
+//         pokemonData.sprites.front_shiny,
+//         pokemonData.sprites.front_female,
+//         pokemonData.sprites.front_shiny_female,
+//         pokemonData.sprites.other,
+//         pokemonData.sprites.versions,
+//         pokemonData.stats,
+//         pokemonData.height,
+//         pokemonData.weight
+//       );
+//       gen3.push(newPokemon);
+//       localStorage.setItem(`Gen 3`, JSON.stringify(gen3));
+//     })
+//   );
+// });
 
-// Gen 4 Fetch
-let gen4 = [];
-asyncFetch(386, 107).then((generation4) => {
-  generation4.results.forEach((poke) =>
-    pokeFetch(poke.url).then((pokemonData) => {
-      const newPokemon = new Pokemon(
-        pokemonData.name,
-        pokemonData.id,
-        pokemonData.types,
-        pokemonData.abilities,
-        pokemonData.sprites.front_default,
-        pokemonData.sprites.front_shiny,
-        pokemonData.sprites.front_female,
-        pokemonData.sprites.front_shiny_female,
-        pokemonData.sprites.other,
-        pokemonData.sprites.versions,
-        pokemonData.stats,
-        pokemonData.height,
-        pokemonData.weight
-      );
-      gen4.push(newPokemon);
-      localStorage.setItem(`Gen 4`, JSON.stringify(gen4));
-    })
-  );
-});
+// // Gen 4 Fetch
+// let gen4 = [];
+// asyncFetch(386, 107).then((generation4) => {
+//   generation4.results.forEach((poke) =>
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       const newPokemon = new Pokemon(
+//         pokemonData.name,
+//         pokemonData.id,
+//         pokemonData.types,
+//         pokemonData.abilities,
+//         pokemonData.sprites.front_default,
+//         pokemonData.sprites.front_shiny,
+//         pokemonData.sprites.front_female,
+//         pokemonData.sprites.front_shiny_female,
+//         pokemonData.sprites.other,
+//         pokemonData.sprites.versions,
+//         pokemonData.stats,
+//         pokemonData.height,
+//         pokemonData.weight
+//       );
+//       gen4.push(newPokemon);
+//       localStorage.setItem(`Gen 4`, JSON.stringify(gen4));
+//     })
+//   );
+// });

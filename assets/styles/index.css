@@ -1137,6 +1137,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
+  color: white;
 }
 
 .pokedex .pokemon .pokeImage {
