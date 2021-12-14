@@ -909,7 +909,7 @@ a {
   text-decoration: none;
 }
 
-.openModal {
+.pokeData {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -927,11 +927,11 @@ a {
   height: 100%;
 }
 
-.openModal:hover {
+.pokeData:hover {
   cursor: pointer;
 }
 
-.modal {
+.pokePic {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -950,28 +950,7 @@ a {
   transition: var(--transition);
 }
 
-.modal::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  color: rgba(0, 0, 0, 0.12);
-  z-index: -1 !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 5em;
-}
-
-.modalContent {
+.defaultPic {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -992,28 +971,7 @@ a {
   border-radius: 15px;
 }
 
-.modalContent::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.28);
-  z-index: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 5em;
-}
-
-.normalContent {
+.shinyPic {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1034,44 +992,23 @@ a {
   border-radius: 15px;
 }
 
-.normalContent::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.28);
-  z-index: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 5em;
-}
-
-.active .pokeID {
+.shiny .pokeID {
   background: black !important;
 }
 
-.active .stats {
+.shiny .stats {
   color: white !important;
 }
 
-.active .viewDetails {
+.shiny .viewDetails {
   background: white !important;
 }
 
-.active .viewDetails a {
+.shiny .viewDetails a {
   color: black !important;
 }
 
-.innerModal {
+.inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1236,28 +1173,6 @@ main {
 .pokedex .pokemon .pokeName mark {
   background: var(--main);
   text-transform: capitalize !important;
-}
-
-.shinyText {
-  font-size: 0.9em;
-}
-
-.shinyText a {
-  color: white !important;
-  font-size: 0.95em;
-  font-weight: 400;
-  background: black;
-  border: 1px solid black;
-  padding: 0.15em 0.5em;
-  border-radius: 15px;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.shinyText:hover a {
-  background: white;
-  border: 1px solid black;
-  color: black !important;
 }
 
 .types {
