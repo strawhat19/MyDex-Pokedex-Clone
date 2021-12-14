@@ -247,7 +247,7 @@ nav li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 1;
+  z-index: 2;
   width: 100% !important;
   height: 50px;
 }
@@ -783,24 +783,24 @@ footer i,
   --secondary: #a7a7a7;
   --transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: black;
-  --grass: #72902a;
+  --grass: #08cb5e;
   --poison: #633071;
-  --fire: #b64c02;
-  --water: #306e96;
+  --fire: #c50c0c;
+  --water: #1a7ebf;
   --flying: linear-gradient(rgb(13, 130, 164) 50%, rgb(63, 68, 71) 50%);
-  --bug: #5b7f32;
+  --bug: #6ecf00;
   --normal: #484e51;
   --poison: #633071;
-  --ghost: #5e4a7e;
-  --electric: #a8930e;
+  --ghost: #4e13ad;
+  --electric: #e7c90e;
   --ground: linear-gradient(rgb(164, 143, 7) 50%, rgb(137, 122, 53) 50%);
-  --fairy: #5c0341;
+  --fairy: #ff81d9;
   --fighting: #aa521c;
-  --psychic: #8b0b56;
-  --rock: #82701a;
-  --steel: #405758;
-  --ice: #157795;
-  --dark: #545b5f;
+  --psychic: #d70a82;
+  --rock: #6c5d13;
+  --steel: #4b8487;
+  --ice: #73cce7;
+  --dark: #000000;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
 }
 
@@ -950,6 +950,27 @@ a {
   transition: var(--transition);
 }
 
+.modal::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.12);
+  z-index: -1 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 5em;
+}
+
 .modalContent {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -972,7 +993,6 @@ a {
 }
 
 .modalContent::after {
-  content: attr(id);
   position: absolute;
   top: 0;
   left: 0;
@@ -1014,8 +1034,7 @@ a {
   border-radius: 15px;
 }
 
-.normalContent::after {
-  content: attr(id);
+.normalContent::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1034,6 +1053,10 @@ a {
       -ms-flex-align: center;
           align-items: center;
   font-size: 5em;
+}
+
+.active .pokeID {
+  background: black !important;
 }
 
 .active .stats {
@@ -1123,16 +1146,10 @@ main {
   border: 3px solid black !important;
 }
 
-.pokedex .pokemon::after {
-  content: attr(id);
+.pokedex .pokemon .pokeID {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  color: rgba(0, 0, 0, 0.12);
-  z-index: -1 !important;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1142,7 +1159,15 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 5em;
+  height: 100%;
+  width: 100%;
+  font-size: 7em;
+  color: rgba(255, 255, 255, 0.38);
+  background: var(--main);
+  z-index: -1;
+  border-radius: 16px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .pokedex .pokemon .statsRow {
@@ -1155,6 +1180,7 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding-top: 3em;
 }
 
 .pokedex .pokemon .statsRow .stats {

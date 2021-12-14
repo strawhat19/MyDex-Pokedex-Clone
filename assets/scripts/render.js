@@ -34,9 +34,6 @@ const createDex = (gen, pokemon) => {
       pokemon.name
     }">
         <div class="openModal hidden">
-            <div class="pokeTitle">
-                <span class="pokeName">${pokemon.name}</span>
-            </div>
             <div class="statsRow">
               <div class="stats stats1">
                   <span class="stat ${renderStatName(
@@ -77,10 +74,10 @@ const createDex = (gen, pokemon) => {
               </div>
             </div>
         </div>
-        <div class="modal">
+        <div class="modal" id="${pokemon.id}">
           <div class="normalContent" style="background: url(${
             pokemon.image
-          }),linear-gradient(var(--main),var(--main))" id="${pokemon.id}">
+          })" id="${pokemon.id}">
               <div class="innerModal" id="${pokemon.id}">
                 <div class="pokeName">${pokemon.name}</div>
                 <div></div>
@@ -89,7 +86,7 @@ const createDex = (gen, pokemon) => {
             </div>
             <div class="modalContent" style="background: url(${
               pokemon.shiny
-            }),linear-gradient(black,black)" id="${pokemon.id}">
+            })" id="${pokemon.id}">
                 <div class="innerModal" id="${pokemon.id}">
                   <div class="pokeName">Shiny ${pokemon.name}</div>
                   <div></div>
@@ -110,6 +107,7 @@ const createDex = (gen, pokemon) => {
           <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
         </div>
       </div>
+      <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
       `
     );
     pokeElement.append(pokeTypes);
@@ -123,6 +121,7 @@ const createDex = (gen, pokemon) => {
           <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
         </div>
       </div>
+      <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
       `
     );
     pokeElement.append(pokeTypes);
@@ -147,7 +146,9 @@ const renderPokemon = () => {
   let modals = document.querySelectorAll(`.openModal`);
   modals.forEach((modal) => {
     let pokeName = modal.parentElement.title;
+    let pokemon = document.querySelector(`.${pokeName}`);
     let pokeTypes = document.querySelector(`#${pokeName}-types`);
+    let pokeID = document.querySelector(`#${pokeName}ID`);
     document.querySelector(
       `.${pokeName} .normalContent`
     ).style.display = `flex`;
@@ -158,6 +159,10 @@ const renderPokemon = () => {
         modal.classList.add(`hidden`);
         pokeTypes.classList.remove(`active`);
         pokeTypes.classList.add(`hidden`);
+        pokeID.classList.remove(`active`);
+        pokeID.classList.add(`hidden`);
+        pokemon.classList.remove(`active`);
+        pokemon.classList.add(`hidden`);
 
         $(`.${pokeName} .normalContent`).fadeIn(150);
         $(`.${pokeName} .modalContent`).fadeOut(150);
@@ -168,6 +173,10 @@ const renderPokemon = () => {
         modal.classList.remove(`hidden`);
         pokeTypes.classList.add(`active`);
         pokeTypes.classList.remove(`hidden`);
+        pokeID.classList.add(`active`);
+        pokeID.classList.remove(`hidden`);
+        pokemon.classList.add(`active`);
+        pokemon.classList.remove(`hidden`);
       }
     });
   });

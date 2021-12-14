@@ -13,24 +13,36 @@
   --secondary: #a7a7a7;
   --transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: black;
-  --grass: #72902a;
+  // --grass: #72902a;
+  --grass: #08cb5e;
   --poison: #633071;
-  --fire: #b64c02;
-  --water: #306e96;
+  // --fire: #b64c02;
+  --fire: #c50c0c;
+  // --water: #306e96;
+  --water: #1a7ebf;
   --flying: linear-gradient(rgb(13, 130, 164) 50%, rgb(63, 68, 71) 50%);
-  --bug: #5b7f32;
+  // --bug: #5b7f32;
+  --bug: #6ecf00;
   --normal: #484e51;
   --poison: #633071;
-  --ghost: #5e4a7e;
-  --electric: #a8930e;
+  // --ghost: #5e4a7e;
+  --ghost: #4e13ad;
+  // --electric: #a8930e;
+  --electric: #e7c90e;
   --ground: linear-gradient(rgb(164, 143, 7) 50%, rgb(137, 122, 53) 50%);
-  --fairy: #5c0341;
+  // --fairy: #5c0341;
+  --fairy: #ff81d9;
   --fighting: #aa521c;
-  --psychic: #8b0b56;
-  --rock: #82701a;
-  --steel: #405758;
-  --ice: #157795;
-  --dark: #545b5f;
+  // --psychic: #8b0b56;
+  --psychic: #d70a82;
+  // --rock: #82701a;
+  --rock: #6c5d13;
+  // --steel: #405758;
+  --steel: #4b8487;
+  // --ice: #157795;
+  --ice: #73cce7;
+  // --dark: #545b5f;
+  --dark: #000000;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
 }
 
@@ -134,6 +146,21 @@ a {
   align-items: center;
   pointer-events: none;
   transition: var(--transition);
+  &::after {
+    // content: attr(id);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.12);
+    z-index: -1 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+  }
 }
 
 .modalContent {
@@ -148,7 +175,7 @@ a {
   flex-direction: column;
   border-radius: 15px;
   &::after {
-    content: attr(id);
+    // content: attr(id);
     position: absolute;
     top: 0;
     left: 0;
@@ -175,8 +202,8 @@ a {
   background-position: center center !important;
   flex-direction: column;
   border-radius: 15px;
-  &::after {
-    content: attr(id);
+  &::before {
+    // content: attr(id);
     position: absolute;
     top: 0;
     left: 0;
@@ -193,6 +220,9 @@ a {
 }
 
 .active {
+  .pokeID {
+    background: black !important;
+  }
   .stats {
     color: white !important;
   }
@@ -242,25 +272,27 @@ main {
     position: relative;
     border-radius: 20px !important;
     border: 3px solid black !important;
-    &::after {
-      content: attr(id);
+    .pokeID {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      color: rgba(0, 0, 0, 0.12);
-      z-index: -1 !important;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 5em;
+      height: 100%;
+      width: 100%;
+      font-size: 7em;
+      color: rgba(255, 255, 255, 0.38);
+      background: var(--main);
+      z-index: -1;
+      border-radius: 16px;
+      transition: var(--transition);
     }
     .statsRow {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding-top: 3em;
       .stats {
         display: flex;
         flex-direction: column;
