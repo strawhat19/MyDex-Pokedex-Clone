@@ -1,16 +1,16 @@
 export const renderStatName = (statName) => {
   switch (statName) {
     case `hp`:
-      return `HP`;
+      return `HEALTH`;
     case `attack`:
-      return `ATK`;
+      return `ATTACK`;
     case `defense`:
-      return `DEF`;
+      return `DEFENSE`;
     case `special-attack`:
-      return `SPA`;
+      return `SP. ATK`;
     case `special-defense`:
-      return `SPD`;
+      return `SP. DEF`;
     case `speed`:
-      return `SPE`;
+      return `SPEED`;
   }
 };

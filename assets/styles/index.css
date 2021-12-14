@@ -1076,7 +1076,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  min-width: 205px;
+  min-width: 425px;
   min-height: 205px;
   position: relative;
   border-radius: 20px !important;
@@ -1140,8 +1140,13 @@ main {
   color: white;
 }
 
+.pokedex .pokemon .statsRow .stats .stat {
+  width: 100%;
+  text-align: center;
+}
+
 .pokedex .pokemon .pokeImage {
-  width: 118px;
+  width: 160px;
   height: 118px;
   background-repeat: no-repeat !important;
   display: -webkit-box;

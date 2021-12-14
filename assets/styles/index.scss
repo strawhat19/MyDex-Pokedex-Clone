@@ -221,7 +221,7 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-width: 205px;
+    min-width: 425px;
     min-height: 205px;
     position: relative;
     border-radius: 20px !important;
@@ -256,10 +256,14 @@ main {
         align-items: center;
         z-index: 1;
         color: white;
+        .stat {
+          width: 100%;
+          text-align: center;
+        }
       }
     }
     .pokeImage {
-      width: 118px;
+      width: 160px;
       height: 118px;
       background-repeat: no-repeat !important;
       display: flex;
