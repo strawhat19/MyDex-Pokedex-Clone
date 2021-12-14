@@ -30,6 +30,7 @@
   --rock: #82701a;
   --steel: #405758;
   --ice: #157795;
+  --dark: #545b5f;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
 }
 
@@ -83,6 +84,9 @@
 }
 .ice {
   background: var(--ice);
+}
+.dark {
+  background: var(--dark);
 }
 .dragon {
   background: var(--dragon);
@@ -247,7 +251,7 @@ main {
       height: 100%;
       background: transparent;
       color: rgba(0, 0, 0, 0.12);
-      z-index: -1;
+      z-index: -1 !important;
       display: flex;
       justify-content: center;
       align-items: center;
