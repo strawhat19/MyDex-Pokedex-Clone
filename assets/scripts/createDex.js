@@ -37,6 +37,7 @@ export const createDex = (gen, pokemon) => {
   );
 
   if (pokemon.types.length == 1) {
+    pokeElement.addClass(`single`);
     let pokeTypes = $(
       `
         <div class="types" id="${pokemon.name}-types">
@@ -50,7 +51,7 @@ export const createDex = (gen, pokemon) => {
             </p>
           </div>
           <div class="registerPokemon">
-            <button class="pokeLink">Login to Save</button>
+            <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
           </div>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
@@ -58,6 +59,7 @@ export const createDex = (gen, pokemon) => {
     );
     pokeElement.append(pokeTypes);
   } else {
+    pokeElement.addClass(`multiple`);
     let pokeTypes = $(
       `
         <div class="types" id="${pokemon.name}-types">
@@ -72,7 +74,7 @@ export const createDex = (gen, pokemon) => {
             </p>
           </div>
           <div class="registerPokemon">
-            <button class="pokeLink">Login to Save</button>
+            <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
           </div>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>

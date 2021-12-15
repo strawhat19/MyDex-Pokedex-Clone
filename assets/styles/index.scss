@@ -42,7 +42,7 @@
   // --ice: #157795;
   --ice: #73cce7;
   // --dark: #545b5f;
-  --dark: #000000;
+  --dark: #616161;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
 }
 
@@ -144,8 +144,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .defaultPic {
@@ -214,6 +214,11 @@ a {
   max-width: 240px;
   height: 100%;
   font-size: .95em;
+  font-weight: 600;
+}
+
+.description {
+  color: black;
 }
 
 main {
@@ -243,6 +248,7 @@ main {
     position: relative;
     border-radius: 20px !important;
     border: 3px solid black !important;
+    padding-bottom: 2em;
     .pokeID {
       position: absolute;
       top: 0;
@@ -264,6 +270,8 @@ main {
       align-items: center;
       justify-content: space-between;
       padding-top: 3em;
+      position: relative;
+      bottom: -56px;
       .stats {
         display: flex;
         flex-direction: column;
@@ -272,7 +280,8 @@ main {
         justify-content: center;
         align-items: center;
         z-index: 1;
-        color: white;
+        color: black;
+        pointer-events: none;
         .stat {
           width: 100%;
           text-align: center;
@@ -303,6 +312,7 @@ main {
       border-radius: 7px;
       position: relative;
       top: 10px;
+      pointer-events: none;
       mark {
         background: var(--main);
         text-transform: capitalize !important;
@@ -311,13 +321,16 @@ main {
   }
 }
 
+.single .statsRow {
+  bottom: -65px !important;
+}
+
 .types {
   font-size: 0.85em;
   z-index: 0;
   position: relative;
   top: -10px;
   color: white !important;
-  font-weight: 500;
   text-transform: capitalize;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -328,15 +341,18 @@ main {
   justify-content: space-between;
   grid-gap: 1em;
   width: 75%;
+  margin-top: 5em;
   .type {
     font-family: "Flexo-Medium", arial, sans-serif;
     width: 40%;
     text-align: center;
     text-transform: uppercase;
     border-radius: 7px;
-    font-size: 0.8em;
     line-height: 18px;
     max-width: 110px;
+    font-size: 0.8em;
+    font-weight: 600;
+    pointer-events: none;
   }
 
   .type.single {
@@ -344,7 +360,7 @@ main {
     margin: 0 auto;
     text-align: center;
     position: relative !important;
-    top: -100px !important;
+    top: -145px !important;
   }
 
   .registerPokemon {
@@ -357,12 +373,17 @@ main {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
+    font-weight: 600;
     padding: 0.2em 0;
     border-radius: 7px;
     &:hover {
       cursor: pointer;
     }
   }
+}
+
+.multiple .pokeName {
+  top: 35px;
 }
 
 ::placeholder {

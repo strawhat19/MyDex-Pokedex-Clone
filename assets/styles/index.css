@@ -724,8 +724,9 @@ ul li.nav-link:hover {
 }
 
 footer {
+  opacity: 0;
   background: var(--main);
-  color: white;
+  color: black;
   font-family: "Montserrat" !important;
   height: 40px;
   -webkit-backdrop-filter: blur(8px);
@@ -742,14 +743,16 @@ footer {
   padding: 0;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  font-weight: 400 !important;
-  font-size: 13px;
+  font-weight: 600 !important;
+  font-size: 1.1em;
   grid-gap: 0px;
   z-index: 1;
   position: relative;
   bottom: 0;
   width: 100% !important;
-  border-top: 2px solid white;
+  border-top: 3px solid black;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 footer .innerFooter {
@@ -764,10 +767,10 @@ footer .innerFooter {
 }
 
 footer a {
-  color: white !important;
+  color: black !important;
   font-family: "Montserrat";
   text-decoration: none;
-  font-weight: 400 !important;
+  font-weight: 600 !important;
 }
 
 footer i,
@@ -800,7 +803,7 @@ footer i,
   --rock: #6c5d13;
   --steel: #4b8487;
   --ice: #73cce7;
-  --dark: #000000;
+  --dark: #616161;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
 }
 
@@ -945,9 +948,9 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  pointer-events: none;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .defaultPic {
@@ -1048,6 +1051,11 @@ a {
   max-width: 240px;
   height: 100%;
   font-size: .95em;
+  font-weight: 600;
+}
+
+.description {
+  color: black;
 }
 
 main {
@@ -1104,6 +1112,7 @@ main {
   position: relative;
   border-radius: 20px !important;
   border: 3px solid black !important;
+  padding-bottom: 2em;
 }
 
 .pokedex .pokemon .pokeID {
@@ -1141,6 +1150,8 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-top: 3em;
+  position: relative;
+  bottom: -56px;
 }
 
 .pokedex .pokemon .statsRow .stats {
@@ -1160,7 +1171,8 @@ main {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
-  color: white;
+  color: black;
+  pointer-events: none;
 }
 
 .pokedex .pokemon .statsRow .stats .stat {
@@ -1199,11 +1211,16 @@ main {
   border-radius: 7px;
   position: relative;
   top: 10px;
+  pointer-events: none;
 }
 
 .pokedex .pokemon .pokeName mark {
   background: var(--main);
   text-transform: capitalize !important;
+}
+
+.single .statsRow {
+  bottom: -65px !important;
 }
 
 .types {
@@ -1212,7 +1229,6 @@ main {
   position: relative;
   top: -10px;
   color: white !important;
-  font-weight: 500;
   text-transform: capitalize;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1227,6 +1243,7 @@ main {
           justify-content: space-between;
   grid-gap: 1em;
   width: 75%;
+  margin-top: 5em;
 }
 
 .types .type {
@@ -1235,9 +1252,11 @@ main {
   text-align: center;
   text-transform: uppercase;
   border-radius: 7px;
-  font-size: 0.8em;
   line-height: 18px;
   max-width: 110px;
+  font-size: 0.8em;
+  font-weight: 600;
+  pointer-events: none;
 }
 
 .types .type.single {
@@ -1245,7 +1264,7 @@ main {
   margin: 0 auto;
   text-align: center;
   position: relative !important;
-  top: -100px !important;
+  top: -145px !important;
 }
 
 .types .registerPokemon {
@@ -1259,12 +1278,17 @@ main {
   width: 100%;
   text-align: center;
   font-size: 0.9em;
+  font-weight: 600;
   padding: 0.2em 0;
   border-radius: 7px;
 }
 
 .types button:hover {
   cursor: pointer;
+}
+
+.multiple .pokeName {
+  top: 35px;
 }
 
 ::-webkit-input-placeholder {

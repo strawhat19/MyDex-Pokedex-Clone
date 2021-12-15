@@ -7,7 +7,7 @@
                     <i class="fab fa-github"></i>
                 </a>
             </div>
-            <div class="mainNavLink">- Welcome</div>
+            <div class="mainNavLink">Welcome</div>
         </div>
         <div class="registration">
             <form class="loginForm" id="loginForm">

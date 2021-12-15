@@ -5,8 +5,9 @@
 }
 
 footer {
+  opacity: 0;
   background: var(--main);
-  color: white;
+  color: black;
   font-family: "Montserrat" !important;
   height: 40px;
   backdrop-filter: blur(8px);
@@ -15,14 +16,15 @@ footer {
   justify-content: space-between;
   padding: 0;
   flex-wrap: wrap;
-  font-weight: 400 !important;
-  font-size: 13px;
+  font-weight: 600 !important;
+  font-size: 1.1em;
   grid-gap: 0px;
   z-index: 1;
   position: relative;
   bottom: 0;
   width: 100% !important;
-  border-top: 2px solid white;
+  border-top: 3px solid black;
+  transition: var(--transition);
   .innerFooter {
     display: flex;
     width: 95%;
@@ -30,10 +32,10 @@ footer {
     margin: 0 auto;
   }
   a {
-    color: white !important;
+    color: black !important;
     font-family: "Montserrat";
     text-decoration: none;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
   }
 }
 
