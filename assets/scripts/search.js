@@ -1,8 +1,5 @@
 import { renderPokemon } from "./render.js";
-let gen1 = $(`.gen1`);
-let gen2 = $(`.gen2`);
-let gen3 = $(`.gen3`);
-let gen4 = $(`.gen4`);
+let pokedexContainer = $(`.pokedex`);
 
 // Search & Filter Functionality
 let pokeSearch = $(`#pokeSearch`);
@@ -18,10 +15,7 @@ pokeSearch.on(`input`, (event) => {
     pokemon.title.includes(searchTerm)
   );
 
-  gen1.html(filteredPokemon);
-  gen2.html(filteredPokemon);
-  gen3.html(filteredPokemon);
-  gen4.html(filteredPokemon);
+  pokedexContainer.html(filteredPokemon);
 
   // Highlighting Searched Text on Pokemon Names
   const pokeNames = document.querySelectorAll(`.pokeName`);
@@ -58,11 +52,8 @@ typeSearch.on(`input`, (event) => {
       }
     }
   });
-
-  gen1.html(filteredPokemon);
-  gen2.html(filteredPokemon);
-  gen3.html(filteredPokemon);
-  gen4.html(filteredPokemon);
+  
+  pokedexContainer.html(filteredPokemon);
 
   // Highlighting Searched Text on Pokemon Types
   const pokeMonTypes = document.querySelectorAll(`.type`);

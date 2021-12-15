@@ -1,20 +1,15 @@
 // Pokemon Fetch & Render
+import { createDex } from "./createDex.js";
 import { Gen1 } from "../db/gen1.js";
 import { Gen2 } from "../db/gen2.js";
 import { Gen3 } from "../db/gen3.js";
 import { Gen4 } from "../db/gen4.js";
-let gen1 = $(`.gen1`);
-let gen2 = $(`.gen2`);
-let gen3 = $(`.gen3`);
-let gen4 = $(`.gen4`);
-
-import { createDex } from "./createDex.js";
-
+let pokedexContainer = $(`.pokedex`);
+export const pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+console.log(pokedex);
 export const renderPokemon = () => {
-  Gen1.forEach((pokemon) => createDex(gen1, pokemon));
-  Gen2.forEach((pokemon) => createDex(gen2, pokemon));
-  Gen3.forEach((pokemon) => createDex(gen3, pokemon));
-  Gen4.forEach((pokemon) => createDex(gen4, pokemon));
+  pokedexContainer.html(``);
+  pokedex.forEach((pokemon) => createDex(pokedexContainer, pokemon));
   let pokeDatas = document.querySelectorAll(`.pokeData`);
   pokeDatas.forEach((pokeData) => {
     let pokeName = pokeData.parentElement.title;

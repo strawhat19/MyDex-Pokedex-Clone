@@ -1047,6 +1047,7 @@ a {
   text-align: center;
   max-width: 240px;
   height: 100%;
+  font-size: .95em;
 }
 
 main {
@@ -1067,7 +1068,7 @@ main {
 }
 
 .pokedex {
-  width: 85%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1098,7 +1099,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  min-width: 450px;
+  min-width: 460px;
   min-height: 360px;
   position: relative;
   border-radius: 20px !important;
