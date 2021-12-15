@@ -1000,11 +1000,8 @@ a {
   color: white !important;
 }
 
-.shiny .viewDetails {
+.shiny .registerPokemon button {
   background: white !important;
-}
-
-.shiny .viewDetails a {
   color: black !important;
 }
 
@@ -1168,6 +1165,7 @@ main {
 .pokedex .pokemon .statsRow .stats .stat {
   width: 100%;
   text-align: center;
+  font-weight: 600;
 }
 
 .pokedex .pokemon .pokeImage {
@@ -1190,6 +1188,7 @@ main {
 .pokedex .pokemon .pokeName {
   text-transform: capitalize !important;
   font-size: 0.9em;
+  font-weight: 600;
   color: black;
   background: white;
   text-align: center;
@@ -1248,18 +1247,23 @@ main {
   top: -100px !important;
 }
 
-.types .viewDetails {
-  text-align: center;
-  background: black;
-  font-size: 0.9em;
-  padding: 0.2em 0;
+.types .registerPokemon {
   width: 71%;
   margin: 0 auto;
+}
+
+.types button {
+  color: white !important;
+  background: black;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9em;
+  padding: 0.2em 0;
   border-radius: 7px;
 }
 
-.types a {
-  color: white !important;
+.types button:hover {
+  cursor: pointer;
 }
 
 ::-webkit-input-placeholder {

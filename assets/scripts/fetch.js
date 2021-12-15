@@ -1,4 +1,5 @@
 import { generateDex } from "./generateDex.js";
+import { pokeFetch } from "./generateDex.js";
 
 export const asyncFetch = async (offset, limit) => {
   const response = await fetch(
@@ -8,13 +9,7 @@ export const asyncFetch = async (offset, limit) => {
   return pokemon;
 };
 
-export const pokeFetch = async (url) => {
-  const pokeResponse = await fetch(url);
-  const pokeData = await pokeResponse.json();
-  return pokeData;
-};
-
-// // Gen 1 Fetch
+// Gen 1 Fetch
 // let gen1 = [];
 // asyncFetch(0, 151).then((generation1) => {
 //   generation1.results.forEach((poke) => {
@@ -24,9 +19,7 @@ export const pokeFetch = async (url) => {
 //   });
 // });
 
-
-
-// // Gen 2 Fetch
+// Gen 2 Fetch
 // let gen2 = [];
 // asyncFetch(151, 100).then((generation2) => {
 //   generation2.results.forEach((poke) => {
@@ -36,7 +29,7 @@ export const pokeFetch = async (url) => {
 //   });
 // });
 
-// // Gen 3 Fetch
+// Gen 3 Fetch
 // let gen3 = [];
 // asyncFetch(251, 135).then((generation3) => {
 //   generation3.results.forEach((poke) => {
@@ -46,7 +39,7 @@ export const pokeFetch = async (url) => {
 //   });
 // });
 
-// // Gen 4 Fetch
+// Gen 4 Fetch
 // let gen4 = [];
 // asyncFetch(386, 107).then((generation4) => {
 //   generation4.results.forEach((poke) => {

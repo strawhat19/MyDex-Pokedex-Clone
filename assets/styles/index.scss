@@ -181,9 +181,9 @@ a {
     color: white !important;
   }
 
-  .viewDetails {
-    background: white !important;
-    a {
+  .registerPokemon {
+    button {
+      background: white !important;
       color: black !important;
     }
   }
@@ -275,6 +275,7 @@ main {
         .stat {
           width: 100%;
           text-align: center;
+          font-weight: 600;
         }
       }
     }
@@ -291,6 +292,7 @@ main {
     .pokeName {
       text-transform: capitalize !important;
       font-size: 0.9em;
+      font-weight: 600;
       color: black;
       background: white;
       text-align: center;
@@ -344,17 +346,21 @@ main {
     top: -100px !important;
   }
 
-  .viewDetails {
-    text-align: center;
-    background: black;
-    font-size: 0.9em;
-    padding: 0.2em 0;
+  .registerPokemon {
     width: 71%;
     margin: 0 auto;
-    border-radius: 7px;
   }
-  a {
+  button {
     color: white !important;
+    background: black;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0.2em 0;
+    border-radius: 7px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

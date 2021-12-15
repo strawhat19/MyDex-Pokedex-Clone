@@ -3,6 +3,7 @@ export default class Pokemon {
     name,
     id,
     index,
+    generation,
     types,
     image,
     shiny,
@@ -15,6 +16,7 @@ export default class Pokemon {
     this.name = name;
     this.id = id;
     this.index = index;
+    this.generation = generation;
     this.types = types;
     this.image = image;
     this.shiny = shiny;

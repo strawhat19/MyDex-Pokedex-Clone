@@ -9,21 +9,21 @@ export const createDex = (gen, pokemon) => {
                 <span class="stat ${pokemon.stats[0].stat.name}" title="${pokemon.stats[0].stat.name}">${renderStatName(pokemon.stats[0].stat.name)}: ${pokemon.stats[0].base_stat}</span>
                 <span class="stat ${pokemon.stats[1].stat.name}" title="${pokemon.stats[1].stat.name}">${renderStatName(pokemon.stats[1].stat.name)}: ${pokemon.stats[1].base_stat}</span>
                 <span class="stat ${pokemon.stats[2].stat.name}" title="${pokemon.stats[2].stat.name}">${renderStatName(pokemon.stats[2].stat.name)}: ${pokemon.stats[2].base_stat}</span>
-                <span class="stat weight" title="weight">WEIGHT: ${pokemon.weight} m</span>
+                <span class="stat weight" title="weight">WEIGHT: ${pokemon.weight} kg</span>
             </div>
             <div id="${pokemon.id}" class="pokeImage ${pokemon.name}" alt="Image of ${pokemon.name}"></div>
             <div class="stats">
                 <span class="stat ${pokemon.stats[3].stat.name}" title="${pokemon.stats[3].stat.name}">${renderStatName(pokemon.stats[3].stat.name)}: ${pokemon.stats[3].base_stat}</span>
                 <span class="stat ${pokemon.stats[4].stat.name}" title="${pokemon.stats[4].stat.name}">${renderStatName(pokemon.stats[4].stat.name)}: ${pokemon.stats[4].base_stat}</span>
                 <span class="stat ${pokemon.stats[5].stat.name}" title="${pokemon.stats[5].stat.name}">${renderStatName(pokemon.stats[5].stat.name)}: ${pokemon.stats[5].base_stat}</span>
-                <span class="stat size" title="size">SIZE: ${pokemon.size} kg</span>
+                <span class="stat size" title="size">SIZE: ${pokemon.size} m</span>
             </div>
             </div>
         </div>
         <div class="pokePic" id="${pokemon.id}">
             <div class="defaultPic" style="background: url(${pokemon.image})" id="${pokemon.id}">
                 <div class="inner" id="${pokemon.id}">
-                    <div class="pokeName">${pokemon.name}</div>
+                    <div class="pokeName">${pokemon.generation + ` ` + pokemon.name}</div>
                 </div>
             </div>
             <div class="shinyPic" style="background: url(${pokemon.shiny})" id="${pokemon.id}">
@@ -49,8 +49,8 @@ export const createDex = (gen, pokemon) => {
               ${pokemon.altDescription}
             </p>
           </div>
-          <div class="viewDetails">
-            <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
+          <div class="registerPokemon">
+            <button class="pokeLink">Login to Save</button>
           </div>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
@@ -71,8 +71,8 @@ export const createDex = (gen, pokemon) => {
               ${pokemon.altDescription}
             </p>
           </div>
-          <div class="viewDetails">
-            <a class="pokeLink" href="/pokemon.php?=${pokemon.name}">View Details</a>
+          <div class="registerPokemon">
+            <button class="pokeLink">Login to Save</button>
           </div>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>

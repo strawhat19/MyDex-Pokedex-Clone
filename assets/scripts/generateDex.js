@@ -1,6 +1,13 @@
 import Pokemon from "../models/Pokemon.js";
 
+export const pokeFetch = async (url) => {
+    const pokeResponse = await fetch(url);
+    const pokeData = await pokeResponse.json();
+    return pokeData;
+  };
+
 export const generateDex = (pokemonData, genArray, genNum) => {
+    console.log(pokemonData);
   pokeFetch(pokemonData.species.url).then(dexEntries => {
     let descriptions = dexEntries.flavor_text_entries.filter(description => {
       if (description.language.name == `en`) {
@@ -21,6 +28,7 @@ export const generateDex = (pokemonData, genArray, genNum) => {
       pokemonData.name,
       pokemonData.id,
       pokemonData.id - 1,
+      `Gen ${genNum}`,
       pokemonData.types,
       pokemonData.sprites.front_default,
       pokemonData.sprites.front_shiny,
