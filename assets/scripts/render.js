@@ -21,8 +21,12 @@ export const renderPokemon = () => {
     let pokemon = document.querySelector(`.${pokeName}`);
     let pokeTypes = document.querySelector(`#${pokeName}-types`);
     let pokeID = document.querySelector(`#${pokeName}ID`);
+    let descContainer = $(`.${pokeName} .description`);
+    let altDescContainer = $(`.${pokeName} .altDescription`);
     document.querySelector( `.${pokeName} .defaultPic`).style.display = `flex`;
     document.querySelector(`.${pokeName} .shinyPic`).style.display = `none`;
+    document.querySelector( `.${pokeName} .description`).style.display = `flex`;
+    document.querySelector(`.${pokeName} .altDescription`).style.display = `none`;
     pokeData.addEventListener(`click`, (event) => {
       if (pokeData.classList.contains(`shiny`)) {
         pokeData.classList.remove(`shiny`);
@@ -35,6 +39,8 @@ export const renderPokemon = () => {
         pokemon.classList.add(`default`);
         $(`.${pokeName} .defaultPic`).fadeIn(150);
         $(`.${pokeName} .shinyPic`).fadeOut(150);
+        descContainer.fadeIn(150);
+        altDescContainer.fadeOut(150);
       } else {
         $(`.${pokeName} .shinyPic`).fadeIn(150);
         $(`.${pokeName} .defaultPic`).fadeOut(150);
@@ -46,6 +52,8 @@ export const renderPokemon = () => {
         pokeID.classList.remove(`default`);
         pokemon.classList.add(`shiny`);
         pokemon.classList.remove(`default`);
+        descContainer.fadeOut(150);
+        altDescContainer.fadeIn(150);
       }
     });
   });
