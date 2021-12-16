@@ -9,6 +9,18 @@
 /* Caveat */
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
 
+// Pokemon Color Variables
+
+// If you see this:
+
+  /* 
+    // --grass: #72902a;
+    --grass: #00cf40;
+  */
+
+// the variable with `// --grass: #72902a;` is the original color from the pokemon website, and the `--grass: #00cf40;` below it is the color of my choice, feel free to switch back.
+
+// Root Variables
 :root {
   --main: #18b17f;
   --silver: #c5c5c5;
@@ -107,6 +119,8 @@
   background: var(--dragon);
 }
 
+// Media Queries are at the Bottom
+
 body {
   margin: 0;
   font-family: "Montserrat" !important;
@@ -131,6 +145,16 @@ a {
   color: var(--main) !important;
   font-family: "Montserrat";
   text-decoration: none;
+}
+
+.separator {
+  color: transparent;
+  font-size: 1em;
+  line-height: 1em;
+  border-right: 3px solid black;
+  height: 100%;
+  margin: 0 -0.5em 0 -0.8em;
+  transition: var(--transition);
 }
 
 .pokeData {
@@ -523,7 +547,7 @@ main {
   }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 415px) {
   header {
     width: 103% !important;
     nav {

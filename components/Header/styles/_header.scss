@@ -89,8 +89,30 @@ nav {
   }
 }
 
-.Home {
+a.nav-link.Home {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 1em;
+  font-weight: 600;
+  font-family: 'montserrat';
+  color: white !important;
+  margin-right: .7em;
+  border-right: 3px solid black;
   text-transform: uppercase;
+  transition: var(--transition);
+  @media (max-width: 992px) {
+    padding-bottom: 1em;
+  }
+  &:hover {
+    background: black;
+    transition: var(--transition);
+    .separator {
+      border-right: 3px solid var(--main);
+      transition: var(--transition);
+    }
+  }
 }
 
 #socialLinksMain a,
@@ -525,26 +547,6 @@ nav.scrolled {
 .social-links {
   display: none;
   transition: var(--transition);
-}
-
-a.nav-link.Home {
-  display: flex;
-  width: auto;
-  justify-content: center;
-  align-items: center;
-  grid-gap: 1em;
-  font-weight: 600;
-  font-family: 'montserrat';
-  color: white !important;
-  margin-right: .7em;
-  border-right: 3px solid black;
-  transition: var(--transition);
-  @media (max-width: 992px) {
-    padding-bottom: 1em;
-  }
-  &:hover {
-    transition: var(--transition);
-  }
 }
 
 .desktop-menu-option.mobile-Menu.open-mobile-menu .nav-link:hover i {

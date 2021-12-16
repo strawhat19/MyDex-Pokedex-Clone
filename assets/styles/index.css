@@ -137,8 +137,44 @@ nav .nav-link:hover i {
   }
 }
 
-.Home {
+a.nav-link.Home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1em;
+  font-weight: 600;
+  font-family: 'montserrat';
+  color: white !important;
+  margin-right: .7em;
+  border-right: 3px solid black;
   text-transform: uppercase;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 992px) {
+  a.nav-link.Home {
+    padding-bottom: 1em;
+  }
+}
+
+a.nav-link.Home:hover {
+  background: black;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+a.nav-link.Home:hover .separator {
+  border-right: 3px solid var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 #socialLinksMain a,
@@ -681,38 +717,6 @@ nav.scrolled {
   transition: var(--transition);
 }
 
-a.nav-link.Home {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-gap: 1em;
-  font-weight: 600;
-  font-family: 'montserrat';
-  color: white !important;
-  margin-right: .7em;
-  border-right: 3px solid black;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-@media (max-width: 992px) {
-  a.nav-link.Home {
-    padding-bottom: 1em;
-  }
-}
-
-a.nav-link.Home:hover {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
 .desktop-menu-option.mobile-Menu.open-mobile-menu .nav-link:hover i {
   color: var(--main) !important;
 }
@@ -954,6 +958,10 @@ footer i,
 
 /* Montserrat */
 /* Caveat */
+/* 
+    // --grass: #72902a;
+    --grass: #00cf40;
+  */
 :root {
   --main: #18b17f;
   --silver: #c5c5c5;
@@ -1099,6 +1107,17 @@ a {
   color: var(--main) !important;
   font-family: "Montserrat";
   text-decoration: none;
+}
+
+.separator {
+  color: transparent;
+  font-size: 1em;
+  line-height: 1em;
+  border-right: 3px solid black;
+  height: 100%;
+  margin: 0 -0.5em 0 -0.8em;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .pokeData {
@@ -1627,7 +1646,7 @@ main {
   }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 415px) {
   header {
     width: 103% !important;
   }

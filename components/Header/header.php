@@ -1,6 +1,8 @@
 <header class="header">
     <nav class="nav-menu navigation" id="navigation">
-        <a class="nav-link Home" href="./" title="Home"><i class="fas fa-home"></i> MyDex | PokeDex Clone</a>
+        <a class="nav-link Home" href="./" title="Home"><i class="fas fa-home"></i>
+            MyDex <span class="separator">|</span> PokeDex Clone
+        </a>
         <div class="social-links" id="socialLinksMain">
             <div class="mainNavLink">
                 <a href="https://github.com/strawhat19/" class="nav-link githubLink" title="Github Repo" target="_blank">

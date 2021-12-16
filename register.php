@@ -10,9 +10,8 @@
     <!-- Header Component -->
     <?php include("./components/Header/header.php") ?>
     <main class="main">
-         <!-- Registration Component <?php 
-        //  include("./components/Header/registration.php")
-          ?> -->
+         <!-- Registration Form Component -->
+         <?php include("./components/Header/mobileRegistration.php") ?> 
     </main>
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
