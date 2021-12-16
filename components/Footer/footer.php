@@ -14,6 +14,7 @@
 <script type="module" src="./assets/scripts/index.js"></script>
 <script type="module" src="./assets/scripts/render.js"></script>
 <script type="module" src="./assets/scripts/search.js"></script>
+<script type="module" src="./assets/scripts/register.js"></script>
 <script>
     window.addEventListener(`DOMContentLoaded`, event => {
         const date = new Date();

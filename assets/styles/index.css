@@ -137,12 +137,6 @@ nav .nav-link:hover i {
   }
 }
 
-.logoutButton:hover {
-  cursor: pointer;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
 #socialLinksMain a,
 #socialLinksContact a,
 #socialLinksFooter a {
@@ -169,92 +163,6 @@ nav .nav-link:hover i {
   padding: 5px 10px 4px 8px !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-}
-
-.registration {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.registration form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.registration form input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-gap: 0.4em;
-  width: auto;
-  padding: 0 15px;
-  margin: 0 15px;
-  text-decoration: none;
-  color: white !important;
-  font-weight: 600;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-right: 3px solid white;
-  border-left: 3px solid white;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.registration form input:hover {
-  padding: 15px;
-  border-color: black;
-  background: var(--secondary);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.registration a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-gap: 0.4em;
-  width: auto;
-  padding: 0 15px;
-  margin: 0 15px;
-  text-decoration: none;
-  color: white !important;
-  font-weight: 600;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-right: 3px solid white;
-  border-left: 3px solid white;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.registration a:hover {
-  padding: 15px;
-  border-color: black;
-  background: var(--secondary);
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-@media (max-width: 1140px) {
-  .registration {
-    display: none;
-  }
 }
 
 @-webkit-keyframes fadeIn {
@@ -779,19 +687,188 @@ a.nav-link.Home {
   font-family: 'montserrat';
   color: white !important;
   margin-right: .7em;
-  border-right: 3px solid var(--main);
+  border-right: 3px solid black;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 a.nav-link.Home:hover {
-  border-right: 3px solid black;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .desktop-menu-option.mobile-Menu.open-mobile-menu .nav-link:hover i {
   color: var(--main) !important;
+}
+
+.registration {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.registration form {
+  max-width: 452px;
+}
+
+.registration .registrationButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.registration .registrationButtons a {
+  line-height: 1.25em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 0.4em;
+  width: auto;
+  padding: 0 15px;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-right: 3px solid black;
+  border-left: 3px solid black;
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.registration .registrationButtons a:hover {
+  padding: 15px 15px 15.8px;
+  background: var(--secondary);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 1140px) {
+  .registration {
+    display: none;
+  }
+}
+
+.logoutButton:hover {
+  cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+form input {
+  background: white;
+  border: 3px solid black;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  color: black;
+  width: 100%;
+  text-transform: capitalize;
+  font-family: 'montserrat';
+  font-weight: 600;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+form input::-webkit-input-placeholder {
+  color: var(--secondary);
+  font-family: 'montserrat';
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+form input:-ms-input-placeholder {
+  color: var(--secondary);
+  font-family: 'montserrat';
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+form input::-ms-input-placeholder {
+  color: var(--secondary);
+  font-family: 'montserrat';
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+form input::placeholder {
+  color: var(--secondary);
+  font-family: 'montserrat';
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.searchFilter {
+  opacity: 0;
+  width: 90%;
+  min-width: 90%;
+  padding: 0.5em 0 1em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: black;
+  font-weight: 600;
+  font-family: 'Montserrat';
+  font-size: 3em;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchFilter .inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 1em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
 #footer-text {
@@ -981,6 +1058,20 @@ body {
   min-height: 100vh;
 }
 
+::-moz-selection {
+  background: var(--main);
+  color: white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+::selection {
+  background: var(--main);
+  color: white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 a {
   color: var(--main) !important;
   font-family: "Montserrat";
@@ -1047,7 +1138,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .shinyPic {
@@ -1068,7 +1159,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .shiny .pokeID {
@@ -1186,7 +1277,7 @@ main {
   min-width: 480px;
   min-height: 480px;
   position: relative;
-  border-radius: 20px !important;
+  border-radius: 25px !important;
   border: 3px solid black !important;
   padding-bottom: 2em;
 }
@@ -1211,7 +1302,7 @@ main {
   background: var(--main);
   z-index: 0;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 22px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
@@ -1250,6 +1341,7 @@ main {
   z-index: 1;
   color: black;
   pointer-events: none;
+  grid-gap: 1em;
 }
 
 .pokedex .pokemon .statsRow .stats .stat {
@@ -1285,7 +1377,7 @@ main {
   padding: 0.2em 1em;
   width: 71%;
   margin: 0 auto;
-  border-radius: 7px;
+  border-radius: 25px;
   position: relative;
   top: 10px;
   pointer-events: none;
@@ -1325,7 +1417,7 @@ main {
   width: 40%;
   text-align: center;
   text-transform: uppercase;
-  border-radius: 7px;
+  border-radius: 25px;
   line-height: 18px;
   max-width: 110px;
   font-size: 0.8em;
@@ -1356,7 +1448,7 @@ main {
   font-size: 0.9em;
   font-weight: 600;
   padding: 0.2em 0;
-  border-radius: 7px;
+  border-radius: 25px;
 }
 
 .registerPokemon button:hover {

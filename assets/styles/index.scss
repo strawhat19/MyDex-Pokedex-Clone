@@ -1,4 +1,6 @@
 @import "../../components/Header/styles/header";
+@import "../../components/Header/styles/register";
+@import "../../components/Search/styles/search";
 @import "../../components/Footer/styles/footer";
 
 /* Montserrat */
@@ -118,6 +120,12 @@ body {
   min-height: 100vh;
 }
 
+::selection {
+  background: var(--main);
+  color: white;
+  transition: var(--transition);
+}
+
 a {
   color: var(--main) !important;
   font-family: "Montserrat";
@@ -159,7 +167,7 @@ a {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 .shinyPic {
   display: flex;
@@ -171,7 +179,7 @@ a {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 25px;
 }
 
 .shiny {
@@ -247,7 +255,7 @@ main {
     min-width: 480px;
     min-height: 480px;
     position: relative;
-    border-radius: 20px !important;
+    border-radius: 25px !important;
     border: 3px solid black !important;
     padding-bottom: 2em;
     .pokeID {
@@ -264,7 +272,7 @@ main {
       background: var(--main);
       z-index: 0;
       cursor: pointer;
-      border-radius: 16px;
+      border-radius: 22px;
       transition: var(--transition);
     }
     .statsRow {
@@ -284,6 +292,7 @@ main {
         z-index: 1;
         color: black;
         pointer-events: none;
+        grid-gap: 1em;
         .stat {
           width: 100%;
           text-align: center;
@@ -311,7 +320,7 @@ main {
       padding: 0.2em 1em;
       width: 71%;
       margin: 0 auto;
-      border-radius: 7px;
+      border-radius: 25px;
       position: relative;
       top: 10px;
       pointer-events: none;
@@ -347,7 +356,7 @@ main {
     width: 40%;
     text-align: center;
     text-transform: uppercase;
-    border-radius: 7px;
+    border-radius: 25px;
     line-height: 18px;
     max-width: 110px;
     font-size: 0.8em;
@@ -377,7 +386,7 @@ main {
     font-size: 0.9em;
     font-weight: 600;
     padding: 0.2em 0;
-    border-radius: 7px;
+    border-radius: 25px;
     &:hover {
       cursor: pointer;
     }

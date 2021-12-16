@@ -10,8 +10,7 @@
     <!-- Header Component -->
     <?php include("./components/Header/header.php") ?>
     <main class="main">
-        <input id="pokeSearch" type="text" name="search" placeholder="Search Pokemon by Name..." />
-        <input id="typeSearch" type="text" name="typeSearch" placeholder="Search Pokemon by Type..." />
+        <?php include("./components/Search/search.php") ?>
         <div class="pokedex" id="pokedex"></div>
     </main>
     <!-- Footer Component -->

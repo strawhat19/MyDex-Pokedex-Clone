@@ -10,16 +10,23 @@
             <div class="mainNavLink">Welcome</div>
         </div>
         <div class="registration">
-            <form class="loginForm" id="loginForm">
-                <input id="usernameField" type="text" name="username" placeholder="Username" />
-                <input id="passwordField" type="password" name="password" placeholder="Password" />
+            <form class="loginForm active" id="loginForm">
+                <input id="emailField" type="text" name="emailField" placeholder="Email" />
+                <input id="passwordField" type="password" name="passwordField" placeholder="Password" />
             </form>
-            <a href="./about.php" title="About">
-                <i class="fas fa-sign-in-alt"></i> Login
-            </a>
-            <a href="./profile.php" title="Profile">
-                <i class="fas fa-user-plus"></i> Register
-            </a>
+            <form class="registerForm inactive" id="registerForm">
+                <input id="email" type="email" name="email" placeholder="Email" />
+                <input id="username" type="text" name="username" placeholder="Username" />
+                <input id="password" type="password" name="password" placeholder="Password" />
+            </form>
+            <div class="registrationButtons">
+                <a class="loginLink" title="Login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+                <a class="registerLink" title="Register">
+                    <i class="fas fa-user-plus"></i> Register
+                </a>
+            </div>
         </div>
         <div class="mobile-menu-option" id="mobile-menu-option">
             <div id="menuToggle" onclick="openMobileMenu()">
