@@ -46,6 +46,7 @@
   // --dark: #545b5f;
   --dark: #616161;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
+  --mobileBreakPoint: 530px;
 }
 
 .grass {
@@ -363,6 +364,10 @@ main {
     letter-spacing: .1em;
     font-weight: 600 !important;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   .type.single {
@@ -428,4 +433,89 @@ main {
 .pokePic div {
   background-size: 150px !important;
   background-position: 50% 55% !important;
+}
+
+@media (max-width: 530px) {
+  .searchFilter {
+    width: 75%;
+    min-width: 75%;
+    font-size: 1.3em;
+    padding-bottom: 2em;
+  }
+  .pokedex {
+    grid-gap: 0em;
+    .pokemon {
+      margin: -1em auto 0;
+      transform: scale(.9);
+    }
+  }
+  footer {
+    font-size: .85em;
+  }
+}
+
+@media (max-width: 485px) {
+  header {
+    width: 103% !important;
+    nav {
+      width: 103%;
+    }
+  }
+  .searchFilter {
+    width: 60%;
+    min-width: 60%;
+    font-size: 1.1em;
+  }
+  .pokedex {
+    .pokemon {
+      transform: scale(.65);
+      margin: -4.5em auto -8em -10px;
+      .pokeName {
+        font-size: 1.3em;
+      }
+      .stat {
+        font-size: 1.3em;
+        position: relative;
+        top: 25px;
+      }
+      .single .stats {
+        margin: 0em auto -4em !important;
+      }
+      .multiple .stats {
+        margin-bottom: -2em !important;
+      }
+      .multiple .types {
+        margin-top: 8em !important;
+        width: 80% !important;
+      }
+      .single .types {
+        margin-top: 12em;
+      }
+      .type {
+        font-size: 1.2em;
+        line-height: 28px;
+        top: 20px !important;
+      }
+      .type.single {
+        top: 20px !important;
+      }
+      .description, .altDescription {
+        max-width: 320px;
+        padding: 1em 0 1em;
+        font-size: 1.5em;
+        font-weight: 600;
+      }
+      .registerPokemon {
+        button {
+          font-size: 1.2em;
+          padding: .3em 0;
+        }
+      }
+    }
+  }
+  footer {
+    .innerFooter {
+      width: 85%;
+    }
+  }
 }

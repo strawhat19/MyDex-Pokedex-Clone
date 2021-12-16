@@ -33,8 +33,12 @@
             transition: var(--transition);
             &:hover {
               padding: 15px 15px 15.8px;
-              background: var(--secondary);
+              background: black;
               transition: var(--transition);
+              i {
+                  color: var(--main) !important;
+                  transition: var(--transition);
+              }
             }
           }
     }
