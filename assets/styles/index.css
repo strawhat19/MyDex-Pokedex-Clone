@@ -1554,13 +1554,6 @@ main {
   border-radius: 0px;
 }
 
-/* iPhone SE */
-@media only screen and (max-width: 480px) {
-  body {
-    width: 100vw;
-  }
-}
-
 .pokemon :not(.pokeID):not(.registerPokemon):not(.registerPokemon button) {
   pointer-events: none;
 }
@@ -1568,6 +1561,12 @@ main {
 .pokePic div {
   background-size: 150px !important;
   background-position: 50% 55% !important;
+}
+
+@media (max-width: 1670px) and (min-width: 1515px) {
+  .pokedex {
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 530px) {
@@ -1651,6 +1650,13 @@ main {
   }
   footer .innerFooter {
     width: 85%;
+  }
+}
+
+/* iPhone SE */
+@media only screen and (max-width: 480px) {
+  body {
+    width: 100vw;
   }
 }
 
