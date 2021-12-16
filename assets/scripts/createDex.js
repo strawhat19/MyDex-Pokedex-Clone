@@ -50,9 +50,9 @@ export const createDex = (gen, pokemon) => {
               ${pokemon.altDescription}
             </p>
           </div>
-          <div class="registerPokemon">
-            <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
-          </div>
+        </div>
+        <div class="registerPokemon">
+          <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
         `
@@ -73,10 +73,10 @@ export const createDex = (gen, pokemon) => {
               ${pokemon.altDescription}
             </p>
           </div>
-          <div class="registerPokemon">
+        </div>
+        <div class="registerPokemon">
             <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
           </div>
-        </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
         `
     );

@@ -951,6 +951,7 @@ a {
   -webkit-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
+  z-index: 1;
 }
 
 .defaultPic {
@@ -1107,8 +1108,8 @@ main {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  min-width: 460px;
-  min-height: 360px;
+  min-width: 480px;
+  min-height: 480px;
   position: relative;
   border-radius: 20px !important;
   border: 3px solid black !important;
@@ -1117,7 +1118,7 @@ main {
 
 .pokedex .pokemon .pokeID {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1133,7 +1134,8 @@ main {
   font-size: 10em;
   color: rgba(255, 255, 255, 0.38);
   background: var(--main);
-  z-index: -1;
+  z-index: 0;
+  cursor: pointer;
   border-radius: 16px;
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -1149,9 +1151,9 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 3em;
+  padding-top: 5em;
   position: relative;
-  bottom: -56px;
+  bottom: 0px;
 }
 
 .pokedex .pokemon .statsRow .stats {
@@ -1219,13 +1221,9 @@ main {
   text-transform: capitalize !important;
 }
 
-.single .statsRow {
-  bottom: -65px !important;
-}
-
 .types {
   font-size: 0.85em;
-  z-index: 0;
+  z-index: 1;
   position: relative;
   top: -10px;
   color: white !important;
@@ -1243,7 +1241,8 @@ main {
           justify-content: space-between;
   grid-gap: 1em;
   width: 75%;
-  margin-top: 5em;
+  margin-top: 11em;
+  pointer-events: none;
 }
 
 .types .type {
@@ -1264,15 +1263,16 @@ main {
   margin: 0 auto;
   text-align: center;
   position: relative !important;
-  top: -145px !important;
+  top: 0px !important;
 }
 
-.types .registerPokemon {
+.registerPokemon {
   width: 71%;
   margin: 0 auto;
+  z-index: 1;
 }
 
-.types button {
+.registerPokemon button {
   color: white !important;
   background: black;
   width: 100%;
@@ -1283,7 +1283,7 @@ main {
   border-radius: 7px;
 }
 
-.types button:hover {
+.registerPokemon button:hover {
   cursor: pointer;
 }
 
@@ -1317,7 +1317,7 @@ main {
 
 ::-webkit-scrollbar {
   width: 10px;
-  background-color: white;
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -1331,5 +1331,9 @@ main {
   body {
     width: 100vw;
   }
+}
+
+.pokemon :not(.pokeID):not(.registerPokemon):not(.registerPokemon button) {
+  pointer-events: none;
 }
 /*# sourceMappingURL=index.css.map */

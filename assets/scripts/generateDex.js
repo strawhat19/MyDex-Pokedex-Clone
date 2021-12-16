@@ -7,7 +7,6 @@ export const pokeFetch = async (url) => {
   };
 
 export const generateDex = (pokemonData, genArray, genNum) => {
-    console.log(pokemonData);
   pokeFetch(pokemonData.species.url).then(dexEntries => {
     let descriptions = dexEntries.flavor_text_entries.filter(description => {
       if (description.language.name == `en`) {
@@ -17,9 +16,9 @@ export const generateDex = (pokemonData, genArray, genNum) => {
     descriptions = [...new Set(descriptions)];
     let re = /\n/gi;
     let re2 = /\f/gi;
-    let str = descriptions[0].flavor_text;
     let lastIndex = descriptions.length - 1;
     let str2 = descriptions[lastIndex].flavor_text;
+    let str = descriptions[lastIndex-1].flavor_text;
     let entry = str.replace(re, ` `);
     let entry2 = str2.replace(re, ` `);
     let pokeDescription = entry.replace(re2, ` `);

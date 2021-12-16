@@ -13,7 +13,6 @@ export const renderPokemon = () => {
   pokeDatas.forEach((pokeData) => {
     let pokeName = pokeData.parentElement.title;
     let pokemon = document.querySelector(`.${pokeName}`);
-    let pokePic = document.querySelector(`.${pokeName} .pokePic`);
     let pokeTypes = document.querySelector(`#${pokeName}-types`);
     let pokeID = document.querySelector(`#${pokeName}ID`);
     let descContainer = $(`.${pokeName} .description`);
@@ -22,16 +21,14 @@ export const renderPokemon = () => {
     document.querySelector(`.${pokeName} .shinyPic`).style.display = `none`;
     document.querySelector( `.${pokeName} .description`).style.display = `flex`;
     document.querySelector(`.${pokeName} .altDescription`).style.display = `none`;
-    pokePic.addEventListener(`click`, (event) => {
-      if (pokePic.classList.contains(`shiny`)) {
+    pokeID.addEventListener(`click`, (event) => {
+      if (pokeID.classList.contains(`shiny`)) {
         pokeData.classList.remove(`shiny`);
         pokeData.classList.add(`default`);
         pokeTypes.classList.remove(`shiny`);
         pokeTypes.classList.add(`default`);
         pokeID.classList.remove(`shiny`);
         pokeID.classList.add(`default`);
-        pokePic.classList.remove(`shiny`);
-        pokePic.classList.add(`default`);
         pokemon.classList.remove(`shiny`);
         pokemon.classList.add(`default`);
         $(`.${pokeName} .defaultPic`).fadeIn(150);
@@ -47,8 +44,6 @@ export const renderPokemon = () => {
         pokeTypes.classList.remove(`default`);
         pokeID.classList.add(`shiny`);
         pokeID.classList.remove(`default`);
-        pokePic.classList.add(`shiny`);
-        pokePic.classList.remove(`default`);
         pokemon.classList.add(`shiny`);
         pokemon.classList.remove(`default`);
         descContainer.fadeOut(150);
