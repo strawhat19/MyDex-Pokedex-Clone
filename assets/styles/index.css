@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap");
+header {
+  opacity: 0;
+  border-bottom: 3px solid black;
+  color: black !important;
+  background: var(--main);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  width: 100%;
+}
+
 nav {
   width: 100%;
   display: -webkit-box;
@@ -11,19 +24,17 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  border-bottom: 2px solid var(--main);
-  background: var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 nav i {
-  color: white !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  color: black !important;
 }
 
-nav li {
-  list-style-type: none;
+nav .nav-link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,10 +48,53 @@ nav li {
           justify-content: center;
   padding: 15px;
   margin: 0;
+  color: black !important;
+  height: 41%;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+nav .nav-link i {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+nav .nav-link a {
+  padding: 0 15px;
+  margin: 0 15px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+nav .nav-link:hover {
+  background: var(--secondary);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+nav .nav-link:hover a {
+  border-right: 1px solid var(--secondary);
+  border-left: 1px solid var(--secondary);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+nav .nav-link:hover i {
+  color: black !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 @media (min-width: 992px) {
-  nav ul {
+  nav .desktop-menu-option.mobile-Menu {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -53,8 +107,10 @@ nav li {
         -ms-flex-pack: center;
             justify-content: center;
     padding: 15px;
-    list-style-type: none;
     margin: 0;
+    color: black !important;
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
   }
 }
 
@@ -62,7 +118,6 @@ nav li {
   nav {
     padding: 0px 0px;
     background: var(--main);
-    height: 48px;
     position: fixed;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -74,24 +129,18 @@ nav li {
         -ms-flex-pack: justify;
             justify-content: space-between;
     top: 0;
-    width: 100%;
-    border-bottom: 1px solid white;
     z-index: 3;
-    -webkit-backdrop-filter: blur(2px);
-            backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(3px) !important;
+            backdrop-filter: blur(3px) !important;
     -webkit-transition: var(--transition);
     transition: var(--transition);
   }
 }
 
-@media (max-width: 480px) {
-  nav {
-    width: 100%;
-  }
-}
-
 .logoutButton:hover {
   cursor: pointer;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 #socialLinksMain a,
@@ -99,19 +148,27 @@ nav li {
 #socialLinksFooter a {
   color: white;
   font-size: 20px;
+  border-radius: 100%;
+  padding: 8px 3px 8px 7px !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  padding: 5px 6px 5px 9px !important;
-  border-radius: 100%;
+}
+
+#socialLinksMain a:hover i,
+#socialLinksContact a:hover i,
+#socialLinksFooter a:hover i {
+  color: white !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .social-links a {
   color: white;
   font-size: 20px;
+  border-radius: 100%;
+  padding: 5px 10px 4px 8px !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  padding: 5px 10px 4px 8px !important;
-  border-radius: 100%;
 }
 
 .registration {
@@ -146,15 +203,15 @@ nav li {
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+  border-right: 3px solid white;
+  border-left: 3px solid white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .registration form input:hover {
   padding: 15px;
-  border-color: var(--main);
+  border-color: black;
   background: var(--secondary);
   -webkit-transition: var(--transition);
   transition: var(--transition);
@@ -180,21 +237,21 @@ nav li {
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
+  border-right: 3px solid white;
+  border-left: 3px solid white;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .registration a:hover {
   padding: 15px;
-  border-color: var(--main);
+  border-color: black;
   background: var(--secondary);
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1140px) {
   .registration {
     display: none;
   }
@@ -250,47 +307,34 @@ nav li {
   z-index: 2;
   width: 100% !important;
   height: 50px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+@media (max-width: 992px) {
+  .header {
+    width: 102% !important;
+    -webkit-transition: var(--transition);
+    transition: var(--transition);
+  }
 }
 
 nav.scrolled {
   background: var(--secondary);
 }
 
-.nav-link a {
-  padding: 0 15px;
-  margin: 0 15px;
-  text-decoration: none;
-  color: white !important;
-  font-weight: 600;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-.nav-link:hover {
-  background: var(--secondary);
+.desktop-menu-option.mobile-Menu div.nav-link {
+  border-bottom: 3px solid black;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-.nav-link:hover a {
-  border-right: 1px solid var(--secondary);
-  border-left: 1px solid var(--secondary);
-  -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-  transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
-}
-
-ul li.nav-link {
-  border-bottom: 1px solid white;
-}
-
-ul li.nav-link:hover {
-  background: rgba(222, 28, 28, 0.6);
+.desktop-menu-option.mobile-Menu div.nav-link:hover {
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.75);
+  border-color: black;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .mobile-menu {
@@ -330,8 +374,8 @@ ul li.nav-link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-right: 1px solid var(--main);
-  border-left: 1px solid var(--main);
+  border-right: 3px solid black;
+  border-left: 3px solid black;
   padding: 0px 15px 0px 15px;
   margin: 0px;
   place-items: center;
@@ -345,25 +389,19 @@ ul li.nav-link:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-right: 1px solid white;
-  border-left: 1px solid white;
-  padding: 14px 15px;
+  border-right: 3px solid black;
+  border-left: 3px solid black;
+  padding: 13px 15px;
   margin: 0px;
   place-items: center;
   -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
-#menuToggle:hover span {
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  background: white;
-}
-
 #menuToggle span {
   display: block;
   width: 20px;
-  height: 2px;
+  height: 3px;
   margin-bottom: 5px;
   position: relative;
   background: white;
@@ -374,6 +412,12 @@ ul li.nav-link:hover {
   transition: -webkit-transform var(--transition);
   transition: transform var(--transition);
   transition: transform var(--transition), -webkit-transform var(--transition);
+}
+
+#menuToggle:hover span {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  background: white;
 }
 
 #menuToggle span:first-child:first-child {
@@ -447,7 +491,7 @@ ul li.nav-link:hover {
 
 .desktop-menu-option .nav-link {
   z-index: -5;
-  margin: 1px auto;
+  margin: 0px auto;
   width: 100%;
   text-align: center;
 }
@@ -476,19 +520,19 @@ ul li.nav-link:hover {
   left: 0;
   right: 0;
   z-index: -5;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-  background: rgba(0, 0, 0, 0.75) !important;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
   padding: 0;
   margin: 0.0189em 0 0 0;
   -webkit-animation: fadeIn var(--transition);
           animation: fadeIn var(--transition);
+  -webkit-backdrop-filter: blur(3px) !important;
+          backdrop-filter: blur(3px) !important;
+  background: rgba(167, 167, 167, 0.9) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .desktop-menu-option.open-mobile-menu .nav-link {
-  margin: 1px auto;
+  margin: 0px auto;
   width: 100%;
   text-align: center;
   z-index: 0;
@@ -547,13 +591,12 @@ ul li.nav-link:hover {
   .header,
   #Projects .header {
     text-align: center;
-    max-width: 700px;
     margin: 0 auto;
     -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
-  .header {
-    float: none;
+  #socialLinksMain {
+    display: none;
   }
   #socialLinksContact {
     width: 30%;
@@ -568,9 +611,6 @@ ul li.nav-link:hover {
 }
 
 @media screen and (min-width: 1499px) {
-  .header {
-    float: left;
-  }
   .opening-header {
     padding: 85px 55px 30px;
     text-align: right;
@@ -600,11 +640,11 @@ ul li.nav-link:hover {
 
 @media screen and (max-width: 1235px) {
   .desktop-menu-option.open-mobile-menu {
-    margin: 0.04em 0 0 0;
+    margin: 0.2em 0px 0 -5px;
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1280px) {
   #socialLinksMain {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -617,7 +657,7 @@ ul li.nav-link:hover {
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1280px) {
   #socialLinks {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -653,9 +693,9 @@ ul li.nav-link:hover {
 
 .social-with-text a {
   font-size: 20px;
+  padding: 5px 9px !important;
   -webkit-transition: var(--transition);
   transition: var(--transition);
-  padding: 5px 9px !important;
 }
 
 .social-with-text .fa {
@@ -713,10 +753,45 @@ ul li.nav-link:hover {
 
 .social-links .emailLink:hover i {
   color: var(--main) !important;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .social-links {
   display: none;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+a.nav-link.Home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1em;
+  font-weight: 600;
+  font-family: 'montserrat';
+  color: white !important;
+  margin-right: .7em;
+  border-right: 3px solid var(--main);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+a.nav-link.Home:hover {
+  border-right: 3px solid black;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.desktop-menu-option.mobile-Menu.open-mobile-menu .nav-link:hover i {
+  color: var(--main) !important;
 }
 
 #footer-text {
@@ -948,10 +1023,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
   cursor: pointer;
   z-index: 1;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .defaultPic {

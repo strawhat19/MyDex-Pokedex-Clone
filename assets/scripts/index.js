@@ -1,3 +1,5 @@
+import { pokeSearch, typeSearch } from "./search.js";
+
 const body = $(`body`);
 body.hide();
 body.fadeIn(5000);
@@ -5,6 +7,10 @@ body.fadeIn(5000);
 const footer = $(`footer`);
 footer.css(`opacity`,`1`);
 footer.fadeIn(5000);
+
+const header = $(`header`);
+header.css(`opacity`,`1`);
+header.fadeIn(5000);
 
 export const detectPokemonSizes = () => {
     let heights = [];

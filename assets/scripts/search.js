@@ -2,7 +2,7 @@ import { renderPokemon } from "./render.js";
 let pokedexContainer = $(`.pokedex`);
 
 // Search & Filter Functionality
-let pokeSearch = $(`#pokeSearch`);
+export let pokeSearch = $(`#pokeSearch`);
 pokeSearch.on(`input`, (event) => {
   let searchTerm = $(event.target).val();
 
@@ -29,7 +29,7 @@ pokeSearch.on(`input`, (event) => {
   });
 });
 
-let typeSearch = $(`#typeSearch`);
+export let typeSearch = $(`#typeSearch`);
 typeSearch.on(`input`, (event) => {
   let searchTerm = $(event.target).val();
 
