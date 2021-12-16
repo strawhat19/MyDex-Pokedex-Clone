@@ -1637,12 +1637,14 @@ main {
   header nav a.nav-link.Home {
     font-size: .75em;
     padding: 18px 15px;
+    border-width: 2.9px;
   }
   header nav #mobile-menu-option {
     margin: 0em 0.1em;
   }
   header nav #mobile-menu-option #menuToggle {
     margin: 0 0.28em;
+    border-width: 2px;
   }
   header nav #mobile-menu-option #menuToggle span {
     height: 2px;
@@ -1652,6 +1654,12 @@ main {
   }
   header nav #mobile-menu-option .desktop-menu-option.open-mobile-menu {
     margin: 0.1em 0px 0px -5px;
+  }
+  header nav #mobile-menu-option .desktop-menu-option.open-mobile-menu div {
+    border-width: 2px;
+  }
+  footer {
+    border-width: 2px;
   }
 }
 /*# sourceMappingURL=index.css.map */

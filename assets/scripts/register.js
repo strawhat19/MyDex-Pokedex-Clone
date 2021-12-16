@@ -1,5 +1,5 @@
 import { fadeDuration } from './index.js';
-let page = window.location.href;
+let page = window.location.pathname.replace(`/MyDex-pokedex-clone/`,``);
 console.log(page);
 window.addEventListener(`DOMContentLoaded`,event=> {
     const loginForm = $(`#loginForm`);

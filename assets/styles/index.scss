@@ -531,11 +531,13 @@ main {
       a.nav-link.Home {
         font-size: .75em;
         padding: 18px 15px;
+        border-width: 2.9px;
       }
       #mobile-menu-option {
         margin: 0em 0.1em;
         #menuToggle {
           margin: 0 0.28em;
+          border-width: 2px;
           span {
             height: 2px;
           }
@@ -545,8 +547,13 @@ main {
         }
         .desktop-menu-option.open-mobile-menu {
           margin: 0.1em 0px 0px -5px;
+          div {
+            border-width: 2px;
+          }
         }
       }
     }
+  } footer {
+    border-width: 2px;
   }
 }
