@@ -786,7 +786,7 @@ footer i,
   --secondary: #a7a7a7;
   --transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
   --bg: black;
-  --grass: #08cb5e;
+  --grass: #00cf40;
   --poison: #633071;
   --fire: #c50c0c;
   --water: #1a7ebf;
@@ -795,7 +795,7 @@ footer i,
   --normal: #484e51;
   --poison: #633071;
   --ghost: #4e13ad;
-  --electric: #e7c90e;
+  --electric: #d7bb36;
   --ground: linear-gradient(rgb(164, 143, 7) 50%, rgb(137, 122, 53) 50%);
   --fairy: #ff81d9;
   --fighting: #aa521c;
@@ -1131,7 +1131,7 @@ main {
           align-items: center;
   height: 100%;
   width: 100%;
-  font-size: 10em;
+  font-size: 15em;
   color: rgba(255, 255, 255, 0.38);
   background: var(--main);
   z-index: 0;
@@ -1254,7 +1254,8 @@ main {
   line-height: 18px;
   max-width: 110px;
   font-size: 0.8em;
-  font-weight: 600;
+  letter-spacing: .1em;
+  font-weight: 600 !important;
   pointer-events: none;
 }
 
@@ -1335,5 +1336,10 @@ main {
 
 .pokemon :not(.pokeID):not(.registerPokemon):not(.registerPokemon button) {
   pointer-events: none;
+}
+
+.pokePic div {
+  background-size: 150px !important;
+  background-position: 50% 55% !important;
 }
 /*# sourceMappingURL=index.css.map */
