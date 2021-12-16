@@ -1,13 +1,13 @@
 import { generateDex } from "./generateDex.js";
 import { pokeFetch } from "./generateDex.js";
 
-export const asyncFetch = async (offset, limit) => {
-  const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-  );
-  const pokemon = await response.json();
-  return pokemon;
-};
+// export const asyncFetch = async (offset, limit) => {
+//   const response = await fetch(
+//     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+//   );
+//   const pokemon = await response.json();
+//   return pokemon;
+// };
 
 // Gen 1 Fetch
 // let gen1 = [];

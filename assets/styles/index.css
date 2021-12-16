@@ -798,6 +798,14 @@ nav.scrolled {
   }
 }
 
+@media (max-width: 1140px) {
+  .mobileRegistration {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .logoutButton:hover {
   cursor: pointer;
   -webkit-transition: var(--transition);
@@ -1542,7 +1550,7 @@ main {
 
 ::-webkit-scrollbar-thumb {
   width: 5px;
-  background: var(--main);
+  background: white;
   border-radius: 0px;
 }
 

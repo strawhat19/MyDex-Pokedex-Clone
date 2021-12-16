@@ -1,5 +1,5 @@
 @import "../../components/Header/styles/header";
-@import "../../components/Header/styles/register";
+@import "../../components/Header/styles/registration";
 @import "../../components/Search/styles/search";
 @import "../../components/Footer/styles/footer";
 
@@ -439,7 +439,8 @@ main {
 
 ::-webkit-scrollbar-thumb {
   width: 5px;
-  background: var(--main);
+  background: white;
+  // background: var(--main);
   border-radius: 0px;
 }
 

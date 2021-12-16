@@ -1,0 +1,61 @@
+
+.registration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    form {
+        max-width: 452px;
+    }
+    .registrationButtons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      a {
+        line-height: 1.25em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-gap: 0.4em;
+        width: auto;
+        padding: 0 15px;
+        margin: 0 15px;
+        text-decoration: none;
+        color: white !important;
+        font-weight: 600;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-right: 3px solid black;
+        border-left: 3px solid black;
+        cursor: pointer;
+        transition: var(--transition);
+        &:hover {
+          padding: 15px 15px 15.8px;
+          background: black;
+          transition: var(--transition);
+          i {
+              color: var(--main) !important;
+              transition: var(--transition);
+          }
+        }
+      }
+    }
+    @media (max-width: 1140px) {
+      display: none;
+    }
+}
+
+.mobileRegistration {
+  @media (max-width: 1140px) {
+    display: flex;
+  }
+}
+
+.logoutButton {
+    &:hover {
+      cursor: pointer;
+      transition: var(--transition);
+    }
+}

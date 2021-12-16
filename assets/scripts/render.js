@@ -4,8 +4,10 @@ import { Gen1 } from "../db/gen1.js";
 import { Gen2 } from "../db/gen2.js";
 import { Gen3 } from "../db/gen3.js";
 import { Gen4 } from "../db/gen4.js";
+
 let pokedexContainer = $(`.pokedex`);
 export const pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+
 export const renderPokemon = () => {
   pokedexContainer.html(``);
   pokedex.forEach((pokemon) => createDex(pokedexContainer, pokemon));

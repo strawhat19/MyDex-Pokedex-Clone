@@ -1,12 +1,12 @@
-<div class="registration">
-    <form class="loginForm active" id="loginFormMobile">
-        <input id="emailFieldMobile" type="text" name="emailField" placeholder="Email" />
-        <input id="passwordFieldMobile" type="password" name="passwordField" placeholder="Password" />
+<div class="registration mobileRegistration">
+    <form class="loginForm active" id="mobileLoginForm">
+        <input id="mobileEmailField" type="text" name="emailField" placeholder="Email" />
+        <input id="mobilePasswordField" type="password" name="passwordField" placeholder="Password" />
     </form>
-    <form class="registerForm inactive" id="registerFormMobile">
-        <input id="emailMobile" type="email" name="email" placeholder="Email" />
-        <input id="usernameMobile" type="text" name="username" placeholder="Username" />
-        <input id="passwordMobile" type="password" name="password" placeholder="Password" />
+    <form class="registerForm inactive" id="mobileRegisterForm">
+        <input id="mobileEmail" type="email" name="email" placeholder="Email" />
+        <input id="mobileUsername" type="text" name="username" placeholder="Username" />
+        <input id="mobilePassword" type="password" name="password" placeholder="Password" />
     </form>
     <div class="registrationButtons">
         <a class="loginLink" title="Login" href="./login.php">

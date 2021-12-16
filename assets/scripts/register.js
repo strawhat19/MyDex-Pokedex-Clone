@@ -44,38 +44,3 @@ export const setRegister = (pageName) => {
 }
 
 setRegister(pageName);
-
-// export const removeRegHeader = (pageName) => {
-//     switch(pageName) {
-//         default:
-//             console.log(`Header Registrarion Successfully Loaded.`);
-//             break;
-//         case `register`:
-//             console.log(`register`);
-//             break;
-//         case `login`:
-//             const headerReg = 
-//             console.log(`login`);
-//             break;
-//     }
-// }
-
-// export const mobileRegister = (pageName) => {
-//     removeRegHeader(pageName);
-// }
-
-// export const mobileLogin = (pageName) => {
-//     removeRegHeader(pageName);
-// }
-
-// switch(pageName) {
-//     default:
-        
-//         break;
-//     case `register`:
-//         mobileRegister(pageName);
-//         break;
-//     case `login`:
-//         mobileLogin(pageName);
-//         break;
-// }

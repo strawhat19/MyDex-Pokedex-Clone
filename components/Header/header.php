@@ -13,7 +13,7 @@
         </div>
         <?php include("./components/Header/registration.php") ?>
         <div class="mobile-menu-option" id="mobile-menu-option">
-            <div id="menuToggle" onclick="openMobileMenu()">
+            <div id="menuToggle">
                 <a id="openMenuToggler" class="openMenuToggler">
                     <span id="menuTogglerSpan" class="menuTogglerSpan"></span>
                     <span id="menuTogglerSpan" class="menuTogglerSpan"></span>
@@ -32,30 +32,3 @@
         </div>
     </nav>
 </header>
-
-<!-- jQuery Core -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Moment.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script>
-    const openMobileMenu = (identifier) => {
-        let mobileMenuOpen = $("#desktopMenu");
-        let menuToggler = $("#openMenuToggler");
-        let mobileMenuJS = document.getElementById(`desktopMenu`);
-
-        mobileMenuOpen.toggleClass("open-mobile-menu");
-        menuToggler.toggleClass("clicked");
-
-        identifier = mobileMenuJS.classList[2];
-
-        switch (identifier) {
-            case `null`:
-            case `undefined`:
-            default:
-                mobileMenuOpen.toggleClass(`closed`);
-                break;
-            case `open-mobile-menu`:
-                break;
-        }
-    }
-</script>
