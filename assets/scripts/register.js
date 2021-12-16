@@ -1,6 +1,16 @@
 import { fadeDuration } from './index.js';
 let page = window.location.pathname.replace(`/MyDex-pokedex-clone/`,``);
+let php = `.php`;
+let pageName = page.replace(php,``);
 console.log(page);
+console.log(pageName);
+if (!page.includes(php)) {
+    console.log(`PHP`);
+    console.log(window.location.href + php);
+} else {
+    console.log(`Normal`);
+    console.log(window.location.href);
+}
 window.addEventListener(`DOMContentLoaded`,event=> {
     const loginForm = $(`#loginForm`);
     const registerForm = $(`#registerForm`);
