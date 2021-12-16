@@ -459,6 +459,9 @@ main {
     width: 103% !important;
     nav {
       width: 103%;
+      #mobile-menu-option {
+        margin: 0em 1em;
+      }
     }
   }
   .searchFilter {
@@ -516,6 +519,34 @@ main {
   footer {
     .innerFooter {
       width: 85%;
+    }
+  }
+}
+
+@media (max-width: 368px) {
+  header {
+    width: 103% !important;
+    nav {
+      width: 103%;
+      a.nav-link.Home {
+        font-size: .75em;
+        padding: 18px 15px;
+      }
+      #mobile-menu-option {
+        margin: 0em 0.1em;
+        #menuToggle {
+          margin: 0 0.28em;
+          span {
+            height: 2px;
+          }
+          &:hover {
+            padding: 15px;
+          }
+        }
+        .desktop-menu-option.open-mobile-menu {
+          margin: 0.1em 0px 0px -5px;
+        }
+      }
     }
   }
 }

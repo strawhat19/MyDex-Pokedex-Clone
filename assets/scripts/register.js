@@ -1,4 +1,6 @@
 import { fadeDuration } from './index.js';
+let page = window.location.href;
+console.log(page);
 window.addEventListener(`DOMContentLoaded`,event=> {
     const loginForm = $(`#loginForm`);
     const registerForm = $(`#registerForm`);

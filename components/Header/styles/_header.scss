@@ -89,6 +89,10 @@ nav {
   }
 }
 
+.Home {
+  text-transform: uppercase;
+}
+
 #socialLinksMain a,
 #socialLinksContact a,
 #socialLinksFooter a {
@@ -286,6 +290,7 @@ nav.scrolled {
   margin: 0px auto;
   width: 100%;
   text-align: center;
+  padding: 0;
 }
 
 .desktop-menu-option .nav-link a {
@@ -325,10 +330,11 @@ nav.scrolled {
 .desktop-menu-option.open-mobile-menu .nav-link a {
   border-right: none;
   border-left: none;
-  padding: 15px;
+  padding: 30px;
   display: block;
   margin: 0;
   z-index: -5;
+  width: 100%;
 }
 
 .innerSocialLinks {
@@ -412,6 +418,7 @@ nav.scrolled {
 @media screen and (max-width: 1235px) {
   .desktop-menu-option.open-mobile-menu {
     margin: 0.2em 0px 0 -5px;
+    width: 101%;
   }
 }
 

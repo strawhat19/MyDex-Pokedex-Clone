@@ -15,6 +15,7 @@
     </main>
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
+    <script type="module" src="./assets/scripts/render.js"></script>
 </body>
 
 </html>
