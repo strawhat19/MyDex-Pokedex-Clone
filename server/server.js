@@ -1,6 +1,6 @@
 // Start Firebase Server
 import Trainer from './models/Trainer.js';
-import { pokedex } from './db/';
+import { Pokedex } from './db/Pokedex.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 // https://firebase.google.com/docs/web/setup#available-libraries

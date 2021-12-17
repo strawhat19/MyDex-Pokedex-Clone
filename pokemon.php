@@ -16,9 +16,8 @@
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
     <script type="module">
-        let l = console.log;
         let pokemon = window.location.search.replace(`?=`,``);
-        l(pokemon);
+        console.log(pokemon);
     </script>
 </body>
 
