@@ -133,6 +133,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  transition: var(--transition);
 }
 
 ::selection {
@@ -145,6 +146,7 @@ a {
   color: var(--main) !important;
   font-family: "Montserrat";
   text-decoration: none;
+  transition: var(--transition);
 }
 
 .separator {
@@ -164,6 +166,7 @@ a {
   align-items: center;
   width: 100%;
   height: 100%;
+  transition: var(--transition);
   &:hover {
     cursor: pointer;
   }
@@ -193,6 +196,7 @@ a {
   background-position: center center !important;
   flex-direction: column;
   border-radius: 25px;
+  transition: var(--transition);
 }
 .shinyPic {
   display: flex;
@@ -205,11 +209,19 @@ a {
   background-position: center center !important;
   flex-direction: column;
   border-radius: 25px;
+  transition: var(--transition);
 }
 
 .shiny {
   .pokeID {
     background: black !important;
+  }
+  .pokeIndex {
+    color: white !important;
+  }
+  .pokeLower {
+    background: var(--main);
+    color: white;
   }
   .stats {
     color: white !important;
@@ -221,16 +233,18 @@ a {
       color: black !important;
     }
   }
+  transition: var(--transition);
 }
 
 .inner {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 90%;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
+  height: 80% !important;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: baseline;
+  grid-gap: 1em;
+  transition: var(--transition);
 }
 
 .descriptions {
@@ -239,6 +253,7 @@ a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: var(--transition);
 }
 
 .description, .altDescription {
@@ -249,6 +264,7 @@ a {
   height: 100%;
   font-size: .95em;
   font-weight: 600;
+  transition: var(--transition);
 }
 
 .description {
@@ -262,6 +278,7 @@ main {
   flex-direction: column;
   padding: 5em 0;
   min-height: 78.3vh;
+  transition: var(--transition);
 }
 
 .pokedex {
@@ -272,6 +289,7 @@ main {
   justify-content: center;
   align-items: center;
   grid-gap: 1em;
+  transition: var(--transition);
   .pokemon {
     display: flex;
     flex-direction: column;
@@ -284,6 +302,7 @@ main {
     border-radius: 25px !important;
     border: 3px solid black !important;
     padding-bottom: 2em;
+    transition: var(--transition);
     .pokeID {
       position: absolute;
       top: 0px;
@@ -324,7 +343,11 @@ main {
       justify-content: space-between;
       padding-top: 5em;
       position: relative;
-      bottom: 0px;
+      bottom: -70px;
+      width: 90%;
+      cursor: pointer;
+      // width: 100%;
+      transition: var(--transition);
       .stats {
         display: flex;
         flex-direction: column;
@@ -336,10 +359,12 @@ main {
         color: black;
         pointer-events: none;
         grid-gap: 1em;
+        transition: var(--transition);
         .stat {
           width: 100%;
           text-align: center;
           font-weight: 600;
+          transition: var(--transition);
         }
       }
     }
@@ -352,8 +377,9 @@ main {
       align-items: center;
       background-position: 50% 120% !important;
       overflow: visible !important;
+      transition: var(--transition);
     }
-    .pokeName {
+    .poke {
       text-transform: capitalize !important;
       font-size: 0.9em;
       font-weight: 600;
@@ -362,11 +388,13 @@ main {
       text-align: center;
       padding: 0.2em 1em;
       width: 71%;
+      min-width: 115px !important;
       margin: 0 auto;
       border-radius: 25px;
       position: relative;
       top: 10px;
       pointer-events: none;
+      transition: var(--transition);
       mark {
         background: var(--main);
         text-transform: capitalize !important;
@@ -393,6 +421,7 @@ main {
   width: 75%;
   margin-top: 11em;
   pointer-events: none;
+  transition: var(--transition);
   .type {
     font-family: "Flexo-Medium", arial, sans-serif;
     // font-family: "montserrat", arial, sans-serif;
@@ -410,6 +439,7 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
+    transition: var(--transition);
   }
 
   .type.single {
@@ -418,6 +448,7 @@ main {
     text-align: center;
     position: relative !important;
     top: 0px !important;
+    transition: var(--transition);
   }
 }
 
@@ -425,6 +456,7 @@ main {
   width: 71%;
   margin: 0 auto;
   z-index: 1;
+  transition: var(--transition);
   button {
     color: white !important;
     background: black;
@@ -434,6 +466,7 @@ main {
     font-weight: 600;
     padding: 0.2em 0;
     border-radius: 25px;
+    transition: var(--transition);
     &:hover {
       cursor: pointer;
     }
@@ -516,7 +549,7 @@ main {
     .pokemon {
       transform: scale(.65);
       margin: -4.5em auto -8em -10px;
-      .pokeName {
+      .poke {
         font-size: 1.3em;
       }
       .stat {
@@ -606,4 +639,23 @@ main {
   } footer {
     border-width: 2px;
   }
+}
+
+.pokeLower {
+  position: relative;
+  top: 60px !important;
+  margin: 0 -2em !important;
+  background: black;
+  color: white;
+  transition: var(--transition);
+}
+
+.Pic {
+  max-width: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: var(--transition);
 }

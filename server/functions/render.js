@@ -22,6 +22,7 @@ export const renderStatName = (statName) => {
 
 // Creating the Individual Pokemon Elements
 export const createPokemon = (pokedex, pokemon) => {
+  let pokemonName = pokemon.name.split(`-`)[0].charAt(0).toUpperCase() + pokemon.name.split(`-`)[0].slice(1);
   let pokeElement = $(
     `
       <div class="pokemon ${pokemon.name}" id="${pokemon.id}" title="${pokemon.name}">
@@ -43,14 +44,18 @@ export const createPokemon = (pokedex, pokemon) => {
             </div>
         </div>
         <div class="pokePic" id="${pokemon.id}">
-            <div class="defaultPic" style="background: url(${pokemon.image})" id="${pokemon.id}">
+            <div class="defaultPic Pic" style="background: url(${pokemon.image})" id="${pokemon.id}">
                 <div class="inner" id="${pokemon.id}">
-                    <div class="pokeName">${pokemon.generation + ` ` + pokemon.name}</div>
+                    <div class="poke pokeLower pokeForm">Default</div>
+                    <div class="poke pokeName">${pokemonName}</div>
+                    <div class="poke pokeLower pokeGen">${pokemon.generation}</div>
                 </div>
             </div>
-            <div class="shinyPic" style="background: url(${pokemon.shiny})" id="${pokemon.id}">
+            <div class="shinyPic Pic" style="background: url(${pokemon.shiny})" id="${pokemon.id}">
                 <div class="inner" id="${pokemon.id}">
-                    <div class="pokeName">Shiny ${pokemon.name}</div>
+                    <div class="poke pokeLower pokeForm">Shiny</div>
+                    <div class="poke pokeName">${pokemonName}</div>
+                    <div class="poke pokeLower pokeGen">${pokemon.generation}</div>
                 </div>
             </div>
         </div>
