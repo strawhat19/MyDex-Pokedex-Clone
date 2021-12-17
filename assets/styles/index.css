@@ -1358,6 +1358,31 @@ main {
   transition: var(--transition);
 }
 
+.pokedex .pokemon .pokeIndex {
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  height: 100%;
+  width: 100%;
+  font-size: 3em;
+  color: black;
+  background: transparent;
+  z-index: 0;
+  cursor: pointer;
+  border-radius: 22px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 .pokedex .pokemon .statsRow {
   display: -webkit-box;
   display: -ms-flexbox;

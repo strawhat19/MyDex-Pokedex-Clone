@@ -23,6 +23,11 @@ const body = $(`body`);
 const header = $(`header`);
 const searchFilter = $(`.searchFilter`);
 const footer = $(`footer`);
+const loginForm = $(`#loginForm`);
+const registerForm = $(`#registerForm`);
+const loginLink = $(`.loginLink`);
+const registerLink = $(`.registerLink`);
+let fadeDuration = 1000;
 body.hide();
 
 // Once Document is started, execute code below
@@ -49,6 +54,41 @@ document.addEventListener(`DOMContentLoaded`,event => {
 
     // Register Trainer Function
     const registerTrainer = () => {
+    
+        let page = window.location.pathname.replace(`/MyDex-pokedex-clone/`,``);
+        let php = `.php`;
+        let pageName = page.replace(php,``);
+    
+        registerForm.hide();
+        registerLink.on(`click`,event=> {
+            if (registerForm.hasClass(`inactive`)) {
+                loginForm.hide(fadeDuration);
+                loginForm.addClass(`inactive`);
+                loginForm.removeClass(`active`);
+                registerForm.addClass(`active`);
+                registerForm.removeClass(`inactive`);
+                registerForm.show(fadeDuration);
+            } else {
+                // Register User Function
+                alert(`Register Form is Active!`);
+                return;
+            }
+        })
+
+        loginLink.on(`click`,event=> {
+            if (loginForm.hasClass(`inactive`)) {
+                registerForm.hide(fadeDuration);
+                registerForm.addClass(`inactive`);
+                registerForm.removeClass(`active`);
+                loginForm.addClass(`active`);
+                loginForm.removeClass(`inactive`);
+                loginForm.show(fadeDuration);
+            } else {
+                // Log In User Function
+                alert(`Login Form is Active!`);
+                return;
+            }
+        })
 
         let trainers = db.collection('trainers');
         if (trainers) {

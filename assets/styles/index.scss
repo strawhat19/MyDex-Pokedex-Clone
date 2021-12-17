@@ -301,6 +301,23 @@ main {
       border-radius: 22px;
       transition: var(--transition);
     }
+    .pokeIndex {
+      position: absolute;
+      top: 0px;
+      left: -10px;
+      display: flex;
+      justify-content: end;
+      align-items: baseline;
+      height: 100%;
+      width: 100%;
+      font-size: 3em;
+      color: black;
+      background: transparent;
+      z-index: 0;
+      cursor: pointer;
+      border-radius: 22px;
+      transition: var(--transition);
+    }
     .statsRow {
       display: flex;
       align-items: center;

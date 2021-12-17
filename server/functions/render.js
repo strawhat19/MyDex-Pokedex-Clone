@@ -77,6 +77,7 @@ export const createPokemon = (pokedex, pokemon) => {
           <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
+        <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>
         `
     );
     pokeElement.append(pokeTypes);
@@ -100,6 +101,7 @@ export const createPokemon = (pokedex, pokemon) => {
             <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
           </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
+        <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>
         `
     );
     pokeElement.append(pokeTypes);
