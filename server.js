@@ -1,8 +1,8 @@
+// Start Firebase Server
 import User from './assets/models/User.js';
 import { pokedex } from './assets/scripts/render.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
-const newUser = new User(`Rakib`,1,0,`rakib987@gmail.com`,`pass`,[],[]);
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
@@ -16,22 +16,34 @@ export const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const database = getFirestore(app);
+const log = console.log;
+log(database);
+log(pokedex);
 
+// Once Firebase Server is started, execute code below
 document.addEventListener(`DOMContentLoaded`,event => {
+    log(event);
     console.clear();
-    console.log(newUser);
-    const date = new Date();
-    const year = date.getFullYear();
     firebase.initializeApp(firebaseConfig);
-    const database = firebase.firestore();
-    let pokemon = database.collection('pokemon');
-    let users = database.collection('users');
+    const db = firebase.firestore();
+    const date = new Date();
+    log(date);
+    const year = date.getFullYear();
+    const newUser = new User(`Rakib`,1,0,`rakib987@gmail.com`,`pass`,[],[]);
+    log(year);
+    log(newUser);
+    let users = db.collection('users');
+    log(users);
 
-    // pokedex.forEach(poke => {
-    //     console.log(poke);
-    //     pokemon.add(poke);
-    // })
+    // Log Registered Users from Server
+    users.onSnapshot(allUsers => {
+        const registered = allUsers.docs.map(user => {
+            return user.data();
+        })
+        log(`Users Data from Server`);
+        log(registered);
+    })
 
     // users.add({
     //     id: 0,
@@ -41,18 +53,5 @@ document.addEventListener(`DOMContentLoaded`,event => {
     //     collection: `Users`,
     //     year: year
     // })
-
-    pokemon.onSnapshot(snap => {
-        const items = snap.docs.map(doc => {
-            return doc.data();
-        })
-        console.log(items);
-    })
-
-    // users.onSnapshot(snap => {
-    //     const items = snap.docs.map(doc => {
-    //         return doc.data();
-    //     })
-    //     console.log(items);
-    // })
+    
 })
