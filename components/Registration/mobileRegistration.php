@@ -1,18 +1,18 @@
 <div class="registration mobileRegistration">
     <form class="loginForm active" id="mobileLoginForm">
-        <input id="mobileEmailField" type="text" name="emailField" placeholder="Email" />
-        <input id="mobilePasswordField" type="password" name="passwordField" placeholder="Password" />
+        <input id="mobileEmailLogin" type="text" name="mobileEmailLogin" placeholder="Email" />
+        <input id="mobilePassLogin" type="password" name="mobilePassLogin" placeholder="Password" />
     </form>
     <form class="registerForm inactive" id="mobileRegisterForm">
+        <input id="mobileTrainer" type="text" name="mobileTrainer" placeholder="Trainer ID" />
         <input id="mobileEmail" type="email" name="email" placeholder="Email" />
-        <input id="mobileUsername" type="text" name="username" placeholder="Username" />
         <input id="mobilePassword" type="password" name="password" placeholder="Password" />
     </form>
     <div class="registrationButtons">
-        <a class="loginLink" title="Login" href="./login.php">
+        <a id="mobileLoginButton" class="loginButton" title="Login">
             <i class="fas fa-sign-in-alt"></i> Login
         </a>
-        <a class="registerLink" title="Register" href="./register.php">
+        <a id="mobileRegisterButton" class="registerButton" title="Register">
             <i class="fas fa-user-plus"></i> Register
         </a>
     </div>

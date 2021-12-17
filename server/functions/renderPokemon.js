@@ -131,6 +131,7 @@ export const renderPokemon = (domElementToRenderThem) => {
     document.querySelector( `.${pokeName} .description`).style.display = `flex`;
     document.querySelector(`.${pokeName} .altDescription`).style.display = `none`;
     pokeID.addEventListener(`click`, (event) => {
+      // Click to turn Pokemon to Default
       if (pokeID.classList.contains(`shiny`)) {
         pokeData.classList.remove(`shiny`);
         pokeData.classList.add(`default`);
@@ -142,11 +143,11 @@ export const renderPokemon = (domElementToRenderThem) => {
         pokemon.classList.add(`default`);
         $(`.${pokeName} .defaultPic`).fadeIn(150);
         $(`.${pokeName} .shinyPic`).fadeOut(150);
+        // $(`.${pokeName} .shinyPic`).fadeIn(150);
+        // $(`.${pokeName}.shiny .Pic`).fadeOut(150);
         descContainer.fadeIn(150);
         altDescContainer.fadeOut(150);
-      } else {
-        $(`.${pokeName} .shinyPic`).fadeIn(150);
-        $(`.${pokeName} .defaultPic`).fadeOut(150);
+      } else { // Click to turn Pokemon to Shiny
         pokeData.classList.add(`shiny`);
         pokeData.classList.remove(`default`);
         pokeTypes.classList.add(`shiny`);
@@ -155,6 +156,10 @@ export const renderPokemon = (domElementToRenderThem) => {
         pokeID.classList.remove(`default`);
         pokemon.classList.add(`shiny`);
         pokemon.classList.remove(`default`);
+        $(`.${pokeName} .shinyPic`).fadeIn(150);
+        $(`.${pokeName} .defaultPic`).fadeOut(150);
+        // $(`.${pokeName} .shinyPic`).fadeOut(150);
+        // $(`.${pokeName}.shiny .Pic`).fadeIn(150);
         descContainer.fadeOut(150);
         altDescContainer.fadeIn(150);
       }

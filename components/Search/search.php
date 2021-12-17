@@ -2,7 +2,7 @@
 <script type="module" class="search">
 
 import { Pokedex } from './server/db/Pokedex.js';
-import { renderPokemon } from "./server/functions/render.js";
+import { renderPokemon } from "./server/functions/renderPokemon.js";
 const pokedexContainer = $(`.pokedex`);
 export let pokeSearch = $(`#pokeSearch`);
 export let typeSearch = $(`#typeSearch`);

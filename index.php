@@ -17,7 +17,7 @@
     <?php include("./components/Footer/footer.php") ?>
     <!-- Start Server -->
     <script type="module" src="./server/server.js"></script>
-    <script type="module" src="./server/functions/render.js"></script>
+    <script type="module" src="./server/functions/renderPokemon.js"></script>
 </body>
 
 </html>

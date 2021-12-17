@@ -1,11 +1,11 @@
 // Start Firebase Server
-import Trainer from './models/Trainer.js';
 import { Pokedex } from './db/Pokedex.js';
+import { Registration } from '../components/Registration/Registration.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration
 export const firebaseConfig = {
     apiKey: "AIzaSyAq8WUEORkbQN40Z2Cnqixe2WRLZaeBfjc",
     authDomain: "mydex-pokedex-clone.firebaseapp.com",
@@ -17,27 +17,17 @@ export const firebaseConfig = {
 
 // Initialize Firebase Server
 const app = initializeApp(firebaseConfig);
-const date = new Date();
-const year = date.getFullYear();
 const body = $(`body`);
 const header = $(`header`);
 const searchFilter = $(`.searchFilter`);
 const footer = $(`footer`);
-const loginForm = $(`#loginForm`);
-const registerForm = $(`#registerForm`);
-const loginLink = $(`.loginLink`);
-const registerLink = $(`.registerLink`);
 let fadeDuration = 1000;
 body.hide();
 
 // Once Document is started, execute code below
 document.addEventListener(`DOMContentLoaded`,event => {
-    
-    // Clearng Console
-    // console.clear();
 
     // Fade in DOM Elements
-    let fadeDuration = 1000;
     body.fadeIn(fadeDuration);
     footer.css(`opacity`,`1`);
     footer.fadeIn(fadeDuration);
@@ -50,117 +40,39 @@ document.addEventListener(`DOMContentLoaded`,event => {
     firebase.initializeApp(firebaseConfig);
     const database = getFirestore(app);
     const db = firebase.firestore();
-    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server!`);
+    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
 
-    // Register Trainer Function
-    const registerTrainer = () => {
+    // Calling Database Collections
+    let unsubscribe;
+    const Trainers = db.collection('trainers');
+    const pokemonTrainers = db.collection('pokemonTrainers');
+
+    // Desktop
+    const emailField = $(`#email`);
+    const loginPass = $(`#loginPass`);
+    const loginForm = $(`#loginForm`);
+    const loginEmail = $(`#loginEmail`);
+    const passwordField = $(`#password`);
+    const loginButton = $(`#loginButton`);
+    const registerForm = $(`#registerForm`);
+    const trainerNameField = $(`#trainerName`);
+    const registerButton = $(`#registerButton`);
+
+    // Mobile
+    const mobileEmail = $(`#mobileEmail`);
+    const mobileTrainer = $(`#mobileTrainer`);
+    const mobileLogin = $(`#mobileLoginForm`);
+    const mobilePassword = $(`#mobilePassword`);
+    const mobilePassLogin = $(`#mobilePassLogin`);
+    const mobileRegister = $(`#mobileRegisterForm`);
+    const mobileEmailLogin = $(`#mobileEmailLogin`);
+    const mobileLoginButton = $(`#mobileLoginButton`);
+    const mobileRegisterButton = $(`#mobileRegisterButton`);
+
+    // Call the Registration Function for Desktop & Mobile Menu's
+    Registration(unsubscribe,Trainers,pokemonTrainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
     
-        let page = window.location.pathname.replace(`/MyDex-pokedex-clone/`,``);
-        let php = `.php`;
-        let pageName = page.replace(php,``);
+    Registration(unsubscribe,Trainers,pokemonTrainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
     
-        registerForm.hide();
-        registerLink.on(`click`,event=> {
-            if (registerForm.hasClass(`inactive`)) {
-                loginForm.hide(fadeDuration);
-                loginForm.addClass(`inactive`);
-                loginForm.removeClass(`active`);
-                registerForm.addClass(`active`);
-                registerForm.removeClass(`inactive`);
-                registerForm.show(fadeDuration);
-            } else {
-                // Register User Function
-                alert(`Register Form is Active!`);
-                return;
-            }
-        })
-
-        loginLink.on(`click`,event=> {
-            if (loginForm.hasClass(`inactive`)) {
-                registerForm.hide(fadeDuration);
-                registerForm.addClass(`inactive`);
-                registerForm.removeClass(`active`);
-                loginForm.addClass(`active`);
-                loginForm.removeClass(`inactive`);
-                loginForm.show(fadeDuration);
-            } else {
-                // Log In User Function
-                alert(`Login Form is Active!`);
-                return;
-            }
-        })
-
-        let trainers = db.collection('trainers');
-        if (trainers) {
-
-            let count = localStorage.getItem(`Trainers Count`) || trainers.length;
-            localStorage.setItem(`Trainers Count`, count);
-
-            // Create New Trainer
-            const newTrainer = new Trainer(
-                /* id */ 0,
-                /* name */ `Rakib`,
-                /* teams */ [],
-                /* badge */ 1,
-                /* email */ `rakib@rakib.com`,
-                /* friends */ [],
-                /* pokemon */ [],
-                /* password */ `pass`,
-            );
-    
-            // Log Pokemon Trainers from Server
-            trainers.onSnapshot(allTrainers => {
-                const pokemonTrainers = allTrainers.docs.map(trainer => {
-                    return trainer.data();
-                })
-                console.log(year);
-                console.log(date);
-                console.log(Pokedex);
-                console.log(newTrainer);
-                console.log(`Pokemon Trainers:`);
-                console.log(pokemonTrainers);
-            })
-         } else {
-             log(`No Trainers`);
-         }
-
-        // Begin Event Listern
-        // let currenttrainer = JSON.parse(localStorage.getItem(`Current Logged In trainer`));
-        // const trainernameText = $(`.trainernameText`);
-        // let logoutButton = $(`.logoutButton`);
-        // let signUpButton = $(`.signup`);
-
-        // if (currenttrainer) {
-        //     let trainername = currenttrainer.trainername;
-        //     trainernameText.html('| ' + `<a class="profileLink" title="${trainername}'s profile" href="./profile.php">${trainername}</a>`);
-        //     $(`.registrationButtons`).hide();
-        //     $(`.logoutButton`).show();
-        // } else {
-        //     let trainername = `| Log In to View trainername`;
-        //     trainernameText.html(trainername);
-        //     $(`.registrationButtons`).show();
-        //     $(`.logoutButton`).hide();
-        // }
-
-        // logoutButton.on(`click`, event => {
-        //     logout();
-        // })
-
-        // signUpButton.on(`click`, event => {
-        //     showForm(event, trainers, count);
-        // })
-
-    }
-
-    registerTrainer();
-
-    // trainers.add({
-    //     id: 0,
-    //     name: `Ricky`,
-    //     message: `Hi`,
-    //     createdAt: date,
-    //     collection: `trainers`,
-    //     year: year
-    // })
-    
+    // It Accepts unsubscribe, trainersIndex, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
 })

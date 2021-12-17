@@ -1,21 +1,25 @@
 export default class Trainer {
   constructor(
     id,
-    name,
-    teams,
     badge,
+    name,
     email,
+    password,
+    teams,
     friends,
     pokemon,
-    password,
+    collection,
+    created
   ) {
     this.id = id;
-    this.name = name;
-    this.teams = teams;
     this.badge = badge;
+    this.name = name;
     this.email = email;
+    this.password = password;
+    this.teams = teams;
     this.friends = friends;
     this.pokemon = pokemon;
-    this.password = password;
+    this.collection = collection;
+    this.created = created;
   }
 }
