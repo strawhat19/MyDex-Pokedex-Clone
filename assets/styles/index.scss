@@ -1,5 +1,5 @@
 @import "../../components/Header/styles/header";
-@import "../../components/Header/styles/registration";
+@import "../../components/Registration/styles/registration";
 @import "../../components/Search/styles/search";
 @import "../../components/Footer/styles/footer";
 
@@ -261,6 +261,7 @@ main {
   align-items: center;
   flex-direction: column;
   padding: 5em 0;
+  min-height: 78.3vh;
 }
 
 .pokedex {

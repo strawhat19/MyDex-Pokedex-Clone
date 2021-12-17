@@ -19,7 +19,7 @@ export const detectPokemonSizes = () => {
             console.log(Heights);
         })
     })
-} 
+}
 
 // Uncomment this to Execute Function
 // detectPokemonSizes();

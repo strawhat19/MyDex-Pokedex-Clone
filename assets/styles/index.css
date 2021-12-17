@@ -1290,6 +1290,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 5em 0;
+  min-height: 78.3vh;
 }
 
 .pokedex {

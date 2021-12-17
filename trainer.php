@@ -15,6 +15,8 @@
     </main>
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
+    <!-- Start Server -->
+    <script type="module" src="./server/server.js"></script>
 </body>
 
 </html>

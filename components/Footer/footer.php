@@ -1,3 +1,13 @@
+<script type="module" class="getYear">
+    // Get Year Function for Copyright in Footer
+    window.addEventListener(`DOMContentLoaded`, event => {
+        const date = new Date();
+        const year = date.getFullYear();
+        const yearElement = $(`.year`);
+        yearElement.html(year);
+    })
+</script>
+
 <footer class="footer red">
     <div class="innerFooter">
         <div class="nameText">
@@ -8,8 +18,3 @@
         <div class="siteText copyright">Copyright <i class="fas fa-copyright"></i> <span class="year"></span></div>
     </div>
 </footer>
-
-<!-- Custom Scripts -->
-<script type="module" class="index" src="./server/functions/index.js"></script>
-<script type="module" class="search" src="./server/functions/search.js"></script>
-<script type="module" class="register" src="./server/functions/register.js"></script>
