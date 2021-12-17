@@ -16,8 +16,5 @@
     "url": "https://github.com/strawhat19/phpTest/issues"
   },
   "homepage": "https://github.com/strawhat19/phpTest#readme",
-  "keywords": [],
-  "dependencies": {
-    "requirejs": "^2.3.6"
-  }
+  "keywords": []
 }
