@@ -1,5 +1,5 @@
-import { renderPokemon } from "./render.js";
-let pokedexContainer = $(`.pokedex`);
+import { renderPokemon } from "../functions/render.js";
+const pokedexContainer = $(`.pokedex`);
 
 // Search & Filter Functionality
 export let pokeSearch = $(`#pokeSearch`);
@@ -7,7 +7,7 @@ pokeSearch.on(`input`, (event) => {
   let searchTerm = $(event.target).val();
 
   if ($(event.target).val() == ``) {
-    renderPokemon();
+    renderPokemon(pokedexContainer);
   }
 
   const pokemons = Array.from(document.querySelectorAll(`.pokemon`));
@@ -34,7 +34,7 @@ typeSearch.on(`input`, (event) => {
   let searchTerm = $(event.target).val();
 
   if ($(event.target).val() == ``) {
-    renderPokemon();
+    renderPokemon(pokedexContainer);
   }
 
   const pokemons = Array.from(document.querySelectorAll(`.pokemon`));

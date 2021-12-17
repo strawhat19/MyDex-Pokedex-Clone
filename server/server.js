@@ -1,8 +1,9 @@
 // Start Firebase Server
-import Trainer from './assets/models/Trainer.js';
-import { pokedex } from './assets/scripts/render.js';
+import Trainer from './models/Trainer.js';
+import { pokedex } from './db/';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
@@ -30,6 +31,13 @@ document.addEventListener(`DOMContentLoaded`,event => {
     // Starting the Database from the Server
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
+
+    // Register Trainer Function
+    const registerTrainer = () => {
+        log(`registered!`);
+    }
+
+    registerTrainer();
 
     // Create New Trainer
     const newTrainer = new Trainer(

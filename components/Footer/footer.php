@@ -9,18 +9,7 @@
     </div>
 </footer>
 
-<!-- Bring in Global Imports -->
-<!-- jQuery Core -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- jQuery UI -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- Moment.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-<!-- Use to Fetch New Gens -->
-<!-- <script type="module" src="./assets/scripts/fetch.js"></script> -->
-
 <!-- Custom Scripts -->
-<script type="module" class="index" src="./assets/scripts/index.js"></script>
-<script type="module" class="search" src="./assets/scripts/search.js"></script>
-<script type="module" class="register" src="./assets/scripts/register.js"></script>
+<script type="module" class="index" src="./server/functions/index.js"></script>
+<script type="module" class="search" src="./server/functions/search.js"></script>
+<script type="module" class="register" src="./server/functions/register.js"></script>

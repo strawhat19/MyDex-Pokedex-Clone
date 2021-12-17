@@ -1,3 +1,7 @@
+// Pokemon Import // Fetch & Render
+import { Pokedex } from '../db/Pokedex.js';
+let pokedexContainer = $(`.pokedex`);
+
 // Rendering Custom Stat Names // Labels
 export const renderStatName = (statName) => {
   switch (statName) {
@@ -17,7 +21,7 @@ export const renderStatName = (statName) => {
 };
 
 // Creating the Individual Pokemon Elements
-export const createDex = (gen, pokemon) => {
+export const createPokemon = (pokedex, pokemon) => {
   let pokeElement = $(
     `
       <div class="pokemon ${pokemon.name}" id="${pokemon.id}" title="${pokemon.name}">
@@ -100,5 +104,55 @@ export const createDex = (gen, pokemon) => {
     );
     pokeElement.append(pokeTypes);
   }
-  gen.append(pokeElement);
+  pokedex.append(pokeElement);
 };
+
+// Render Pokemon to DOM Function
+export const renderPokemon = (domElementToRenderThem) => {
+  domElementToRenderThem.html(``);
+  Pokedex.forEach((pokemon) => createPokemon(domElementToRenderThem, pokemon));
+  let pokeDatas = document.querySelectorAll(`.pokeData`);
+  pokeDatas.forEach((pokeData) => {
+    let pokeName = pokeData.parentElement.title;
+    let pokemon = document.querySelector(`.${pokeName}`);
+    let pokeTypes = document.querySelector(`#${pokeName}-types`);
+    let pokeID = document.querySelector(`#${pokeName}ID`);
+    let descContainer = $(`.${pokeName} .description`);
+    let altDescContainer = $(`.${pokeName} .altDescription`);
+    document.querySelector( `.${pokeName} .defaultPic`).style.display = `flex`;
+    document.querySelector(`.${pokeName} .shinyPic`).style.display = `none`;
+    document.querySelector( `.${pokeName} .description`).style.display = `flex`;
+    document.querySelector(`.${pokeName} .altDescription`).style.display = `none`;
+    pokeID.addEventListener(`click`, (event) => {
+      if (pokeID.classList.contains(`shiny`)) {
+        pokeData.classList.remove(`shiny`);
+        pokeData.classList.add(`default`);
+        pokeTypes.classList.remove(`shiny`);
+        pokeTypes.classList.add(`default`);
+        pokeID.classList.remove(`shiny`);
+        pokeID.classList.add(`default`);
+        pokemon.classList.remove(`shiny`);
+        pokemon.classList.add(`default`);
+        $(`.${pokeName} .defaultPic`).fadeIn(150);
+        $(`.${pokeName} .shinyPic`).fadeOut(150);
+        descContainer.fadeIn(150);
+        altDescContainer.fadeOut(150);
+      } else {
+        $(`.${pokeName} .shinyPic`).fadeIn(150);
+        $(`.${pokeName} .defaultPic`).fadeOut(150);
+        pokeData.classList.add(`shiny`);
+        pokeData.classList.remove(`default`);
+        pokeTypes.classList.add(`shiny`);
+        pokeTypes.classList.remove(`default`);
+        pokeID.classList.add(`shiny`);
+        pokeID.classList.remove(`default`);
+        pokemon.classList.add(`shiny`);
+        pokemon.classList.remove(`default`);
+        descContainer.fadeOut(150);
+        altDescContainer.fadeIn(150);
+      }
+    });
+  });
+};
+
+renderPokemon(pokedexContainer);

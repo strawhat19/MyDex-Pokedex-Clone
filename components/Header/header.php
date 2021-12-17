@@ -1,3 +1,11 @@
+<!-- Bring in Global Imports -->
+<!-- jQuery Core -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!-- Moment.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
 <header class="header">
     <nav class="nav-menu navigation" id="navigation">
         <a class="nav-link Home" href="./" title="Home"><i class="fas fa-home"></i>

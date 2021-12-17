@@ -15,7 +15,11 @@
     </main>
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
-    <script type="module" src="./assets/scripts/pokemon.js"></script>
+    <script type="module">
+        let l = console.log;
+        let pokemon = window.location.search.replace(`?=`,``);
+        l(pokemon);
+    </script>
 </body>
 
 </html>

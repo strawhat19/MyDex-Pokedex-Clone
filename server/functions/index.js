@@ -17,7 +17,7 @@ const openMobileMenu = () => {
             break;
     }
 }
-menuToggle.on(`click`, event=> {
+menuToggle.on(`click`, event => {
     openMobileMenu();
 })
 
