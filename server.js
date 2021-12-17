@@ -14,36 +14,57 @@ export const firebaseConfig = {
     appId: "1:1012586919899:web:fc18d626c71f403a2319fe"
 };
 
-// Initialize Firebase
+// Initialize Firebase Server
+const log = console.log;
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
-const log = console.log;
-log(database);
-log(pokedex);
+const date = new Date();
+const year = date.getFullYear();
 
-// Once Firebase Server is started, execute code below
+// Once Document is started, execute code below
 document.addEventListener(`DOMContentLoaded`,event => {
-    log(event);
+
+    // Clearng Console
     console.clear();
+
+    // Starting the Database from the Server
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-    const date = new Date();
-    log(date);
-    const year = date.getFullYear();
-    const newTrainer = new Trainer(`Rakib`,1,0,`rakib987@gmail.com`,`pass`,[],[]);
-    log(year);
-    log(newTrainer);
-    let trainers = db.collection('trainers');
-    log(trainers);
 
-    // Log Pokemon Trainers from Server
-    trainers.onSnapshot(allTrainers => {
-        const pokemonTrainers = allTrainers.docs.map(trainer => {
-            return trainer.data();
+    // Create New Trainer
+    const newTrainer = new Trainer(
+        /* id */ 0,
+        /* name */ `Rakib`,
+        /* teams */ [],
+        /* badge */ 1,
+        /* email */ `rakib@rakib.com`,
+        /* friends */ [],
+        /* pokemon */ [],
+        /* password */ `pass`,
+    );
+
+    let trainers = db.collection('trainers');
+    if (trainers) {
+
+        // Log Pokemon Trainers from Server
+        trainers.onSnapshot(allTrainers => {
+            const pokemonTrainers = allTrainers.docs.map(trainer => {
+                return trainer.data();
+            })
+            log(year);
+            log(date);
+            log(event);
+            log(database);
+            log(pokedex);
+            log(trainers);
+            log(newTrainer);
+            log(`Pokemon Trainers:`);
+            log(pokemonTrainers);
         })
-        log(`Pokemon Trainers:`);
-        log(pokemonTrainers);
-    })
+     } else {
+         log(`No Trainers`);
+     }
+    
 
     // trainers.add({
     //     id: 0,
@@ -53,20 +74,5 @@ document.addEventListener(`DOMContentLoaded`,event => {
     //     collection: `trainers`,
     //     year: year
     // })
-
-    /* 
-    
-    constructor(
-        id,
-        name,
-        teams,
-        badge,
-        email,
-        friends,
-        pokemon,
-        password,
-    )
-
-    */
     
 })
