@@ -7,17 +7,17 @@ import { pokeFetch } from "./generateDex.js";
 //   return pokemon;
 // };
 
-export const evoFetch = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-};
+// export const evoFetch = async (url) => {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     return data;
+// };
 
-let pokeID = 1;
-let url = `https://pokeapi.co/api/v2/evolution-chain/${pokeID}/`;
-evoFetch(url).then(evolution => {
-    console.log(evolution);
-});
+// let pokeID = 1;
+// let url = `https://pokeapi.co/api/v2/evolution-chain/${pokeID}/`;
+// evoFetch(url).then(evolution => {
+//     console.log(evolution);
+// });
 
 // Gen 1 Fetch
 // let gen1 = [];
