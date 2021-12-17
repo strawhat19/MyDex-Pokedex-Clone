@@ -1,5 +1,5 @@
 // Start Firebase Server
-import User from './assets/models/User.js';
+import Trainer from './assets/models/Trainer.js';
 import { pokedex } from './assets/scripts/render.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
@@ -30,28 +30,43 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const date = new Date();
     log(date);
     const year = date.getFullYear();
-    const newUser = new User(`Rakib`,1,0,`rakib987@gmail.com`,`pass`,[],[]);
+    const newTrainer = new Trainer(`Rakib`,1,0,`rakib987@gmail.com`,`pass`,[],[]);
     log(year);
-    log(newUser);
-    let users = db.collection('users');
-    log(users);
+    log(newTrainer);
+    let trainers = db.collection('trainers');
+    log(trainers);
 
-    // Log Registered Users from Server
-    users.onSnapshot(allUsers => {
-        const registered = allUsers.docs.map(user => {
-            return user.data();
+    // Log Pokemon Trainers from Server
+    trainers.onSnapshot(allTrainers => {
+        const pokemonTrainers = allTrainers.docs.map(trainer => {
+            return trainer.data();
         })
-        log(`Users Data from Server`);
-        log(registered);
+        log(`Pokemon Trainers:`);
+        log(pokemonTrainers);
     })
 
-    // users.add({
+    // trainers.add({
     //     id: 0,
     //     name: `Ricky`,
     //     message: `Hi`,
     //     createdAt: date,
-    //     collection: `Users`,
+    //     collection: `trainers`,
     //     year: year
     // })
+
+    /* 
+    
+    constructor(
+        id,
+        name,
+        teams,
+        badge,
+        email,
+        friends,
+        pokemon,
+        password,
+    )
+
+    */
     
 })

@@ -1,4 +1,6 @@
-// Functions
+// Global Functions
+
+// Detect Pokemon Element Sizes
 export const detectPokemonSizes = () => {
     let heights = [];
     let widths = [];
@@ -19,8 +21,10 @@ export const detectPokemonSizes = () => {
     })
 } 
 
+// Uncomment this to Execute Function
 // detectPokemonSizes();
 
+// Detect Lengths of Pokemon Descriptions
 export const detectDescriptionSizes = () => {
     let re = /\n/gi;
     let re2 = /\f/gi;
@@ -48,4 +52,5 @@ export const detectDescriptionSizes = () => {
     })
 }
 
+// Uncomment this to Execute Function
 // detectDescriptionSizes();
