@@ -28,7 +28,7 @@
     <?php include("./components/Footer/footer.php") ?>
     <script type="module" src="./assets/scripts/render.js"></script>
     <script type="module" src="./assets/scripts/fetch.js"></script>
-    <script type="module" src="./users.js"></script>
+    <script type="module" src="./server.js"></script>
 </body>
 
 </html>
