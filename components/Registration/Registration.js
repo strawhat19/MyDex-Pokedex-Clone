@@ -1,5 +1,9 @@
 // Register Trainer Function
 export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
+    loginForm.hide();
+
+    registerButton.attr(`data-registered`,trainerNumber);
+    let userNumber = parseInt(registerButton.attr(`data-registered`)) || trainerNumber;
 
     registerButton.on(`click`, event => {
         // Show Registration Form if its Hidden
@@ -17,6 +21,7 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
             let email = emailField.val();
             let password = passwordField.val();
             let trainer = trainerNameField.val();
+            registerButton.attr(`data-registered`,trainerNumber++);
 
             // Validation
             if (!email || !password || !trainer) {
@@ -26,7 +31,7 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
             } else {
                 // Register User Data
                 var capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
-                let id = trainerNumber;
+                let id = userNumber;
                 let badge = id + 1;
                 let uuid = `${badge} - ${capitalize(trainer)} - ${date}`;
 
@@ -41,7 +46,7 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                     friends: [],
                     pokemon: [],
                     index: badge
-                }).then((success) => {
+                }).then((trainerNumber) => {
                     Trainers.onSnapshot(allTrainers => {
                         var sortObject = (object) => {
                             Object.keys(object)
@@ -53,16 +58,21 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                         } 
                         // Async Changes to Trainers
                         const TrainersArray = allTrainers.docs.map(pokemonTrainer => pokemonTrainer.data());
-                        let newUser = TrainersArray[trainerNumber];
 
                         TrainerCount.doc(`${trainersSTR} Count`).update({
                             trainerCount: TrainersArray.length,
                             name: `Trainer Count`
                         })
 
-                        console.log(`Updated Trainer Count: `, trainerNumber + 1);
+                        let number = TrainersArray.length;
+
+                        console.log(`Updated Trainer Count: `, TrainersArray.length);
                         console.log(`Updated Pokemon Trainers: `, TrainersArray);
-                        console.log(`New Trainer: `, newUser);
+                        console.log(`New Trainer: `, TrainersArray.filter(item => item.index == number));
+
+                        setTimeout(() => {
+                            window.location.href = `./login.php`;
+                        },1500);
 
                     }, error => {
                         console.log(error.message)
@@ -93,10 +103,23 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
 
             if (!email || !password) {
                 // Invalid Inputs
-                alert(`Please Enter Data Into The Fields!`);
+                alert(`Please Enter Data Into The Login Fields!`);
                 return;
             } else {
                 // Login User In
+                console.log(email);
+                console.log(password);
+                const matches = Trainers.where(`email`,`==`,email).get().then(user => {
+                    user.forEach(doc => {
+                        return doc.data();
+                    })
+                });
+
+                const Login = (matches) => {
+                    console.log(matches);
+                }
+
+                Login(matches);
             }
         }
     })

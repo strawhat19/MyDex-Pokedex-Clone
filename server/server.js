@@ -51,7 +51,6 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const registerForm = $(`#registerForm`);
     const trainerNameField = $(`#trainerName`);
     const registerButton = $(`#registerButton`);
-    loginForm.hide();
 
     // Mobile
     const mobileEmail = $(`#mobileEmail`);
