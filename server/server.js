@@ -39,7 +39,7 @@ document.addEventListener(`DOMContentLoaded`,event => {
     firebase.initializeApp(firebaseConfig);
     const database = getFirestore(app);
     const db = firebase.firestore();
-    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
+    // console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
 
     // Desktop
     const emailField = $(`#email`);
@@ -85,8 +85,9 @@ document.addEventListener(`DOMContentLoaded`,event => {
             // Storing it in a Variable
             const trainersDB = currentTrainer.docs.map(trainer => trainer.data());
      
-            console.log(`Current Trainer Count: `, trainersDB.length);
-            console.log(`Current Trainers: `, trainersDB);
+            // Log Users at Initial State
+            // console.log(`Current Trainer Count: `, trainersDB.length);
+            // console.log(`Current Trainers: `, trainersDB);
 
             // Mobile Registration Form
             Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
@@ -107,7 +108,8 @@ document.addEventListener(`DOMContentLoaded`,event => {
             // Create Trainer Count
             TrainerCount.doc(`${trainersSTR} Count`).set({
                 trainerCount: 0,
-                name: `Trainer Count`
+                name: `Trainer Count`,
+                trainers: []
             });
             generateTrainers();
         }
