@@ -1,6 +1,5 @@
 export default class Trainer {
   constructor(
-    id,
     badge,
     name,
     email,
@@ -8,10 +7,7 @@ export default class Trainer {
     teams,
     friends,
     pokemon,
-    collection,
-    created
   ) {
-    this.id = id;
     this.badge = badge;
     this.name = name;
     this.email = email;
@@ -19,7 +15,5 @@ export default class Trainer {
     this.teams = teams;
     this.friends = friends;
     this.pokemon = pokemon;
-    this.collection = collection;
-    this.created = created;
   }
 }

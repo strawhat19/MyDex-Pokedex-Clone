@@ -11,17 +11,27 @@ form {
         padding: 0.5em 1em;
         color: black;
         width: 100%;
-        text-transform: capitalize;
         font-family: 'montserrat';
         font-weight: 600;
         transition: var(--transition);
         &::placeholder {
+            text-transform: capitalize;
             color: var(--secondary);
             font-family: 'montserrat';
             transition: var(--transition);
         }
     }
 }
+
+// .active {
+//     display: flex;
+//     transition: var(--transition);
+// }
+
+// .inactive {
+//     display: none;
+//     transition: var(--transition);
+// }
 
 .searchFilter {
     opacity: 0;

@@ -1,10 +1,7 @@
-// Importing Trainer Model
-// import Trainer from '../../server/models/Trainer.js';
 // Register Trainer Function
-export const Registration = (unsubscribe,index,trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
-    
-    registerForm.hide();
-    registerButton.on(`click`,event => {
+export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
+
+    registerButton.on(`click`, event => {
         // Show Registration Form if its Hidden
         if (registerForm.hasClass(`inactive`)) {
             loginForm.hide(fadeDuration);
@@ -13,64 +10,73 @@ export const Registration = (unsubscribe,index,trainers,emailField,loginForm,pas
             registerForm.addClass(`active`);
             registerForm.removeClass(`inactive`);
             registerForm.show(fadeDuration);
+            // loginButton.hide(fadeDuration);
         } else {
             // Register User Function
-            let idRef = index.doc(`users`);
-            idRef.get().then((doc) => {
-                if (doc.exists) {
-                    console.log(`Users:`, doc.data());
-                } else {
-                    // doc.data() will be undefined in this case
-                    console.log(`0 Users!`);
-                }
-            }).catch((error) => {
-                console.log(`Error:`, error);
-            });
-            unsubscribe = index.where(`key`,`==`,`trainers`).onSnapshot(query => {
-                let id = query.docs.map(doc => doc.data().registeredUsers)[0] - 1;
+            let date = new Date();
+            let email = emailField.val();
+            let password = passwordField.val();
+            let trainer = trainerNameField.val();
+
+            // Validation
+            if (!email || !password || !trainer) {
+                // Invalid Inputs
+                alert(`Please Enter Data Into The Fields!`);
+                return;
+            } else {
+                // Register User Data
+                var capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
+                let id = trainerNumber;
                 let badge = id + 1;
-                let date = new Date();
-                let email = emailField.val();
-                let password = passwordField.val();
-                let trainer = trainerNameField.val();
-    
-                trainers.doc(trainer).set({
-                    id: id,
-                    badge: badge,
+                let uuid = `${badge} - ${capitalize(trainer)} - ${date}`;
+
+                // console.clear();
+
+                Trainers.doc(uuid).set({
+                    badge: uuid,
                     name: trainer,
                     email: email,
                     password: password,
                     teams: [],
                     friends: [],
                     pokemon: [],
-                    collection: `trainers`,
-                    created: date
-                }).then((successMessage) => {
-                    successMessage = `Document Successfully Stored`;
-                    console.log(successMessage);
-                }).catch((error) => {
-                    console.error("Error writing document: ", error);
-                })
-    
-                // Log Pokemon Trainers from Server
-                trainers.onSnapshot(allTrainers => {
-                    const pokemonTrainers = allTrainers.docs.map(trainer => trainer.data());
-                    console.log(`Pokemon Trainers:`);
-                    console.log(pokemonTrainers);
-    
-                    index.doc(`users`).update({
-                        registeredUsers: pokemonTrainers.length,
-                        key: `trainers`
-                    })
-                }, error => {
-                    console.log(error.message)
-                })
-            });
+                    index: badge
+                }).then((success) => {
+                    Trainers.onSnapshot(allTrainers => {
+                        var sortObject = (object) => {
+                            Object.keys(object)
+                            .sort()
+                            .reduce(function (acc, key) { 
+                                acc[key] = object[key];
+                                return acc;
+                            }, {});
+                        } 
+                        // Async Changes to Trainers
+                        const TrainersArray = allTrainers.docs.map(pokemonTrainer => pokemonTrainer.data());
+                        let newUser = TrainersArray[trainerNumber];
 
+                        TrainerCount.doc(`${trainersSTR} Count`).update({
+                            trainerCount: TrainersArray.length,
+                            name: `Trainer Count`
+                        })
+
+                        console.log(`Updated Trainer Count: `, trainerNumber + 1);
+                        console.log(`Updated Pokemon Trainers: `, TrainersArray);
+                        console.log(`New Trainer: `, newUser);
+
+                    }, error => {
+                        console.log(error.message)
+                    })
+                }).catch((error) => {
+                    console.log(error);
+                })
+              
+            }
         }
     })
 
-    loginButton.on(`click`,event=> {
+    // User Clicks Login
+    loginButton.on(`click`, event => {
         // Show Login Form if its Hidden
         if (loginForm.hasClass(`inactive`)) {
             registerForm.hide(fadeDuration);
@@ -79,10 +85,19 @@ export const Registration = (unsubscribe,index,trainers,emailField,loginForm,pas
             loginForm.addClass(`active`);
             loginForm.removeClass(`inactive`);
             loginForm.show(fadeDuration);
+        //    registerButton.hide(fadeDuration);
         } else {
             // Log In User Function
-            alert(`Login Form is Active!`);
-            return;
+            let email = emailField.val();
+            let password = passwordField.val();
+
+            if (!email || !password) {
+                // Invalid Inputs
+                alert(`Please Enter Data Into The Fields!`);
+                return;
+            } else {
+                // Login User In
+            }
         }
     })
 

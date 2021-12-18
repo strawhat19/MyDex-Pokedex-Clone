@@ -5,15 +5,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Firebase configuration
-export const firebaseConfig = {
-    apiKey: "AIzaSyAq8WUEORkbQN40Z2Cnqixe2WRLZaeBfjc",
-    authDomain: "mydex-pokedex-clone.firebaseapp.com",
-    projectId: "mydex-pokedex-clone",
-    storageBucket: "mydex-pokedex-clone.appspot.com",
-    messagingSenderId: "1012586919899",
-    appId: "1:1012586919899:web:fc18d626c71f403a2319fe"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyAG60xtP7kAhXSC6PqPJM6y3MPBNqHF4qE",
+    authDomain: "mydex-pokedex-clone-925fc.firebaseapp.com",
+    projectId: "mydex-pokedex-clone-925fc",
+    storageBucket: "mydex-pokedex-clone-925fc.appspot.com",
+    messagingSenderId: "603945130926",
+    appId: "1:603945130926:web:0d0e7dae151f9cefb8863f"
+  };
 
 // Initialize Firebase Server
 const app = initializeApp(firebaseConfig);
@@ -42,11 +41,6 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const db = firebase.firestore();
     console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
 
-    // Calling Database Collections
-    let unsubscribe;
-    const Trainers = db.collection('trainers');
-    const pokemonTrainers = db.collection('pokemonTrainers');
-
     // Desktop
     const emailField = $(`#email`);
     const loginPass = $(`#loginPass`);
@@ -57,6 +51,7 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const registerForm = $(`#registerForm`);
     const trainerNameField = $(`#trainerName`);
     const registerButton = $(`#registerButton`);
+    loginForm.hide();
 
     // Mobile
     const mobileEmail = $(`#mobileEmail`);
@@ -69,10 +64,57 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const mobileLoginButton = $(`#mobileLoginButton`);
     const mobileRegisterButton = $(`#mobileRegisterButton`);
 
-    // Call the Registration Function for Desktop & Mobile Menu's
-    Registration(unsubscribe,Trainers,pokemonTrainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
-    
-    Registration(unsubscribe,Trainers,pokemonTrainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
-    
-    // It Accepts unsubscribe, trainersIndex, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
+    // Creating & Calling Database Collections
+    const trainersSTR = `Trainers`;
+    const Trainers = db.collection(trainersSTR);
+    const TrainerCount = db.collection(`${trainersSTR} Count`);
+
+    // Function to Run for Creating Registraion
+    const generateTrainers = () => {
+
+        // Getting Trainer Array at Beginning of App State
+        Trainers.get().then((currentTrainer) => {
+            var sortObject = (object) => {
+                Object.keys(object)
+                .sort()
+                .reduce(function (acc, key) { 
+                    acc[key] = object[key];
+                    return acc;
+                }, {});
+            } 
+
+            // Storing it in a Variable
+            const trainersDB = currentTrainer.docs.map(trainer => trainer.data());
+     
+            console.log(`Current Trainer Count: `, trainersDB.length);
+            console.log(`Current Trainers: `, trainersDB);
+
+            // Mobile Registration Form
+            Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
+
+            // Desktop Registration Form
+            Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
+            
+            // It Accepts the TrainerCount, Trainer String, Database, Trainers, a Trainers Array, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
+        })
+    }
+
+    // Check If Trainers Count Exists in DB
+    let ifTrainers = TrainerCount.doc(`${trainersSTR} Count`);
+    ifTrainers.get().then((tCount) => {
+        if (tCount.exists) {
+            generateTrainers();
+        } else {
+            // Create Trainer Count
+            TrainerCount.doc(`${trainersSTR} Count`).set({
+                trainerCount: 0,
+                name: `Trainer Count`
+            });
+            generateTrainers();
+        }
+            
+    }).catch((error) => {
+        console.log(error);
+    });
+
 })
