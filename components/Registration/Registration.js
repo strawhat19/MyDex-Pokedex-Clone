@@ -1,34 +1,11 @@
-// Import Pokedex
+// Imports
 import { Pokedex } from '../../server/db/Pokedex.js';
-let IDS = [];
+import { capitalize, detectPokemonSizes, detectDescriptionSizes, getBadges } from '../../server/functions/functions.js';
 
 // Register Trainer Function
 export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
 
-    let collection = `Trainers`;
     loginForm.hide();
-
-    const getBadges = (value) => {
-        Trainers.where(`collection`,`==`,value).get().then(user => {
-            user.forEach(doc => {
-                let match = doc.data();
-                if (match) {
-                    IDS.push(match.badge);
-                    let uniqueIDS = [...new Set(IDS)];
-                    console.log(uniqueIDS);
-                    if (uniqueIDS.includes(trainerNumber)) trainerNumber = trainerNumber + 1;
-                    return uniqueIDS;
-                } else {
-                    alert(`No Users Found!`);
-                    return;
-                }
-            })
-        });
-    }
-
-    // const uniqueIDS = getBadges(collection);
-    registerButton.attr(`data-registered`,trainerNumber);
-    let userNumber = parseInt(registerButton.attr(`data-registered`)) || trainerNumber;
 
     registerButton.on(`click`, event => {
         // Show Registration Form if its Hidden
@@ -39,14 +16,12 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
             registerForm.addClass(`active`);
             registerForm.removeClass(`inactive`);
             registerForm.show(fadeDuration);
-            // loginButton.hide(fadeDuration);
         } else {
             // Register User Function
-            let date = new Date();
+            let collection = `Trainers`;
             let email = emailField.val();
             let password = passwordField.val();
             let trainer = trainerNameField.val();
-            registerButton.attr(`data-registered`,trainerNumber++);
 
             // Validation
             if (!email || !password || !trainer) {
@@ -55,9 +30,11 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                 return;
             } else {
                 // Register User Data
-                var capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
-                let id = userNumber;
+                let id = trainerNumber;
                 let badge = id + 1;
+                const dateObject = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+                let uuid = `${badge} - ${capitalize(trainer)} - ${dateObject}`;
+               
                 var x = Math.floor(Math.random() * Pokedex.length);
                 var y = Math.floor(Math.random() * x);
                 var z = Math.floor(Math.random() * y);
@@ -70,42 +47,9 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                 var a1 = Math.floor(Math.random() * z1);
                 var b1 = Math.floor(Math.random() * a1);
                 var b2 = Math.floor(Math.random() * b1);
-                let pokeArray = [
-                    Pokedex[x],
-                    Pokedex[y],
-                    Pokedex[z],
-                    Pokedex[a],
-                    Pokedex[b],
-                    Pokedex[c],
-                ]
-                let pokeArray2 = [
-                    Pokedex[x1],
-                    Pokedex[y1],
-                    Pokedex[z1],
-                    Pokedex[a1],
-                    Pokedex[b1],
-                    Pokedex[b2],
-              ]
-                let startingTeams = [
-                    {
-                       pokemon: pokeArray 
-                    },
-                    {
-                        pokemon: pokeArray2
-                    }
-                ]
-                // console.log(date);
-                const dateObject = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-                var sortObject = (object) => {
-                    Object.keys(object)
-                    .sort()
-                    .reduce(function (acc, key) { 
-                        acc[key] = object[key];
-                        return acc;
-                    }, {});
-                } 
-                getBadges(collection);
-                let uuid = `${badge} - ${capitalize(trainer)} - ${dateObject}`;
+                let pokeArray = [Pokedex[x],Pokedex[y],Pokedex[z],Pokedex[a],Pokedex[b],Pokedex[c]]
+                let pokeArray2 = [Pokedex[x1],Pokedex[y1],Pokedex[z1],Pokedex[a1],Pokedex[b1],Pokedex[b2]]
+                let startingTeams = [{pokemon: pokeArray },{ pokemon: pokeArray2}];
 
                 Trainers.doc(uuid).set({
                     badge: badge,
@@ -120,29 +64,19 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                     collection: collection
                 }).then((trainerNumber) => {
                     Trainers.onSnapshot(allTrainers => {
-                        var sortObject = (object) => {
-                            Object.keys(object)
-                            .sort()
-                            .reduce(function (acc, key) { 
-                                acc[key] = object[key];
-                                return acc;
-                            }, {});
-                        } 
                         // Async Changes to Trainers
                         const TrainersArray = allTrainers.docs.map(pokemonTrainer => pokemonTrainer.data());
+                        const trainerEmails = TrainersArray.map(trainer => {
+                            return trainer.email;
+                        });
 
                         TrainerCount.doc(`${trainersSTR} Count`).update({
                             trainerCount: TrainersArray.length,
                             name: `Trainer Count`,
-                            trainers: TrainersArray
+                            trainerEmails: trainerEmails
                         })
                         
-                        let number = TrainersArray.length;
-                        console.log(`Updated Trainer Count: `, TrainersArray.length);
-                        console.log(`Updated Pokemon Trainers: `, TrainersArray);
-                        console.log(`New Trainer: `, TrainersArray.filter(item => item.badge == TrainersArray.length));
-
-                        window.location.href = `./login.php`;
+                        window.location.href = `./trainers`;
 
                     }, error => {
                         console.log(error.message)

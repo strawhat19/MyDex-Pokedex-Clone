@@ -1,8 +1,37 @@
 // Global Functions
 
+// Sort Keys in Object Alphabetically
+export const sortObject = (object) => {
+    Object.keys(object)
+    .sort()
+    .reduce(function (acc, key) { 
+        acc[key] = object[key];
+        return acc;
+    }, {});
+} 
+
 // Capitalize First Letter of Word
 export const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+// Get User Badges
+export const getBadges = (value) => {
+    Trainers.where(`collection`,`==`,value).get().then(user => {
+        user.forEach(doc => {
+            let match = doc.data();
+            if (match) {
+                IDS.push(match.badge);
+                let uniqueIDS = [...new Set(IDS)];
+                console.log(uniqueIDS);
+                if (uniqueIDS.includes(trainerNumber)) trainerNumber = trainerNumber + 1;
+                return uniqueIDS;
+            } else {
+                alert(`No Users Found!`);
+                return;
+            }
+        })
+    });
 }
 
 // Detect Pokemon Element Sizes

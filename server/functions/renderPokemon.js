@@ -115,22 +115,34 @@ export const createPokemon = (pokedex, pokemon) => {
 };
 
 // Render Pokemon to DOM Function
-export const renderPokemon = (domElementToRenderThem) => {
+export const renderPokemon = (domElementToRenderThem,Pokedex) => {
+
   domElementToRenderThem.html(``);
   Pokedex.forEach((pokemon) => createPokemon(domElementToRenderThem, pokemon));
   let pokeDatas = document.querySelectorAll(`.pokeData`);
+
   pokeDatas.forEach((pokeData) => {
-    let pokeName = pokeData.parentElement.title;
-    let pokemon = document.querySelector(`.${pokeName}`);
-    let pokeTypes = document.querySelector(`#${pokeName}-types`);
-    let pokeID = document.querySelector(`#${pokeName}ID`);
-    let descContainer = $(`.${pokeName} .description`);
-    let altDescContainer = $(`.${pokeName} .altDescription`);
+
+    var pokeName = pokeData.parentElement.title;
+    var pokeID = document.querySelector(`#${pokeName}ID`);
+
     document.querySelector( `.${pokeName} .defaultPic`).style.display = `flex`;
     document.querySelector(`.${pokeName} .shinyPic`).style.display = `none`;
     document.querySelector( `.${pokeName} .description`).style.display = `flex`;
     document.querySelector(`.${pokeName} .altDescription`).style.display = `none`;
+
     pokeID.addEventListener(`click`, (event) => {
+      let pokemon = event.target.parentElement;
+      let pokeName = pokemon.title;
+      let pokeTypes = pokemon.children[2];
+      let pokeID = pokemon.children[4];
+      let pokeIndex = pokemon.children[5].innerHTML;
+
+      let descContainer = $(event.target).parent().find(`.description`);
+      let altDescContainer = $(event.target).parent().find(`.altDescription`);
+      let defaultPic = $(event.target).parent().find(`.defaultPic`);
+      let shinyPic = $(event.target).parent().find(`.shinyPic`);
+
       // Click to turn Pokemon to Default
       if (pokeID.classList.contains(`shiny`)) {
         pokeData.classList.remove(`shiny`);
@@ -141,12 +153,10 @@ export const renderPokemon = (domElementToRenderThem) => {
         pokeID.classList.add(`default`);
         pokemon.classList.remove(`shiny`);
         pokemon.classList.add(`default`);
-        $(`.${pokeName} .defaultPic`).fadeIn(150);
-        $(`.${pokeName} .shinyPic`).fadeOut(150);
-        // $(`.${pokeName} .shinyPic`).fadeIn(150);
-        // $(`.${pokeName}.shiny .Pic`).fadeOut(150);
-        descContainer.fadeIn(150);
-        altDescContainer.fadeOut(150);
+        descContainer.show();
+        altDescContainer.hide();
+        defaultPic.show();
+        shinyPic.hide();
       } else { // Click to turn Pokemon to Shiny
         pokeData.classList.add(`shiny`);
         pokeData.classList.remove(`default`);
@@ -156,15 +166,13 @@ export const renderPokemon = (domElementToRenderThem) => {
         pokeID.classList.remove(`default`);
         pokemon.classList.add(`shiny`);
         pokemon.classList.remove(`default`);
-        $(`.${pokeName} .shinyPic`).fadeIn(150);
-        $(`.${pokeName} .defaultPic`).fadeOut(150);
-        // $(`.${pokeName} .shinyPic`).fadeOut(150);
-        // $(`.${pokeName}.shiny .Pic`).fadeIn(150);
-        descContainer.fadeOut(150);
-        altDescContainer.fadeIn(150);
+        descContainer.hide();
+        altDescContainer.show();
+        defaultPic.hide();
+        shinyPic.show();
       }
     });
   });
 };
 
-renderPokemon(pokedexContainer);
+renderPokemon(pokedexContainer,Pokedex);

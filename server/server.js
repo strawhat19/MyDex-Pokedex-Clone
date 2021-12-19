@@ -1,5 +1,4 @@
 // Start Firebase Server
-import { Pokedex } from './db/Pokedex.js';
 import { Registration } from '../components/Registration/Registration.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
@@ -15,7 +14,7 @@ const firebaseConfig = {
   };
 
 // Initialize Firebase Server
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const body = $(`body`);
 const header = $(`header`);
 const searchFilter = $(`.searchFilter`);
@@ -39,7 +38,7 @@ document.addEventListener(`DOMContentLoaded`,event => {
     firebase.initializeApp(firebaseConfig);
     const database = getFirestore(app);
     const db = firebase.firestore();
-    // console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
+    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
 
     // Desktop
     const emailField = $(`#email`);
@@ -72,28 +71,27 @@ document.addEventListener(`DOMContentLoaded`,event => {
     const generateTrainers = () => {
 
         // Getting Trainer Array at Beginning of App State
-        Trainers.get().then((currentTrainer) => {
-            var sortObject = (object) => {
-                Object.keys(object)
-                .sort()
-                .reduce(function (acc, key) { 
-                    acc[key] = object[key];
-                    return acc;
-                }, {});
-            } 
+        Trainers.get().then((users) => {
 
             // Storing it in a Variable
-            const trainersDB = currentTrainer.docs.map(trainer => trainer.data());
-     
+            const currentTrainers = users.docs.map(trainer => trainer.data());
+            const newestTrainer = currentTrainers.filter(item => item.badge == currentTrainers.length);
+            const userCount = currentTrainers.length;
+            const trainerEmails = currentTrainers.map(trainer => {
+                return trainer.email;
+            });
+            
             // Log Users at Initial State
-            console.log(`Current Trainer Count: `, trainersDB.length);
-            console.log(`Current Trainers: `, trainersDB);
+            console.log(`Current Trainer Count: `, userCount);
+            console.log(`Current Trainers: `, currentTrainers);
+            console.log(`Trainer Emails`, trainerEmails);
+            console.log(`Newest Trainer`, newestTrainer);
 
             // Mobile Registration Form
-            Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
+            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
 
             // Desktop Registration Form
-            Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
+            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
             
             // It Accepts the TrainerCount, Trainer String, Database, Trainers, a Trainers Array, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
         })
@@ -109,7 +107,7 @@ document.addEventListener(`DOMContentLoaded`,event => {
             TrainerCount.doc(`${trainersSTR} Count`).set({
                 trainerCount: 0,
                 name: `Trainer Count`,
-                trainers: []
+                trainerEmails: []
             });
             generateTrainers();
         }

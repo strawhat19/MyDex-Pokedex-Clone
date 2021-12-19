@@ -13,7 +13,7 @@ pokeNumContainer.html(pokedexContainer.children().length);
 pokeSearch.on(`input`, (event) => {
     let searchTerm = $(event.target).val();
     if ($(event.target).val() == ``) {
-        renderPokemon(pokedexContainer);
+        renderPokemon(pokedexContainer,Pokedex);
         pokeNumContainer.html(pokedexContainer.children().length);
     }
     var pokemons = Array.from(document.querySelectorAll(`.pokemon`));
@@ -39,7 +39,7 @@ pokeSearch.on(`input`, (event) => {
 typeSearch.on(`input`, (event) => {
     let searchTerm = $(event.target).val();
     if ($(event.target).val() == ``) {
-        renderPokemon(pokedexContainer);
+        renderPokemon(pokedexContainer,Pokedex);
         pokeNumContainer.html(pokedexContainer.children().length);
     }
     var pokemons = Array.from(document.querySelectorAll(`.pokemon`));
@@ -73,10 +73,10 @@ typeSearch.on(`input`, (event) => {
     });
     
 if ($(event.target).val() == ``) {
-      renderPokemon(pokedexContainer);
+      renderPokemon(pokedexContainer, Pokedex);
       pokeNumContainer.html(pokedexContainer.children().length);
     } else if (pokedexContainer.children().length == 0) {
-        renderPokemon(pokedexContainer);
+        renderPokemon(pokedexContainer, Pokedex);
         pokeNumContainer.html(pokedexContainer.children().length);
     }
 });
