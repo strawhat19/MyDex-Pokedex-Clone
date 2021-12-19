@@ -86,8 +86,8 @@ document.addEventListener(`DOMContentLoaded`,event => {
             const trainersDB = currentTrainer.docs.map(trainer => trainer.data());
      
             // Log Users at Initial State
-            // console.log(`Current Trainer Count: `, trainersDB.length);
-            // console.log(`Current Trainers: `, trainersDB);
+            console.log(`Current Trainer Count: `, trainersDB.length);
+            console.log(`Current Trainers: `, trainersDB);
 
             // Mobile Registration Form
             Registration(trainersDB.length,TrainerCount, trainersSTR,db,trainersDB,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);

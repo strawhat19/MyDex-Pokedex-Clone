@@ -62,10 +62,10 @@ document.addEventListener(`DOMContentLoaded`,event => {
             <div class="desktop-menu-option mobile-Menu" id="desktopMenu">
                 <!-- Nav Links -->
                 <div class="nav-link Github"><a href="https://github.com/strawhat19/"><i class="fab fa-github"></i> Github</a></div>
-                <div class="nav-link">  <a href="./login.php" class="loginMobile" title="Login">
+                <div class="nav-link">  <a href="./login" class="loginMobile" title="Login">
                     <i class="fas fa-sign-in-alt"></i> Login
                 </a></div>
-                <div class="nav-link"><a href="./register.php" class="registerMobile" title="Register">
+                <div class="nav-link"><a href="./register" class="registerMobile" title="Register">
                     <i class="fas fa-user-plus"></i> Register
                 </a></div>
             </div>

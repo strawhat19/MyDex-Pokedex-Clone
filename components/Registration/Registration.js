@@ -1,10 +1,32 @@
 // Import Pokedex
 import { Pokedex } from '../../server/db/Pokedex.js';
+let IDS = [];
 
 // Register Trainer Function
 export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
+
+    let collection = `Trainers`;
     loginForm.hide();
 
+    const getBadges = (value) => {
+        Trainers.where(`collection`,`==`,value).get().then(user => {
+            user.forEach(doc => {
+                let match = doc.data();
+                if (match) {
+                    IDS.push(match.badge);
+                    let uniqueIDS = [...new Set(IDS)];
+                    console.log(uniqueIDS);
+                    if (uniqueIDS.includes(trainerNumber)) trainerNumber = trainerNumber + 1;
+                    return uniqueIDS;
+                } else {
+                    alert(`No Users Found!`);
+                    return;
+                }
+            })
+        });
+    }
+
+    // const uniqueIDS = getBadges(collection);
     registerButton.attr(`data-registered`,trainerNumber);
     let userNumber = parseInt(registerButton.attr(`data-registered`)) || trainerNumber;
 
@@ -74,6 +96,15 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                 ]
                 // console.log(date);
                 const dateObject = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+                var sortObject = (object) => {
+                    Object.keys(object)
+                    .sort()
+                    .reduce(function (acc, key) { 
+                        acc[key] = object[key];
+                        return acc;
+                    }, {});
+                } 
+                getBadges(collection);
                 let uuid = `${badge} - ${capitalize(trainer)} - ${dateObject}`;
 
                 Trainers.doc(uuid).set({
@@ -85,7 +116,8 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                     teams: startingTeams,
                     friends: [],
                     pokemon: pokeArray,
-                    uuid: uuid
+                    uuid: uuid,
+                    collection: collection
                 }).then((trainerNumber) => {
                     Trainers.onSnapshot(allTrainers => {
                         var sortObject = (object) => {
@@ -105,10 +137,10 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                             trainers: TrainersArray
                         })
                         
-                        // let number = TrainersArray.length;
-                        // console.log(`Updated Trainer Count: `, TrainersArray.length);
-                        // console.log(`Updated Pokemon Trainers: `, TrainersArray);
-                        // console.log(`New Trainer: `, TrainersArray.filter(item => item.badge == number));
+                        let number = TrainersArray.length;
+                        console.log(`Updated Trainer Count: `, TrainersArray.length);
+                        console.log(`Updated Pokemon Trainers: `, TrainersArray);
+                        console.log(`New Trainer: `, TrainersArray.filter(item => item.badge == TrainersArray.length));
 
                         window.location.href = `./login.php`;
 
@@ -144,20 +176,52 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
                 alert(`Please Enter Data Into The Login Fields!`);
                 return;
             } else {
-                // Login User In
-                console.log(email);
-                console.log(password);
-                const matches = Trainers.where(`email`,`==`,email).get().then(user => {
+                // Validation
+                Trainers.where(`email`,`==`,email).get().then(user => {
                     user.forEach(doc => {
-                        return doc.data();
+                        let match = doc.data();
+
+                        if (match) {
+                            alert(`We found a match for your email! Now enter your Password!`);
+                            let pass = match.password;
+                            
+                            if (password == pass) {
+                                // Login User
+                                console.log(`Logged in as: `, match);
+                                localStorage.setItem(`Current User`, match);
+                                // window.location.href = `./trainer.php?=${match.name}`;
+                            } else {
+                                // Incorrect Password
+                                alert(`Incorrect Password`);
+                                return;
+                            }
+
+                        } else {
+                            alert(`No Users Found!`);
+                            return;
+                        }
                     })
                 });
 
-                const Login = (matches) => {
-                    console.log(matches.then(data => console.log(data)));
+                const getPasswords = () => {
+                    Trainers.where(`password`,`==`,password).get().then(user => {
+                        user.forEach(doc => {
+                            let match = doc.data();
+    
+                            if (match) {
+                                console.log(match);
+                                return match;
+    
+                            } else {
+                                alert(`No Users Found!`);
+                                return;
+                            }
+                        })
+                    });
                 }
 
-                Login(matches);
+                getPasswords();
+
             }
         }
     })
