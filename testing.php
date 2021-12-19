@@ -18,8 +18,8 @@
 <body>
     
     <h1>TESTING</h1>
-    <script type="module" src="./server/functions/testing.js"></script>
-    <!-- <script type="module" src="./server/db/Pokedex.js"></script> -->
+    <!-- <script type="module" src="./server/functions/testing.js"></script> -->
+    <script type="module" src="./server/db/Pokedex.js"></script>
 </body>
 
 </html>

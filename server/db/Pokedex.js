@@ -1,6 +1,6 @@
 // Importing or Fetching All Generations of Pokemon
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
-import {  arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch } from "../functions/functions.js";
+import {  arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray } from "../functions/functions.js";
 import { evolutions } from './evolutions.js';
 import Pokemon from "../models/Pokemon.js";
 import { Gen1 } from "./Gens/gen1.js";
@@ -10,62 +10,100 @@ import { Gen4 } from "./Gens/gen4.js";
 
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+export const newPokemonWithEvols = JSON.parse(localStorage.getItem(`New Pokemon With Evolutions:`));
 
-const getMatches = () => {
-    const currentEvos = [];
-    let names = [];
-    // const matches = [];
-    // const namesState = [];
-    // const currentEvosState = [];
-    const matches = JSON.parse(localStorage.getItem(`matches`)) || [];
-    const namesState = JSON.parse(localStorage.getItem(`names`)) || [];
-    const currentEvosState = JSON.parse(localStorage.getItem(`currentEvos`)) || [];
+console.log(`New Pokemon With Evolutions:`, newPokemonWithEvols);
 
+const generateEvos = () => {
+    const matches = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
+    const namesState = JSON.parse(localStorage.getItem(`Current Pokedex`)) || [];
+    const currentEvosState = JSON.parse(localStorage.getItem(`Current Evolution Chains`)) || [];
+    const currentPokeEvolState = JSON.parse(localStorage.getItem(`Current Pokemon With Evolutions`)) || [];
+
+    // Array of Names
     let uniqueNames = namesState.filter((item, index) => {
         return namesState.indexOf(item) === index;
     });
 
-    // evolutions.forEach(evolution => {
-    //     const pokemonMatch = evolution.pokemon;
-    //     matches.push(pokemonMatch);
-    //     localStorage.setItem(`matches`, JSON.stringify(matches));
-    // })
+    const currentEvoNames = arrayMatches(matches,uniqueNames);
 
-    // Pokedex.forEach(pokemon => {
-    //     names.push(pokemon.name);
-    //     localStorage.setItem(`names`, JSON.stringify(names));
-    // })
+    const currentEvos = [];
+    const currentPokemonThatEvolve = [];
 
-    // Array of Current Evolutons
-    // console.log(Pokedex);
-    // console.log(evolutions);
+    const uniqueEvos = removeDuplicateObjFromArray(currentEvosState);
+    // console.log(`Current Evolution Chains: `, uniqueEvos);
+    const uniquePokeEvols = removeDuplicateObjFromArray(currentPokeEvolState);
+    // console.log(`Current Pokemon With Evolutions: `, uniquePokeEvols);
 
-    // Array of Names
-    // console.log(matches);
-    // console.log(uniqueNames);
-    console.log(currentEvosState);
-
- 
-    const getEvolutions = () => {
-        uniqueNames.forEach(uName => {
-            let filteredEvolutions = evolutions.filter(evolution => {
-                if (evolution.pokemon == uName) {
-                    currentEvos.push(evolution);
-                    localStorage.setItem(`Current Evos`, JSON.stringify(currentEvos));
-                    console.log(currentEvos);
-                    return currentEvos;
-                }
-            });
-            console.log(filteredEvolutions);
-            return filteredEvolutions;
-        })
+    if (uniquePokeEvols.length === uniqueEvos.length) {
+        let newPokeArray = [];
+        for (var i = 0; i < uniquePokeEvols.length; i++) {
+            const newPokeWithEvolution = new Pokemon(
+                uniquePokeEvols[i].name,                // name
+                uniquePokeEvols[i].id,                  // id
+                uniquePokeEvols[i].index,               // index
+                uniquePokeEvols[i].generation,          // generation
+                uniquePokeEvols[i].types,               // types
+                uniquePokeEvols[i].image,               // image
+                uniquePokeEvols[i].shiny,               // shiny
+                uniquePokeEvols[i].stats,               // stats
+                uniquePokeEvols[i].size,                // size
+                uniquePokeEvols[i].weight,              // weight
+                uniquePokeEvols[i].description,         // description
+                uniquePokeEvols[i].altDescription,      // altDescription
+                uniqueEvos[i]                           // evolution
+            )
+            newPokeArray.push(newPokeWithEvolution);
+            localStorage.setItem(`New Pokemon With Evolutions:`, JSON.stringify(newPokeArray))
+        }
     }
+ 
+    currentEvoNames.matches.forEach(match => {
 
-    // getEvolutions();
+        Pokedex.filter(pokemon => {
+            if (pokemon.name == match) {
+                currentPokemonThatEvolve.push(pokemon);
+                localStorage.setItem(`Current Pokemon With Evolutions`, JSON.stringify(currentPokemonThatEvolve));
+            }
+        })
+
+    })
+
+    currentEvoNames.matches.forEach(match => {
+
+        evolutions.filter(evolution => {
+            if (evolution.pokemon == match) {
+                currentEvos.push(evolution);
+                localStorage.setItem(`Current Evolution Chains`, JSON.stringify(currentEvos));
+            }
+        })
+
+    })
 
 }
 
-// getMatches();
+generateEvos();
+
+const reWriteEvos = () => {
+    const names = [];
+    const matches = [];
+
+    evolutions.forEach(evolution => {
+        matches.push(evolution.pokemon);
+        localStorage.setItem(`Evolutions`, JSON.stringify(matches));
+    })
+
+    Pokedex.forEach(pokemon => {
+        names.push(pokemon.name);
+        localStorage.setItem(`Current Pokedex`, JSON.stringify(names));
+    })
+
+    console.log(matches);
+    console.log(uniqueNames);
+    console.log(currentEvosState);
+    console.log(evolutions);
+
+}
 
 // Generating Dex for DB
 export const generateDex = (pokemonData, genArray, genNum) => {
