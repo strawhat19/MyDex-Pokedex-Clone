@@ -1,4 +1,60 @@
 // Global Functions
+import { Pokedex } from '../db/Pokedex.js';
+
+export const asyncFetch = async (url) => {
+    const response = await fetch(url).then(response => response.json()).catch(function(error) {
+        console.log(`No Response! `, error);
+    })
+
+    if (!response) {
+        console.log(`No Response!`);
+    } else {
+        console.log(`Succes!`);
+    }
+};
+
+export const sortArrayById = (arrayWithIDS) => {
+    const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);
+    return sortedArray;
+}
+
+// Fetch More Pokemon Data
+export const pokeFetch = async (url) => {
+    const pokeResponse = await fetch(url);
+    const pokeData = await pokeResponse.json();
+    return pokeData;
+};
+
+export const genFetch = async (offset, limit) => {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
+  const pokemon = await response.json();
+  return pokemon;
+};
+
+export const removeDuplicateObjFromArray = (array) => {
+    const uniqueArray = array.filter((value, index) => {
+        const _value = JSON.stringify(value);
+        return index === array.findIndex(obj => {
+            return JSON.stringify(obj) === _value;
+        });
+    });
+    return uniqueArray;
+}
+
+export const arrayMatches = (array1,array2) => {
+    let ifMatch = array1.some(contents => array2.indexOf(contents) >= 0);
+    if (ifMatch) {
+        // Return Matching Values from Arrays
+        let matchesArray = _.intersection(array1, array2);
+        return {
+            match: ifMatch,
+            howMany: matchesArray.length,
+            matches: matchesArray
+        };
+    } else {
+        return `No Matches!`;
+    }
+}
 
 // Sort Keys in Object Alphabetically
 export const sortObject = (object) => {
@@ -8,7 +64,15 @@ export const sortObject = (object) => {
         acc[key] = object[key];
         return acc;
     }, {});
-} 
+}
+
+export const sortObjByKeyLength = (obj) => {
+    let object = {};
+    let keyArray = Object.keys(obj);
+    keyArray.sort();
+    keyArray.forEach(function(item) {object[item] = obj[item]});
+    return object;
+}
 
 // Capitalize First Letter of Word
 export const capitalize = (word) => {

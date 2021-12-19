@@ -11,7 +11,8 @@ export default class Pokemon {
     size,
     weight,
     description,
-    altDescription
+    altDescription,
+    evolution
   ) {
     this.name = name;
     this.id = id;
@@ -25,5 +26,6 @@ export default class Pokemon {
     this.weight = weight;
     this.description = description;
     this.altDescription = altDescription;
+    this.evolution = evolution;
   }
 }
