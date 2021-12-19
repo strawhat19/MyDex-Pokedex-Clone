@@ -9,18 +9,16 @@
 <body>
     <!-- Header Component -->
     <?php include("./components/Header/header.php") ?>
-    <main class="main">
-        <?php include("./components/Search/search.php") ?>
-        <div class="pokemon" id="selectedPokemon"></div>
-    </main>
+
+    <!-- Pokemon Info Component -->
+    <div class="pokemonInfo" id="pokemonInfo">
+        <!-- Pokemon Data Inserted Here -->
+    </div>
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
     <!-- Start Server -->
     <script type="module" src="./server/server.js"></script>
-    <script type="module">
-        let pokemon = window.location.search.replace(`?=`,``);
-        console.log(pokemon);
-    </script>
+    <!-- <script type="module" src="./server/db/Pokedex.js"></script> -->
 </body>
 
 </html>

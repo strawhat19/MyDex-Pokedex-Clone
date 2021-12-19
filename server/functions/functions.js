@@ -1,18 +1,11 @@
 // Global Functions
-import { Pokedex } from '../db/Pokedex.js';
 
-export const asyncFetch = async (url) => {
-    const response = await fetch(url).then(response => response.json()).catch(function(error) {
-        console.log(`No Response! `, error);
-    })
+// Capitalize First Letter of Word
+export const capitalize = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
 
-    if (!response) {
-        console.log(`No Response!`);
-    } else {
-        console.log(`Succes!`);
-    }
-};
-
+// Sort Array By ID
 export const sortArrayById = (arrayWithIDS) => {
     const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);
     return sortedArray;
@@ -25,12 +18,33 @@ export const pokeFetch = async (url) => {
     return pokeData;
 };
 
+// Fetch One Generation At A Time
 export const genFetch = async (offset, limit) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
   const pokemon = await response.json();
   return pokemon;
 };
 
+// Sort Keys in Object Alphabetically
+export const sortObject = (object) => {
+    Object.keys(object)
+    .sort()
+    .reduce(function (acc, key) { 
+        acc[key] = object[key];
+        return acc;
+    }, {});
+}
+
+// Sort Object by Key Length
+export const sortObjByKeyLength = (obj) => {
+    let object = {};
+    let keyArray = Object.keys(obj);
+    keyArray.sort();
+    keyArray.forEach(function(item) {object[item] = obj[item]});
+    return object;
+}
+
+// Remove Duplicate Objects from an Array
 export const removeDuplicateObjFromArray = (array) => {
     const uniqueArray = array.filter((value, index) => {
         const _value = JSON.stringify(value);
@@ -41,6 +55,20 @@ export const removeDuplicateObjFromArray = (array) => {
     return uniqueArray;
 }
 
+// Async Fetching
+export const asyncFetch = async (url) => {
+    const response = await fetch(url).then(response => response.json()).catch(function(error) {
+        console.log(`No Response! `, error);
+    })
+
+    if (!response) {
+        console.log(`No Response!`);
+    } else {
+        console.log(`Succes!`);
+    }
+};
+
+// If Two Arrays Share Common Values, This Function Will Return The Matching Values
 export const arrayMatches = (array1,array2) => {
     let ifMatch = array1.some(contents => array2.indexOf(contents) >= 0);
     if (ifMatch) {
@@ -54,29 +82,6 @@ export const arrayMatches = (array1,array2) => {
     } else {
         return `No Matches!`;
     }
-}
-
-// Sort Keys in Object Alphabetically
-export const sortObject = (object) => {
-    Object.keys(object)
-    .sort()
-    .reduce(function (acc, key) { 
-        acc[key] = object[key];
-        return acc;
-    }, {});
-}
-
-export const sortObjByKeyLength = (obj) => {
-    let object = {};
-    let keyArray = Object.keys(obj);
-    keyArray.sort();
-    keyArray.forEach(function(item) {object[item] = obj[item]});
-    return object;
-}
-
-// Capitalize First Letter of Word
-export const capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 // Get User Badges
@@ -119,9 +124,6 @@ export const detectPokemonSizes = () => {
     })
 }
 
-// Uncomment this to Execute Function
-// detectPokemonSizes();
-
 // Detect Lengths of Pokemon Descriptions
 export const detectDescriptionSizes = () => {
     let re = /\n/gi;
@@ -149,6 +151,3 @@ export const detectDescriptionSizes = () => {
         })
     })
 }
-
-// Uncomment this to Execute Function
-// detectDescriptionSizes();

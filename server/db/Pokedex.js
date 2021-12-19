@@ -12,7 +12,17 @@ import { Gen4 } from "./Gens/gen4.js";
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
 export const newPokemonWithEvols = JSON.parse(localStorage.getItem(`New Pokemon With Evolutions:`));
 
-console.log(`New Pokemon With Evolutions:`, newPokemonWithEvols);
+// let pokemonName = window.location.search.replace(`?=`,``);
+// console.log(pokemon);
+
+// console.log(`New Pokemon With Evolutions:`, newPokemonWithEvols);
+// newPokemonWithEvols.forEach(pokemon => {
+//     const {name,evolution: {evolvesTo,finalEv}} = pokemon;
+//     console.log(`Pokemon Name:`, name);
+//     console.log(`Evolution 1:`, evolvesTo);
+//     console.log(`Evolution 2:`, finalEv);
+//     console.log(`-------------------------------------------`);
+// })
 
 const generateEvos = () => {
     const matches = JSON.parse(localStorage.getItem(`Evolutions`)) || [];

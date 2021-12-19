@@ -4,6 +4,7 @@
 
 A clone of the Pokedex where you can create an account, save your favorite pokemon or teams, and then show them off to friends you added via your PokeProfile!
 
+This app was made using XAMPP Apache Server with PHP & SASS for Templating and Google Firebase BaaS(Backend As A Service) with Firestore.
 
 ![Screenshot of Application](./assets/images/design1.JPG)
 
