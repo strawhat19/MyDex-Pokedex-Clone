@@ -1,15 +1,18 @@
 // Global Functions
+export const str = JSON.stringify;
+export const parse = JSON.parse;
+
+// Shorten Set Item
 export const set = (itemKey,item) => {
     localStorage.setItem(itemKey,item);
 }
+
+// Shorten Get Item
 export const get = (itemKey) => {
-    localStorage.getItem(itemKey);
+    let parsed = JSON.parse(localStorage.getItem(itemKey));
+    return parsed;
 }
-export const log = (message,item) => {
-    console.log(message,item);
-}
-export const str = JSON.stringify;
-export const parse = JSON.parse;
+
 // Capitalize First Letter of Word
 export const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -81,17 +84,32 @@ export const asyncFetch = async (url) => {
 // If Two Arrays Share Common Values, This Function Will Return The Matching Values
 export const arrayMatches = (array1,array2) => {
     let ifMatch = array1.some(contents => array2.indexOf(contents) >= 0);
-    if (ifMatch) {
-        // Return Matching Values from Arrays
-        let matchesArray = _.intersection(array1, array2);
-        return {
-            match: ifMatch,
-            howMany: matchesArray.length,
-            matches: matchesArray
-        };
+    if (ifMatch) { // Return Matching Values from Arrays 
+        // UnderScoreJS
+        return _.intersection(array1, array2);
     } else {
         return `No Matches!`;
     }
+}
+
+// Matching Objects after Removing Duplicates from Arrays of Objects
+export const matchingObjectsFromArrays = ( arrayOfObjects1 , arrayOfObjects2 ) => {
+    // Remove Duplicates
+    const removeDuplicateObjFromArray = (array) => {
+        const uniqueArray = array.filter((value, index) => {
+            const _value = JSON.stringify(value);
+            return index === array.findIndex(obj => {
+                return JSON.stringify(obj) === _value;
+            });
+        });
+        return uniqueArray;
+    }
+    // Set Matches
+    let uniqueMatches1 = removeDuplicateObjFromArray(arrayOfObjects1);
+    let uniqueMatches2 = removeDuplicateObjFromArray(arrayOfObjects2);
+    // Return Matches
+    let ifArrayMatches = arrayMatches(uniqueMatches1,uniqueMatches2);
+    return ifArrayMatches;
 }
 
 // Get User Badges
