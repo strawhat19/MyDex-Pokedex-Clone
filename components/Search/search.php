@@ -3,6 +3,10 @@
 
 import { Pokedex } from './server/db/Pokedex.js';
 import { renderPokemon } from "./server/functions/renderPokemon.js";
+
+// Import Global Helper Functions
+import { log, str, parse, set, get, pageName, getCurrentPageName, testing, removeDuplicateObjFromArray, sortArrayById, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, capitalize, matchingObjectsFromArrays, sortObjByKeyLength  } from "./server/server.js";
+
 const pokedexContainer = $(`.pokedex`);
 export let pokeSearch = $(`#pokeSearch`);
 export let typeSearch = $(`#typeSearch`);

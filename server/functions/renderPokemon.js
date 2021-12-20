@@ -1,7 +1,10 @@
 // Pokemon Import // Fetch & Render
 import { Pokedex } from '../db/Pokedex.js';
-import { capitalize } from './functions.js';
-let pokedexContainer = $(`.pokedex`);
+
+// Import Global Helper Functions
+import { capitalize, log, str, parse, set, get, pageName, getCurrentPageName, testing, removeDuplicateObjFromArray, sortArrayById, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, matchingObjectsFromArrays, sortObjByKeyLength  } from "../server.js";
+
+const pokedexContainer = $(`.pokedex`);
 
 // Rendering Custom Stat Names // Labels
 export const renderStatName = (statName) => {

@@ -1,6 +1,8 @@
 // Imports
 import { Pokedex } from '../../server/db/Pokedex.js';
-import { capitalize, detectPokemonSizes, detectDescriptionSizes, getBadges } from '../../server/functions/functions.js';
+
+// Import Global Helper Functions
+import { log, str, parse, set, get, pageName, getCurrentPageName, testing, removeDuplicateObjFromArray, sortArrayById, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, capitalize, matchingObjectsFromArrays, sortObjByKeyLength  } from "../../server/server.js";
 
 // Register Trainer Function
 export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
