@@ -201,7 +201,7 @@ export const detectDescriptionSizes = () => {
     })
 }
 
-// Export Console Logging
+// Expert Console Logging
 export const log = (message,itemYouConsoleLogged) => {
     const messageName = `Expert Console Logging Function!`;
     const Message = `This is a Custom Console.Log Function, and here's what you just console logged:`;

@@ -7,8 +7,6 @@ import { log, str, parse, set, get, pageName, getCurrentPageName, testing, remov
 // Register Trainer Function
 export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersDB,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration) => {
 
-    loginForm.hide();
-
     registerButton.on(`click`, event => {
         // Show Registration Form if its Hidden
         if (registerForm.hasClass(`inactive`)) {

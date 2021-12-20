@@ -1,12 +1,12 @@
 // Import Global Helper Functions
-// import { log, str, parse, fetchData, get, pageName, getCurrentPageName, testing, arrayContain, asyncFetch, genFetch, capitalize, } from '../server.js';
+// import { log, str, fetchData, pageName, getCurrentPageName, testing, arrayContain, asyncFetch, genFetch, capitalize } from '../server.js';
 
 // Without Starting Server
-import {  set,  arrayMatches, pokeFetch, fetchData, matchingObjectsFromArrays, sortObjByKeyLength, removeDuplicateObjFromArray, sortArrayById } from '../functions/globalFunctions.js';
+import { set, get, parse, pokeFetch, arrayMatches, sortArrayById, sortObjByKeyLength, matchingObjectsFromArrays, removeDuplicateObjFromArray } from '../functions/globalFunctions.js';
 
 // Evolutions DB
 import { gen1EvolutionChains } from './Evolutions/gen1EvolutionChains.js';
-import { gen1Evos } from "./Evolutions/gen1evoChains.js";
+import { evolutionDex, evolutionDexEntry } from "./Evolutions/evolutionDex.js";
 
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
 import Pokemon from "../models/Pokemon.js";
@@ -16,95 +16,28 @@ import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
 
 // Creating & Exporting Pokedex
+export const dexHolder = parse(get(`Current Pokedex`)) || [Gen1,Gen2,Gen3,Gen4];
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+console.log(`Pokedex`,`Current Pokedex`, Pokedex);
+console.log(`evolutionDex`,`New Dex Entries`, evolutionDex);
 
-// Logs // Test fetchData() Speed vs Import Gens
-console.log(`gen1Evos`, gen1Evos);
-console.log(`gen1EvolutionChains`, gen1EvolutionChains);
-fetchData(`/Gens/gen1.json`).then(arr => console.log(``,arr));
+// Extract Pokemon Names
+const extractPokemonNames = (pokedexToExtractFrom, evolutionsToExtractFrom) => {
+    const pokedexNames = [];
+    const evolutionNames = [];
 
-// -----------------------------------------------------------------------------------------------------------------------------------//
-// generateEvolutionChains(Gen) that takes in a { Gen } ( Either Gen1 // Gen2 // Gen3... ) of Pokemon and returns evolutionChains
-export const generateEvolutionChains = (Gen) => {
-    let pokedexEntriesWithEvos = removeDuplicateObjFromArray(gen1Evos);
-    console.log(`pokedexEntriesWithEvos`, pokedexEntriesWithEvos);
-    let pokeDexChains = [];
-    pokedexEntriesWithEvos.forEach(pokemon => {
-       pokeDexChains.push(pokemon.evolution);
-            return pokeDexChains;
-            // for ( var i = 1; i < currentEvos.length; i++ ) {
-            //     evoFetch(i);
-            // }
+    pokedexToExtractFrom.forEach(pokemon => {
+        pokedexNames.push(pokemon.name);
+        return pokedexNames;
     })
-    // return pokedexEntriesWithEvos;
-    //-----
-    // Return all Function Values
-    return {
-        Gen,
-        pokedexEntriesWithEvos,
-        pokeDexChains
-    }
-}
- // --------------------------------------------------------------------------------------------------------------------------------//
 
-// Outputting Evolution Chains
-export const gen1Chains = generateEvolutionChains(`Gen 1 Pokemon That Have Evolutions`);
-console.log(gen1Chains);
-
-export const insertGensIntoDex = ( Gen, genChains ) => { 
-    let entries = sortArrayById(genChains.pokedexEntriesWithEvos);
-    let ifMatch = matchingObjectsFromArrays(entries,Pokedex);
-    console.log(`ifMatch`,ifMatch);
-    entries.forEach(entry => {
-        // console.log(entry);
+    evolutionsToExtractFrom.forEach(evolution => {
+        evolutionNames.push(evolution.pokemon);
+        return evolutionNames;
     })
+
+    generateEvos(pokedexNames,evolutionNames);
 }
-
-insertGensIntoDex( Pokedex , gen1Chains );
-
-// After This Update PokeDex
-
-// Pokemon With Evols
-
-// console.log(`Pokemon Who Evolve`, pokemonWithEvols);
-
- // pokemonWhoEvolve.forEach(pokemon => {
-    //     evolveNames.push(pokemon.pokemon);
-    //     console.log(`Evolve Names`,str([...new Set(evolveNames)]));
-    //     // let currentEvos = ifArrayMatches.matches;
-    //     // for ( var i = 1; i < currentEvos.length; i++ ) {
-    //     //     evoFetch(i);
-    //     // }
-    // })
-
-// Creating New Pokemon With Evolution Chains
-// pokemonWithEvols.forEach(pokemon => {
-
-//     const {name,evolution: {evolvesTo,trigger,level,finalEv,finalEvLev}} = pokemon;
-
-//     const logEvols = (trigger) => {
-//         if (trigger == `level-up`) {
-//             const triggerNew = trigger.split(`-`);
-//             const triggerSTR = capitalize(triggerNew[0]) + ` ` + capitalize(triggerNew[1]);
-
-//             console.console.log(`Pokemon Name:`, capitalize(name));
-//             console.console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR, `at Level`, level);
-//             console.console.log(`Evolves to`, capitalize(finalEv),`At level`, finalEvLev);
-//             console.console.log(`-------------------------------------------`);
-//             console.console.log(`Level Up!`);
-//         } else {
-//             const triggerSTR = `Trade`;
-//             console.console.log(`Pokemon Name:`, capitalize(name));
-//             console.console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR);
-//             console.console.log(`Evolves to`, capitalize(finalEv),`at level`, finalEvLev);
-//             console.console.log(`-------------------------------------------`);
-//             console.console.log(`Trade Up!`);
-//         }
-//     }
-
-//     // logEvols(trigger);
-
-// })
 
 const generateEvos = (pokedexNames,evolutionNames) => {
 
@@ -169,23 +102,129 @@ const generateEvos = (pokedexNames,evolutionNames) => {
 
 }
 
-// Extract Pokemon Names
-const extractPokemonNames = (pokedexToExtractFrom, evolutionsToExtractFrom) => {
-    const pokedexNames = [];
-    const evolutionNames = [];
+// -----------------------------------------------------------------------------------------------------------------------------------//
+// generateEvolutionChains(Gen) that takes in a { Gen } ( Either Gen1 // Gen2 // Gen3... ) of Pokemon and returns evolutionChains
+export const generateEvolutionChains = (PokedexGeneration) => {
 
-    pokedexToExtractFrom.forEach(pokemon => {
-        pokedexNames.push(pokemon.name);
-        return pokedexNames;
+    // Logs
+    let currentDex = PokedexGeneration;
+    console.log(`dexHolder`,`Current dexHolder`, dexHolder);
+    console.log(`evolutionDex`,`New Dex Entries`, evolutionDex);
+
+    let newDexEntries = removeDuplicateObjFromArray(evolutionDex);
+    console.log(`newDexEntries`,`New Dex Entries`, newDexEntries);
+    let pokeDexChains = [];
+    newDexEntries.forEach(pokemon => {
+       pokeDexChains.push(pokemon.evolution);
+            return pokeDexChains;
+            // for ( var i = 1; i < currentEvos.length; i++ ) {
+            //     evoFetch(i);
+            // }
     })
-
-    evolutionsToExtractFrom.forEach(evolution => {
-        evolutionNames.push(evolution.pokemon);
-        return evolutionNames;
-    })
-
-    generateEvos(pokedexNames,evolutionNames);
+    // return newDexEntries;
+    //-----
+    // Return all Function Values
+    return {
+        currentDex,
+        newDexEntries,
+        pokeDexChains
+    }
 }
+
+// Outputting Evolution Chains
+export const newDexEntries = generateEvolutionChains(`New Dex Entries`);
+console.log(`newDexEntries`,`New Dex Entries`,newDexEntries);
+
+ // --------------------------------------------------------------------------------------------------------------------------------//
+
+ // Evolution Functions
+//  export const insertGensIntoDex = ( Gen, genChains ) => { 
+//     let entries = sortArrayById(genChains.pokedexEntriesWithEvos);
+//     let ifMatch = matchingObjectsFromArrays(entries,Pokedex);
+//     console.log(`ifMatch`,ifMatch);
+//     entries.forEach(entry => {
+//         // console.log(entry);
+//     })
+// }
+
+// If Evolutions Exits
+// export const fetchChains = () => {
+//     let evolutionChains = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
+
+    // Fetch Evolution Chain
+    // const evoFetch = (id) => {
+    //     let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
+    //     fetch(pokemonEvURL).then(response => {
+    //         if (response.status == 404) {
+    //             throw Error(response.statusText + ` - ` + response.url);
+    //         }
+    //     return response.json();
+    //     }).then(evolution => {
+    //         let evolutionChain, name, id, newIndex, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
+    //         evolutionChain = evolution.chain;
+    //         name = evolutionChain.species.name;
+    //         id = evolution.id;
+    //         evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
+    //         level = evolutionDetails.min_level;
+    //         trigger = evolutionDetails.trigger.name;
+    //         evolvesTo = evolutionChain.evolves_to[0].species.name;
+    //         finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
+    //         finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
+    //         finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
+    //         let chain = {name,id,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
+    //         evolutionChains.push(chain);
+    //         set(`Evolutions 2`, JSON.stringify(evolutionChains));
+    //     }).catch(function(error) {
+    //         console.console.log(error);
+    //     })
+    // }
+// }
+
+// insertGensIntoDex( Pokedex , gen1Chains );
+
+// After This Update PokeDex
+
+// Pokemon With Evols
+
+// console.log(`Pokemon Who Evolve`, pokemonWithEvols);
+
+ // pokemonWhoEvolve.forEach(pokemon => {
+    //     evolveNames.push(pokemon.pokemon);
+    //     console.log(`Evolve Names`,str([...new Set(evolveNames)]));
+    //     // let currentEvos = ifArrayMatches.matches;
+    //     // for ( var i = 1; i < currentEvos.length; i++ ) {
+    //     //     evoFetch(i);
+    //     // }
+    // })
+
+// Creating New Pokemon With Evolution Chains
+// pokemonWithEvols.forEach(pokemon => {
+
+//     const {name,evolution: {evolvesTo,trigger,level,finalEv,finalEvLev}} = pokemon;
+
+//     const logEvols = (trigger) => {
+//         if (trigger == `level-up`) {
+//             const triggerNew = trigger.split(`-`);
+//             const triggerSTR = capitalize(triggerNew[0]) + ` ` + capitalize(triggerNew[1]);
+
+//             console.console.log(`Pokemon Name:`, capitalize(name));
+//             console.console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR, `at Level`, level);
+//             console.console.log(`Evolves to`, capitalize(finalEv),`At level`, finalEvLev);
+//             console.console.log(`-------------------------------------------`);
+//             console.console.log(`Level Up!`);
+//         } else {
+//             const triggerSTR = `Trade`;
+//             console.console.log(`Pokemon Name:`, capitalize(name));
+//             console.console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR);
+//             console.console.log(`Evolves to`, capitalize(finalEv),`at level`, finalEvLev);
+//             console.console.log(`-------------------------------------------`);
+//             console.console.log(`Trade Up!`);
+//         }
+//     }
+
+//     // logEvols(trigger);
+
+// })
 
 // const extractedNames = extractPokemonNames( Pokedex, gen1EvolutionChains );
 // console.log(extractedNames);
@@ -232,6 +271,8 @@ export const generateDex = (pokemonData, genArray, genNum) => {
 
 }
 
+ // --------------------------------------------------------------------------------------------------------------------------------//
+
 // Gen 1 Fetch
 // let gen1 = [];
 // genFetch(0, 151).then((generation1) => {
@@ -271,41 +312,5 @@ export const generateDex = (pokemonData, genArray, genNum) => {
 //     })
 //   });
 // });
-
-// I moved this code down for simplicity but if you want to reuse it, copy eveything below this line and paste it above the generateDex function
-
-// Evolutions
-// If Evolutions Exits
-export const fetchChains = () => {
-    let evolutionChains = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
-
-    // Fetch Evolution Chain
-    const evoFetch = (id) => {
-        let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
-        fetch(pokemonEvURL).then(response => {
-            if (response.status == 404) {
-                throw Error(response.statusText + ` - ` + response.url);
-            }
-        return response.json();
-        }).then(evolution => {
-            let evolutionChain, name, id, newIndex, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
-            evolutionChain = evolution.chain;
-            name = evolutionChain.species.name;
-            id = evolution.id;
-            evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
-            level = evolutionDetails.min_level;
-            trigger = evolutionDetails.trigger.name;
-            evolvesTo = evolutionChain.evolves_to[0].species.name;
-            finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
-            finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
-            finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
-            let chain = {name,id,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
-            evolutionChains.push(chain);
-            set(`Evolutions 2`, JSON.stringify(evolutionChains));
-        }).catch(function(error) {
-            console.console.log(error);
-        })
-    }
-}
 
 // fetchChains();

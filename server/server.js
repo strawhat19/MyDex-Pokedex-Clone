@@ -37,6 +37,7 @@ export const footer = $(`footer`);
 
 // Start Front End
 body.hide();
+loginForm.hide();
 body.fadeIn(fadeDuration);
 footer.css(`opacity`,`1`);
 footer.fadeIn(fadeDuration);
@@ -44,6 +45,10 @@ header.css(`opacity`,`1`);
 header.fadeIn(fadeDuration);
 searchFilter.css(`opacity`,`1`);
 searchFilter.fadeIn(fadeDuration);
+
+// ------------------------------------------------------------ START FIREBASE APP ------------------------------------------------------------ //
+// ------------------------------------------------------------ START FIREBASE APP ------------------------------------------------------------ //
+// ------------------------------------------------------------ START FIREBASE APP ------------------------------------------------------------ //
 
 // Server Config, Keep This Hidden if Possible
 const firebaseConfig = {
@@ -55,7 +60,7 @@ const firebaseConfig = {
     appId: "1:603945130926:web:0d0e7dae151f9cefb8863f"
 };
 
-// Start App // Global Helper Functions & Exports
+// Global Helper Functions & Exports to Start App
 export const app = initializeApp(firebaseConfig);
 export const str = JSON.stringify;
 export const parse = JSON.parse;
@@ -259,7 +264,7 @@ export const detectDescriptionSizes = () => {
     })
 }
 
-// Export Console Logging
+// Expert Console Logging
 export const log = (message,itemYouConsoleLogged) => {
     const messageName = `Expert Console Logging Function!`;
     const Message = `This is a Custom Console.Log Function, and here's what you just console logged:`;
