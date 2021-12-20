@@ -6,7 +6,7 @@ A clone of the Pokedex where you can create an account, save your favorite pokem
 
 This app was made using XAMPP Apache Server with PHP & SASS for Templating and Google Firebase BaaS(Backend As A Service) with Firestore.
 
-![Screenshot of Application](./assets/images/design1.JPG)
+![Screenshot of Application](./assets/images/design2.JPG)
 
 ## Table of Contents  
 * [Usage](#usage)

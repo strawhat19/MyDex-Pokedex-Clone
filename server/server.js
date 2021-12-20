@@ -4,33 +4,33 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
 // DOM
-const body = $(`body`);
-const header = $(`header`);
-const searchFilter = $(`.searchFilter`);
-const footer = $(`footer`);
+export const body = $(`body`);
+export const header = $(`header`);
+export const searchFilter = $(`.searchFilter`);
+export const footer = $(`footer`);
 let fadeDuration = 2500;
 
  // Desktop
- const emailField = $(`#email`);
- const loginPass = $(`#loginPass`);
- const loginForm = $(`#loginForm`);
- const loginEmail = $(`#loginEmail`);
- const passwordField = $(`#password`);
- const loginButton = $(`#loginButton`);
- const registerForm = $(`#registerForm`);
- const trainerNameField = $(`#trainerName`);
- const registerButton = $(`#registerButton`);
+ export const emailField = $(`#email`);
+ export const loginPass = $(`#loginPass`);
+ export const loginForm = $(`#loginForm`);
+ export const loginEmail = $(`#loginEmail`);
+ export const passwordField = $(`#password`);
+ export const loginButton = $(`#loginButton`);
+ export const registerForm = $(`#registerForm`);
+ export const trainerNameField = $(`#trainerName`);
+ export const registerButton = $(`#registerButton`);
 
  // Mobile
- const mobileEmail = $(`#mobileEmail`);
- const mobileTrainer = $(`#mobileTrainer`);
- const mobileLogin = $(`#mobileLoginForm`);
- const mobilePassword = $(`#mobilePassword`);
- const mobilePassLogin = $(`#mobilePassLogin`);
- const mobileRegister = $(`#mobileRegisterForm`);
- const mobileEmailLogin = $(`#mobileEmailLogin`);
- const mobileLoginButton = $(`#mobileLoginButton`);
- const mobileRegisterButton = $(`#mobileRegisterButton`);
+ export const mobileEmail = $(`#mobileEmail`);
+ export const mobileTrainer = $(`#mobileTrainer`);
+ export const mobileLogin = $(`#mobileLoginForm`);
+ export const mobilePassword = $(`#mobilePassword`);
+ export const mobilePassLogin = $(`#mobilePassLogin`);
+ export const mobileRegister = $(`#mobileRegisterForm`);
+ export const mobileEmailLogin = $(`#mobileEmailLogin`);
+ export const mobileLoginButton = $(`#mobileLoginButton`);
+ export const mobileRegisterButton = $(`#mobileRegisterButton`);
 
 // Start Front End
 body.hide();
@@ -54,10 +54,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase Server
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // Once Document is started, execute code below
-document.addEventListener(`DOMContentLoaded`,event => {
+document.addEventListener(`DOMContentLoaded`, event => {
     
     // Starting the Database from the Server
     firebase.initializeApp(firebaseConfig);
