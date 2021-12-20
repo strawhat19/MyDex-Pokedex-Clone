@@ -44,8 +44,6 @@ header.fadeIn(fadeDuration);
 searchFilter.css(`opacity`,`1`);
 searchFilter.fadeIn(fadeDuration);
 
-console.log(window.location);
-
 const firebaseConfig = {
     apiKey: "AIzaSyAG60xtP7kAhXSC6PqPJM6y3MPBNqHF4qE",
     authDomain: "mydex-pokedex-clone-925fc.firebaseapp.com",

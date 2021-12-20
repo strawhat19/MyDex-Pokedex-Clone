@@ -1,6 +1,6 @@
 // Importing or Fetching All Generations of Pokemon
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
-import { testing, log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
+import { getCurrentPageName, testing, log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
 import { gen1EvolutionChains } from './Evolutions/gen1EvolutionChains.js';
 import { gen1Evos } from "./Evolutions/gen1evoChains.js";
 import Pokemon from "../models/Pokemon.js";
@@ -10,6 +10,9 @@ import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+
+let pageName = getCurrentPageName();
+console.log(pageName);
 
 console.log(`Pokedex`,Pokedex);
 console.log(`gen1Evos`,gen1Evos);

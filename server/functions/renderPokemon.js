@@ -1,6 +1,5 @@
 // Pokemon Import // Fetch & Render
 import { Pokedex } from '../db/Pokedex.js';
-import { evolutions } from '../db/evolutions.js';
 import { capitalize } from './functions.js';
 let pokedexContainer = $(`.pokedex`);
 

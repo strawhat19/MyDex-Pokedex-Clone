@@ -8,15 +8,22 @@ export const set = (itemKey,item) => {
     localStorage.setItem(itemKey,item);
 }
 
+// Capitalize First Letter of Word
+export const capitalize = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
 // Shorten Get Item
 export const get = (itemKey) => {
     let parsed = JSON.parse(localStorage.getItem(itemKey));
     return parsed;
 }
 
-// Capitalize First Letter of Word
-export const capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+// Get Current Page Name
+export const getCurrentPageName = (path,page) => {
+    path = window.location.pathname;
+    page = path.split("/").pop();
+    return page
 }
 
 // Sort Array By ID
