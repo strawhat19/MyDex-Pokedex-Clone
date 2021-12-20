@@ -2,7 +2,7 @@
 import { Pokedex } from '../db/Pokedex.js';
 
 // Import Global Helper Functions
-import { capitalize, log, str, parse, set, get, pageName, getCurrentPageName, testing, removeDuplicateObjFromArray, sortArrayById, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, matchingObjectsFromArrays, sortObjByKeyLength  } from "../server.js";
+import { capitalize } from "../server.js";
 
 const pokedexContainer = $(`.pokedex`);
 
