@@ -1,5 +1,15 @@
 // Global Functions
-
+export const set = (itemKey,item) => {
+    localStorage.setItem(itemKey,item);
+}
+export const get = (itemKey) => {
+    localStorage.getItem(itemKey);
+}
+export const log = (message,item) => {
+    console.log(message,item);
+}
+export const str = JSON.stringify;
+export const parse = JSON.parse;
 // Capitalize First Letter of Word
 export const capitalize = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);

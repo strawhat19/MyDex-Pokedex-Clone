@@ -1,28 +1,79 @@
 // Importing or Fetching All Generations of Pokemon
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
-import {  arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray } from "../functions/functions.js";
+import {  log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize } from "../functions/functions.js";
 import { evolutions } from './evolutions.js';
 import Pokemon from "../models/Pokemon.js";
 import { Gen1 } from "./Gens/gen1.js";
 import { Gen2 } from "./Gens/gen2.js";
 import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
+import { newPokemonWithEvols } from "./Gens/genWithEvol.js";
 
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
-export const newPokemonWithEvols = JSON.parse(localStorage.getItem(`New Pokemon With Evolutions:`));
+// console.log(`Evos:`, JSON.parse(localStorage.getItem(`Evolutions`)));
 
+// For Specific Pokemon
 // let pokemonName = window.location.search.replace(`?=`,``);
-// console.log(pokemon);
+// console.log(`Current Pokemon Viewed Is:`, pokemonName);
 
-// console.log(`New Pokemon With Evolutions:`, newPokemonWithEvols);
-// newPokemonWithEvols.forEach(pokemon => {
-//     const {name,evolution: {evolvesTo,finalEv}} = pokemon;
-//     console.log(`Pokemon Name:`, name);
-//     console.log(`Evolution 1:`, evolvesTo);
-//     console.log(`Evolution 2:`, finalEv);
-//     console.log(`-------------------------------------------`);
-// })
+// Pokemon With Evols
+let pokemonWithEvols = removeDuplicateObjFromArray(parse(newPokemonWithEvols));
+log(`Pokemon Who Evolve`, pokemonWithEvols);
+
+export const GenerateEvolutions = () => {
+    
+    // Evolutions
+    let names = JSON.parse(localStorage.getItem(`Current Pokedex`)) || [];
+    let pokemonWhoEvolve = JSON.parse(localStorage.getItem(`Evos`)) || [];
+    let evolveNames = JSON.parse(localStorage.getItem(`Evolve Names`)) || [];
+    let uniqueEvolutions = removeDuplicateObjFromArray(pokemonWhoEvolve);
+    log(`Unique Evolutions`, uniqueEvolutions);
+    // set(`Unique Evolutions`, str(uniqueEvolutions));
+    let ifArrayMatches = arrayMatches(names,pokemonWhoEvolve);
+
+    // console.log(ifArrayMatches);
+
+    pokemonWhoEvolve.forEach(pokemon => {
+        evolveNames.push(pokemon.pokemon);
+        // set(`Evolve Names`,str([...new Set(evolveNames)]));
+        log(`Evolve Names`,str([...new Set(evolveNames)]));
+    //     let currentEvos = ifArrayMatches.matches;
+    //     // for ( var i = 1; i < currentEvos.length; i++ ) {
+    //     //     evoFetch(i);
+    //     // }
+    })
+    
+}
+
+// Creating New Pokemon With Evolution Chains
+pokemonWithEvols.forEach(pokemon => {
+
+    const {name,evolution: {evolvesTo,trigger,level,finalEv,finalEvLev}} = pokemon;
+
+    const logEvols = (trigger) => {
+        if (trigger == `level-up`) {
+            const triggerNew = trigger.split(`-`);
+            const triggerSTR = capitalize(triggerNew[0]) + ` ` + capitalize(triggerNew[1]);
+
+            console.log(`Pokemon Name:`, capitalize(name));
+            console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR, `at Level`, level);
+            console.log(`Evolves to`, capitalize(finalEv),`At level`, finalEvLev);
+            console.log(`-------------------------------------------`);
+            console.log(`Level Up!`);
+        } else {
+            const triggerSTR = `Trade`;
+            console.log(`Pokemon Name:`, capitalize(name));
+            console.log(`Evolves to`, capitalize(evolvesTo),`by`, triggerSTR);
+            console.log(`Evolves to`, capitalize(finalEv),`at level`, finalEvLev);
+            console.log(`-------------------------------------------`);
+            console.log(`Trade Up!`);
+        }
+    }
+
+    // logEvols(trigger);
+
+})
 
 const generateEvos = () => {
     const matches = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
@@ -36,9 +87,6 @@ const generateEvos = () => {
     });
 
     const currentEvoNames = arrayMatches(matches,uniqueNames);
-
-    const currentEvos = [];
-    const currentPokemonThatEvolve = [];
 
     const uniqueEvos = removeDuplicateObjFromArray(currentEvosState);
     // console.log(`Current Evolution Chains: `, uniqueEvos);
@@ -67,24 +115,26 @@ const generateEvos = () => {
             localStorage.setItem(`New Pokemon With Evolutions:`, JSON.stringify(newPokeArray))
         }
     }
- 
+    
+    let pokeHolder = [];
     currentEvoNames.matches.forEach(match => {
 
         Pokedex.filter(pokemon => {
             if (pokemon.name == match) {
-                currentPokemonThatEvolve.push(pokemon);
-                localStorage.setItem(`Current Pokemon With Evolutions`, JSON.stringify(currentPokemonThatEvolve));
+                pokeHolder.push(pokemon);
+                set(`Current Pokemon With Evolutions`, str(pokeHolder));
             }
         })
 
     })
 
+    let evosHolder = [];
     currentEvoNames.matches.forEach(match => {
 
         evolutions.filter(evolution => {
             if (evolution.pokemon == match) {
-                currentEvos.push(evolution);
-                localStorage.setItem(`Current Evolution Chains`, JSON.stringify(currentEvos));
+                evosHolder.push(evolution);
+                set(`Current Evolution Chains`,str(evosHolder));
             }
         })
 
@@ -92,15 +142,16 @@ const generateEvos = () => {
 
 }
 
-generateEvos();
-
 const reWriteEvos = () => {
     const names = [];
     const matches = [];
+    const evos = [];
 
     evolutions.forEach(evolution => {
+        evos.push(evolution);
         matches.push(evolution.pokemon);
         localStorage.setItem(`Evolutions`, JSON.stringify(matches));
+        localStorage.setItem(`Evos`, JSON.stringify(evos));
     })
 
     Pokedex.forEach(pokemon => {
@@ -108,12 +159,10 @@ const reWriteEvos = () => {
         localStorage.setItem(`Current Pokedex`, JSON.stringify(names));
     })
 
-    console.log(matches);
-    console.log(uniqueNames);
-    console.log(currentEvosState);
-    console.log(evolutions);
-
+    generateEvos();
 }
+
+reWriteEvos();
 
 // Generating Dex for DB
 export const generateDex = (pokemonData, genArray, genNum) => {
@@ -201,42 +250,35 @@ export const generateDex = (pokemonData, genArray, genNum) => {
 
 // Evolutions
 // If Evolutions Exits
-// let evolutionChains = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
+export const fetchChains = () => {
+    let evolutionChains = JSON.parse(localStorage.getItem(`Evolutions`)) || [];
 
-// Fetch Evolution Chain
-// const evoFetch = (id) => {
-//     let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
-//     fetch(pokemonEvURL).then(response => {
-//         if (response.status == 404) {
-//             throw Error(response.statusText + ` - ` + response.url);
-//         }
-//       return response.json();
-//     }).then(evolution => {
-//         let evolutionChain, pokemon, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
-//         evolutionChain = evolution.chain;
-//         pokemon = evolutionChain.species.name;
-//         evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
-//         level = evolutionDetails.min_level;
-//         trigger = evolutionDetails.trigger.name;
-//         evolvesTo = evolutionChain.evolves_to[0].species.name;
-//         finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
-//         finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
-//         finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
-//         let chain = {pokemon,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger};
-//         evolutionChains.push(chain);
-//         localStorage.setItem(`Evolutions`, JSON.stringify(evolutionChains));
-//     }).catch(function(error) {
-//         console.log(error);
-//     })
-// }
+    // Fetch Evolution Chain
+    const evoFetch = (id) => {
+        let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
+        fetch(pokemonEvURL).then(response => {
+            if (response.status == 404) {
+                throw Error(response.statusText + ` - ` + response.url);
+            }
+        return response.json();
+        }).then(evolution => {
+            let evolutionChain, pokemon, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
+            evolutionChain = evolution.chain;
+            pokemon = evolutionChain.species.name;
+            evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
+            level = evolutionDetails.min_level;
+            trigger = evolutionDetails.trigger.name;
+            evolvesTo = evolutionChain.evolves_to[0].species.name;
+            finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
+            finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
+            finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
+            let chain = {pokemon,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
+            evolutionChains.push(chain);
+            localStorage.setItem(`Evolutions 2`, JSON.stringify(evolutionChains));
+        }).catch(function(error) {
+            console.log(error);
+        })
+    }
+}
 
-// // Evolutions
-// let names = [];
-// Pokedex.forEach(pokemon => {
-//     names.push(pokemon.name);
-//     let ifArrayMatches = arrayMatches(names,pokemonWhoEvolve);
-//     let currentEvos = ifArrayMatches.matches;
-//     for ( var i = 1; i < currentEvos.length; i++ ) {
-//         evoFetch(i);
-//     }
-// })
+fetchChains();
