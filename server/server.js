@@ -8,6 +8,7 @@ let fadeDuration = 2500;
 export const body = $(`body`);
 export const header = $(`header`);
 export const searchFilter = $(`.searchFilter`);
+export const testing = $(`.testing`);
 export const footer = $(`footer`);
 
  // Desktop
@@ -52,78 +53,10 @@ const firebaseConfig = {
     appId: "1:603945130926:web:0d0e7dae151f9cefb8863f"
 };
 
-// Start // Initialize Firebase Server
+// Start App // Global Helper Functions & Exports
 export const app = initializeApp(firebaseConfig);
-
-// Once Document is started, execute code below
-document.addEventListener(`DOMContentLoaded`, event => {
-    
-    // Starting the Database from the Server
-    firebase.initializeApp(firebaseConfig);
-    const database = getFirestore(app);
-    const db = firebase.firestore();
-    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
-
-    // Creating & Calling Database Collections
-    const trainersSTR = `Trainers`;
-    const Trainers = db.collection(trainersSTR);
-    const TrainerCount = db.collection(`${trainersSTR} Count`);
-
-    // Function to Run for Creating Registraion
-    const generateTrainers = () => {
-
-        // Getting Trainer Array at Beginning of App State
-        Trainers.get().then((users) => {
-
-            // Storing it in a Variable
-            const currentTrainers = users.docs.map(trainer => trainer.data());
-            const newestTrainer = currentTrainers.filter(item => item.badge == currentTrainers.length);
-            const userCount = currentTrainers.length;
-            const trainerEmails = currentTrainers.map(trainer => {
-                return trainer.email;
-            });
-            
-            // Log Users at Initial State
-            console.log(`Current Trainer Count: `, userCount);
-            console.log(`Current Trainers: `, currentTrainers);
-            console.log(`Trainer Emails`, trainerEmails);
-            console.log(`Newest Trainer`, newestTrainer);
-
-            // Mobile Registration Form
-            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
-
-            // Desktop Registration Form
-            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
-            
-            // It Accepts the TrainerCount, Trainer String, Database, Trainers, a Trainers Array, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
-        })
-    }
-
-    // Check If Trainers Count Exists in DB
-    let ifTrainers = TrainerCount.doc(`${trainersSTR} Count`);
-    ifTrainers.get().then((tCount) => {
-        if (tCount.exists) {
-            generateTrainers();
-        } else {
-            // Create Trainer Count
-            TrainerCount.doc(`${trainersSTR} Count`).set({
-                trainerCount: 0,
-                name: `Trainer Count`,
-                trainerEmails: []
-            });
-            generateTrainers();
-        }
-            
-    }).catch((error) => {
-        console.log(error);
-    });
-
-})
-
-// Exports & Global Helper Functions
 export const str = JSON.stringify;
 export const parse = JSON.parse;
-export const testing = $(`#testing`);
 
 // Shorten Set Item
 export const set = (itemKey,item) => {
@@ -160,6 +93,13 @@ export const pokeFetch = async (url) => {
     return pokeData;
 };
 
+// Asyncronously Fetch your Own Data or Make Your Own API
+export const fetchData = (fileName) => {
+    return fetch(`./server/db/${fileName}`)
+            .then(response =>
+                response.text().then(text => JSON.parse(text)));
+}
+
 // Fetch One Generation At A Time
 export const genFetch = async (offset, limit) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
@@ -173,7 +113,6 @@ export const getCurrentPageName = (path,page) => {
     page = path.split("/").pop();
     return page
 }
-
 // pageName Variable
 export const pageName = getCurrentPageName();
 
@@ -349,3 +288,73 @@ export const log = (message,itemYouConsoleLogged) => {
         return itemYouConsoleLogged;
     }
 }
+
+// -------------------------------------------------------- START FIREBASE BaaS SERVER -------------------------------------------------------- //
+// -------------------------------------------------------- START FIREBASE BaaS SERVER -------------------------------------------------------- //
+// -------------------------------------------------------- START FIREBASE BaaS SERVER -------------------------------------------------------- //
+
+// Firebase Server // Initialize Firebase Server
+document.addEventListener(`DOMContentLoaded`, event => {
+    
+    // Starting the Database from the Server
+    firebase.initializeApp(firebaseConfig);
+
+    const database = getFirestore(app);
+    const db = firebase.firestore();
+    console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
+
+    // Creating & Calling Database Collections
+    const trainersSTR = `Trainers`;
+    const Trainers = db.collection(trainersSTR);
+    const TrainerCount = db.collection(`${trainersSTR} Count`);
+
+    // Function to Run for Creating Registraion
+    const generateTrainers = () => {
+
+        // Getting Trainer Array at Beginning of App State
+        Trainers.get().then((users) => {
+
+            // Storing it in a Variable
+            const currentTrainers = users.docs.map(trainer => trainer.data());
+            const newestTrainer = currentTrainers.filter(item => item.badge == currentTrainers.length);
+            const userCount = currentTrainers.length;
+            const trainerEmails = currentTrainers.map(trainer => {
+                return trainer.email;
+            });
+            
+            // Log Users at Initial State
+            console.log(`Current Trainer Count: `, userCount);
+            console.log(`Current Trainers: `, currentTrainers);
+            console.log(`Trainer Emails`, trainerEmails);
+            console.log(`Newest Trainer`, newestTrainer);
+
+            // Mobile Registration Form
+            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,mobileEmail,mobileLogin,mobilePassword,mobileLoginButton,mobileRegister,mobileTrainer, mobileRegisterButton, mobileEmailLogin, mobilePassLogin, fadeDuration);
+
+            // Desktop Registration Form
+            Registration(currentTrainers.length,TrainerCount, trainersSTR,db,currentTrainers,Trainers,emailField,loginForm,passwordField,loginButton,registerForm,trainerNameField,registerButton,loginEmail,loginPass,fadeDuration);
+            
+            // It Accepts the TrainerCount, Trainer String, Database, Trainers, a Trainers Array, pokemonTrainers (Users), emailField, loginForm, passwordField, loginButton, registerForm, trainerNameField, registerButton, loginEmail, loginPass, fadeDuration
+        })
+    }
+
+    // Check If Trainers Count Exists in DB
+    let ifTrainers = TrainerCount.doc(`${trainersSTR} Count`);
+    ifTrainers.get().then((tCount) => {
+        if (tCount.exists) {
+            generateTrainers();
+        } else {
+            // Create Trainer Count
+            TrainerCount.doc(`${trainersSTR} Count`).set({
+                trainerCount: 0,
+                name: `Trainer Count`,
+                trainerEmails: []
+            });
+            generateTrainers();
+        }
+            
+    }).catch((error) => {
+        console.log(error);
+    });
+
+})

@@ -1,24 +1,6 @@
-// Sort Array By ID
-export const sortArrayById = (arrayWithIDS) => {
-    const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);
-    return sortedArray;
-}
-
-// Remove Duplicate Objects from an Array
-export const removeDuplicateObjFromArray = (array) => {
-    const uniqueArray = array.filter((value, index) => {
-        const _value = JSON.stringify(value);
-        return index === array.findIndex(obj => {
-            return JSON.stringify(obj) === _value;
-        });
-    });
-    return uniqueArray;
-}
-
-// Other
+// Global Helper Functions
 export const str = JSON.stringify;
 export const parse = JSON.parse;
-export const testing = $(`#testing`);
 
 // Shorten Set Item
 export const set = (itemKey,item) => {
@@ -42,12 +24,25 @@ export const arrayContain = (array,key,value) => {
     return query
  }
 
+// Sort Array By ID
+export const sortArrayById = (arrayWithIDS) => {
+    const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);
+    return sortedArray;
+}
+
 // Fetch More Pokemon Data
 export const pokeFetch = async (url) => {
     const pokeResponse = await fetch(url);
     const pokeData = await pokeResponse.json();
     return pokeData;
 };
+
+// Asyncronously Fetch your Own Data or Make Your Own API
+export const fetchData = (fileName) => {
+    return fetch(`./server/db/${fileName}`)
+            .then(response =>
+                response.text().then(text => JSON.parse(text)));
+}
 
 // Fetch One Generation At A Time
 export const genFetch = async (offset, limit) => {
@@ -62,7 +57,6 @@ export const getCurrentPageName = (path,page) => {
     page = path.split("/").pop();
     return page
 }
-
 // pageName Variable
 export const pageName = getCurrentPageName();
 
@@ -83,6 +77,17 @@ export const sortObjByKeyLength = (obj) => {
     keyArray.sort();
     keyArray.forEach(function(item) {object[item] = obj[item]});
     return object;
+}
+
+// Remove Duplicate Objects from an Array
+export const removeDuplicateObjFromArray = (array) => {
+    const uniqueArray = array.filter((value, index) => {
+        const _value = JSON.stringify(value);
+        return index === array.findIndex(obj => {
+            return JSON.stringify(obj) === _value;
+        });
+    });
+    return uniqueArray;
 }
 
 // If Two Arrays Share Common Values, This Function Will Return The Matching Values

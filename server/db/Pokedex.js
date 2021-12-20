@@ -1,9 +1,8 @@
 // Import Global Helper Functions
-
-// import { log, str, parse, set, get, pageName, getCurrentPageName, testing, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, capitalize, matchingObjectsFromArrays, sortObjByKeyLength } from '../server.js';
+// import { log, str, parse, fetchData, get, pageName, getCurrentPageName, testing, arrayContain, asyncFetch, genFetch, capitalize, } from '../server.js';
 
 // Without Starting Server
-import { log, str, parse, set, get, pageName, getCurrentPageName, testing, arrayContain, arrayMatches, asyncFetch, genFetch, pokeFetch, capitalize, matchingObjectsFromArrays, sortObjByKeyLength, removeDuplicateObjFromArray, sortArrayById } from '../functions/globalFunctions.js';
+import {  set,  arrayMatches, pokeFetch, fetchData, matchingObjectsFromArrays, sortObjByKeyLength, removeDuplicateObjFromArray, sortArrayById } from '../functions/globalFunctions.js';
 
 // Evolutions DB
 import { gen1EvolutionChains } from './Evolutions/gen1EvolutionChains.js';
@@ -18,12 +17,17 @@ import { Gen4 } from "./Gens/gen4.js";
 
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
-console.log(`Pokedex`,Pokedex);
+
+// Logs // Test fetchData() Speed vs Import Gens
+console.log(`gen1Evos`, gen1Evos);
+console.log(`gen1EvolutionChains`, gen1EvolutionChains);
+fetchData(`/Gens/gen1.json`).then(arr => console.log(``,arr));
 
 // -----------------------------------------------------------------------------------------------------------------------------------//
 // generateEvolutionChains(Gen) that takes in a { Gen } ( Either Gen1 // Gen2 // Gen3... ) of Pokemon and returns evolutionChains
 export const generateEvolutionChains = (Gen) => {
     let pokedexEntriesWithEvos = removeDuplicateObjFromArray(gen1Evos);
+    console.log(`pokedexEntriesWithEvos`, pokedexEntriesWithEvos);
     let pokeDexChains = [];
     pokedexEntriesWithEvos.forEach(pokemon => {
        pokeDexChains.push(pokemon.evolution);
@@ -49,8 +53,10 @@ console.log(gen1Chains);
 
 export const insertGensIntoDex = ( Gen, genChains ) => { 
     let entries = sortArrayById(genChains.pokedexEntriesWithEvos);
+    let ifMatch = matchingObjectsFromArrays(entries,Pokedex);
+    console.log(`ifMatch`,ifMatch);
     entries.forEach(entry => {
-        console.log(entry);
+        // console.log(entry);
     })
 }
 
@@ -113,6 +119,7 @@ const generateEvos = (pokedexNames,evolutionNames) => {
     // const uniquePokeEvols = removeDuplicateObjFromArray(currentPokeEvolState);
     // console.console.log(`Current Pokemon With Evolutions: `, uniquePokeEvols);
 
+    // Generating Pokemon Elements With Evo Chains
     // if (uniquePokeEvols.length === uniqueEvos.length) {
     //     let newPokeArray = [];
     //     for (var i = 0; i < uniquePokeEvols.length; i++) {
@@ -162,6 +169,7 @@ const generateEvos = (pokedexNames,evolutionNames) => {
 
 }
 
+// Extract Pokemon Names
 const extractPokemonNames = (pokedexToExtractFrom, evolutionsToExtractFrom) => {
     const pokedexNames = [];
     const evolutionNames = [];
@@ -280,9 +288,10 @@ export const fetchChains = () => {
             }
         return response.json();
         }).then(evolution => {
-            let evolutionChain, name, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
+            let evolutionChain, name, id, newIndex, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
             evolutionChain = evolution.chain;
             name = evolutionChain.species.name;
+            id = evolution.id;
             evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
             level = evolutionDetails.min_level;
             trigger = evolutionDetails.trigger.name;
@@ -290,7 +299,7 @@ export const fetchChains = () => {
             finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
             finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
             finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
-            let chain = {name,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
+            let chain = {name,id,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
             evolutionChains.push(chain);
             set(`Evolutions 2`, JSON.stringify(evolutionChains));
         }).catch(function(error) {
