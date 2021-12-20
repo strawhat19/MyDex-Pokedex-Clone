@@ -1,7 +1,9 @@
 // Start App
-import { Registration } from '../components/Registration/Registration.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+// AUTH
+import { Registration } from '../components/Registration/Registration.js';
 
 // DOM
 let fadeDuration = 2500;
