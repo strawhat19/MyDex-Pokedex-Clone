@@ -26,6 +26,9 @@ export const getCurrentPageName = (path,page) => {
     return page
 }
 
+// pageName Variable
+export const pageName = getCurrentPageName();
+
 // Sort Array By ID
 export const sortArrayById = (arrayWithIDS) => {
     const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);

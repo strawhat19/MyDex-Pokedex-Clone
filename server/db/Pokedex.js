@@ -1,6 +1,6 @@
 // Importing or Fetching All Generations of Pokemon
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
-import { getCurrentPageName, testing, log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
+import { pageName, getCurrentPageName, testing, log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
 import { gen1EvolutionChains } from './Evolutions/gen1EvolutionChains.js';
 import { gen1Evos } from "./Evolutions/gen1evoChains.js";
 import Pokemon from "../models/Pokemon.js";
@@ -8,17 +8,14 @@ import { Gen1 } from "./Gens/gen1.js";
 import { Gen2 } from "./Gens/gen2.js";
 import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
+
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
 
-let pageName = getCurrentPageName();
-console.log(pageName);
-
+// Logs
 console.log(`Pokedex`,Pokedex);
-console.log(`gen1Evos`,gen1Evos);
-console.log(`gen1EvolutionChains`,removeDuplicateObjFromArray(gen1EvolutionChains));
-// console.log(removeDuplicateObjFromArray(gen1EvolutionChains));
-// console.log(gen1Evos);
+// console.log(`gen1Evos`,gen1Evos);
+// console.log(`gen1EvolutionChains`,removeDuplicateObjFromArray(gen1EvolutionChains));
 
 // -----------------------------------------------------------------------------------------------------------------------------------//
 // generateEvolutionChains(Gen) that takes in a { Gen } ( Either Gen1 // Gen2 // Gen3... ) of Pokemon and returns evolutionChains
@@ -46,6 +43,15 @@ export const generateEvolutionChains = (Gen) => {
 // Outputting Evolution Chains
 export const gen1Chains = generateEvolutionChains(`Gen 1 Pokemon That Have Evolutions`);
 console.log(gen1Chains);
+
+export const insertGensIntoDex = ( Gen, genChains ) => { 
+    let entries = sortArrayById(genChains.pokedexEntriesWithEvos);
+    entries.forEach(entry => {
+        console.log(entry);
+    })
+}
+
+insertGensIntoDex( Pokedex , gen1Chains );
 
 // After This Update PokeDex
 
