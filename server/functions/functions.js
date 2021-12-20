@@ -1,6 +1,7 @@
 // Global Functions
 export const str = JSON.stringify;
 export const parse = JSON.parse;
+export const testing = $(`#testing`);
 
 // Shorten Set Item
 export const set = (itemKey,item) => {
@@ -178,4 +179,36 @@ export const detectDescriptionSizes = () => {
             console.log(`${description.parentElement.parentElement.parentElement.title} ${AltDescriptions[0]}`);
         })
     })
+}
+
+// Export Console Logging
+export const log = (message,itemYouConsoleLogged) => {
+    const messageName = `Expert Console Logging Function!`;
+    const Message = `This is a Custom Console.Log Function, and here's what you just console logged:`;
+    const troubleShootingMessage = `But to really troubleshoot an error, make sure you use the actual console.log so the Inspector shows you where in the code the error was!`;
+    const returnMessage = `You can also set a variable = log(message,itemYouConsoleLogged) or just log(message), and then do varialbe.addEventListener or vaiable.forEach and what not!`;
+    if (itemYouConsoleLogged) {
+        let itemYouConsoleLoggedData = {
+            messageName,
+            message,
+            itemYouConsoleLogged,
+        }
+        console.log(message);
+        console.log(Message,`
+         
+        `,itemYouConsoleLogged,`
+         
+        `, troubleShootingMessage);
+        console.log(itemYouConsoleLoggedData);
+        return itemYouConsoleLoggedData;
+    } else {
+        itemYouConsoleLogged = message;
+        console.log(messageName);
+        console.log(Message,`
+         
+        `,itemYouConsoleLogged,`
+         
+        `, troubleShootingMessage);
+        return itemYouConsoleLogged;
+    }
 }

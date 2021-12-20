@@ -1,33 +1,50 @@
 // Importing or Fetching All Generations of Pokemon
 // Currently just Gens 1 - 4 for Development Simplicity, Will get more Gens Later
-import { str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
-import { Evolutions } from './Evolutions.js';
+import { testing, log, str, parse, set, get, arrayMatches, sortArrayById, sortObjByKeyLength, asyncFetch, genFetch, pokeFetch,removeDuplicateObjFromArray, capitalize, matchingObjectsFromArrays } from "../functions/functions.js";
+import { gen1EvolutionChains } from './Evolutions/gen1EvolutionChains.js';
+import { gen1Evos } from "./Evolutions/gen1evoChains.js";
 import Pokemon from "../models/Pokemon.js";
 import { Gen1 } from "./Gens/gen1.js";
 import { Gen2 } from "./Gens/gen2.js";
 import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
-import { gen1evoChains } from "./Gens/gen1evoChains.js";
-
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+
+console.log(`Pokedex`,Pokedex);
+console.log(`gen1Evos`,gen1Evos);
+console.log(`gen1EvolutionChains`,removeDuplicateObjFromArray(gen1EvolutionChains));
+// console.log(removeDuplicateObjFromArray(gen1EvolutionChains));
+// console.log(gen1Evos);
 
 // -----------------------------------------------------------------------------------------------------------------------------------//
 // generateEvolutionChains(Gen) that takes in a { Gen } ( Either Gen1 // Gen2 // Gen3... ) of Pokemon and returns evolutionChains
 export const generateEvolutionChains = (Gen) => {
-    let evolutionChains = removeDuplicateObjFromArray(parse(gen1evoChains));
-
-    // return evolutionChains;
-    // --------------------------------------------------------------------------------------------------------------------------------//
+    let pokedexEntriesWithEvos = removeDuplicateObjFromArray(gen1Evos);
+    let pokeDexChains = [];
+    pokedexEntriesWithEvos.forEach(pokemon => {
+       pokeDexChains.push(pokemon.evolution);
+            return pokeDexChains;
+            // for ( var i = 1; i < currentEvos.length; i++ ) {
+            //     evoFetch(i);
+            // }
+    })
+    // return pokedexEntriesWithEvos;
+    //-----
+    // Return all Function Values
     return {
         Gen,
-        evolutionChains
+        pokedexEntriesWithEvos,
+        pokeDexChains
     }
 }
+ // --------------------------------------------------------------------------------------------------------------------------------//
 
 // Outputting Evolution Chains
-export const gen1Chains = generateEvolutionChains(`Gen 1 Evolutions`);
+export const gen1Chains = generateEvolutionChains(`Gen 1 Pokemon That Have Evolutions`);
 console.log(gen1Chains);
+
+// After This Update PokeDex
 
 // Pokemon With Evols
 
@@ -73,15 +90,16 @@ console.log(gen1Chains);
 
 const generateEvos = (pokedexNames,evolutionNames) => {
 
+    // Combine and Get Matching Elements
     const currentEvoNames = arrayMatches(pokedexNames,evolutionNames);
-    
+    console.log(currentEvoNames);
 
     // Get Evolution Chains
 
     // const uniqueEvos = removeDuplicateObjFromArray(currentEvosState);
-    // // console.console.log(`Current Evolution Chains: `, uniqueEvos);
+    // console.console.log(`Current Evolution Chains: `, uniqueEvos);
     // const uniquePokeEvols = removeDuplicateObjFromArray(currentPokeEvolState);
-    // // console.console.log(`Current Pokemon With Evolutions: `, uniquePokeEvols);
+    // console.console.log(`Current Pokemon With Evolutions: `, uniquePokeEvols);
 
     // if (uniquePokeEvols.length === uniqueEvos.length) {
     //     let newPokeArray = [];
@@ -112,7 +130,7 @@ const generateEvos = (pokedexNames,evolutionNames) => {
     //     Pokedex.filter(pokemon => {
     //         if (pokemon.name == match) {
     //             pokeHolder.push(pokemon);
-    //             set(`Current Pokemon With Evolutions`, str(pokeHolder));
+    //             return pokeHolder
     //         }
     //     })
 
@@ -124,7 +142,7 @@ const generateEvos = (pokedexNames,evolutionNames) => {
     //     evolutions.filter(evolution => {
     //         if (evolution.pokemon == match) {
     //             evosHolder.push(evolution);
-    //             set(`Current Evolution Chains`,str(evosHolder));
+    //             return evosHolder
     //         }
     //     })
 
@@ -149,7 +167,8 @@ const extractPokemonNames = (pokedexToExtractFrom, evolutionsToExtractFrom) => {
     generateEvos(pokedexNames,evolutionNames);
 }
 
-extractPokemonNames( Pokedex, Evolutions );
+// const extractedNames = extractPokemonNames( Pokedex, gen1EvolutionChains );
+// console.log(extractedNames);
 
 // Generating Dex for DB
 export const generateDex = (pokemonData, genArray, genNum) => {
@@ -268,4 +287,4 @@ export const fetchChains = () => {
     }
 }
 
-fetchChains();
+// fetchChains();
