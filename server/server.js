@@ -37,7 +37,6 @@ export const footer = $(`footer`);
 
 // Start Front End
 body.hide();
-loginForm.hide();
 body.fadeIn(fadeDuration);
 footer.css(`opacity`,`1`);
 footer.fadeIn(fadeDuration);

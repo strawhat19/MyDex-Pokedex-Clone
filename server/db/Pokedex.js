@@ -16,7 +16,7 @@ import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
 
 // Creating & Exporting Pokedex
-export const dexHolder = parse(get(`Current Pokedex`)) || [Gen1,Gen2,Gen3,Gen4];
+export const dexHolder = get(`Current Pokedex`) || [Gen1,Gen2,Gen3,Gen4];
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
 console.log(`Pokedex`,`Current Pokedex`, Pokedex);
 console.log(`evolutionDex`,`New Dex Entries`, evolutionDex);
