@@ -906,6 +906,11 @@ form input::placeholder {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  text-align: center;
+}
+
+.searchFilter .inputs input {
+  text-align: center;
 }
 
 #footer-text {
@@ -999,6 +1004,7 @@ footer i,
   --dark: #616161;
   --dragon: linear-gradient(rgb(40, 107, 143) 50%, rgb(148, 33, 12) 50%);
   --mobileBreakPoint: 530px;
+  --slideBannerBG: rgba(255, 255, 255, .9);
 }
 
 .grass {
@@ -1156,7 +1162,7 @@ a {
   -ms-flex-align: center;
   align-items: center;
   color: white;
-  background: url("../graphics/pokeballBanner.jpg");
+  background: url("../images/pokeballBanner.jpg");
   margin-top: 53px;
   background-position: 50% 10%;
   background-size: cover;
@@ -1166,16 +1172,7 @@ a {
   transition: var(--transition);
 }
 
-.banner::before {
-  content: '';
-  position: absolute;
-  background: rgba(255, 255, 255, 0.9);
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
-
-.bannerContent {
+.banner .bannerContent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1195,11 +1192,26 @@ a {
   grid-gap: 0;
   padding: 4em 0 5em;
   z-index: 1;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
-.bannerContent p {
+.banner .bannerContent p {
   margin: 0;
   font-weight: 600;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  background: var(--slideBannerBG);
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
 }
 
 .pokeData {
