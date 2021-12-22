@@ -6,9 +6,10 @@ import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/fireb
 import { Registration } from '../components/Registration/Registration.js';
 
 // DOM
-let fadeDuration = 2500;
+let fadeDuration = 300;
 export const body = $(`body`);
 export const header = $(`header`);
+export const banner = $(`.banner`);
 export const searchFilter = $(`.searchFilter`);
 export const testing = $(`.testing`);
 export const footer = $(`footer`);
@@ -37,7 +38,10 @@ export const footer = $(`footer`);
 
 // Start Front End
 body.hide();
+banner.hide();
 body.fadeIn(fadeDuration);
+banner.css(`opacity`,`1`);
+banner.fadeIn(fadeDuration);
 footer.css(`opacity`,`1`);
 footer.fadeIn(fadeDuration);
 header.css(`opacity`,`1`);

@@ -101,7 +101,6 @@ export const Registration = (trainerNumber,TrainerCount,trainersSTR,db,trainersD
             loginForm.addClass(`active`);
             loginForm.removeClass(`inactive`);
             loginForm.show(fadeDuration);
-        //    registerButton.hide(fadeDuration);
         } else {
             // Log In User Function
             let email = loginEmail.val();

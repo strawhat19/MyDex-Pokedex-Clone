@@ -159,6 +159,72 @@ a {
   transition: var(--transition);
 }
 
+.logo {
+    max-width: 250px;
+}
+
+.registration {
+  .inactive {
+    display: none !important;
+  }
+}
+
+.banner {
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  background: url("../graphics/pokeballBanner.jpg");
+  margin-top: 53px;
+  background-position: 50% 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: var(--transition);
+  &::before {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+}
+
+.bannerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+  grid-gap: 0;
+  padding: 4em 0 5em;
+  z-index: 1;
+   p {
+    margin: 0;
+    font-weight: 600;
+  }
+}
+
 .pokeData {
   display: flex;
   flex-direction: column;
@@ -233,7 +299,7 @@ a {
       color: black !important;
     }
   }
-  transition: var(--transition);
+  // transition: var(--transition);
 }
 
 .inner {
@@ -276,7 +342,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 5em 0;
+  padding: 2em 0;
   min-height: 78.3vh;
   transition: var(--transition);
 }
@@ -347,7 +413,7 @@ main {
       width: 90%;
       cursor: pointer;
       // width: 100%;
-      transition: var(--transition);
+      // transition: var(--transition);
       .stats {
         display: flex;
         flex-direction: column;
@@ -359,12 +425,12 @@ main {
         color: black;
         pointer-events: none;
         grid-gap: 1em;
-        transition: var(--transition);
+        // transition: var(--transition);
         .stat {
           width: 100%;
           text-align: center;
           font-weight: 600;
-          transition: var(--transition);
+          // transition: var(--transition);
         }
       }
     }
