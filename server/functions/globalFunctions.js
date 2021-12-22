@@ -24,10 +24,21 @@ export const arrayContain = (array,key,value) => {
     return query
  }
 
+// Remove Duplicate Objects from an Array
+export const removeDuplicateObjFromArray = (array) => {
+    const uniqueArray = array.filter((value, index) => {
+        const _value = JSON.stringify(value);
+        return index === array.findIndex(obj => {
+            return JSON.stringify(obj) === _value;
+        });
+    });
+    return uniqueArray;
+}
+
 // Sort Array By ID
 export const sortArrayById = (arrayWithIDS) => {
     const sortedArray = [...new Set(arrayWithIDS)].sort((a, b) => a.id - b.id);
-    return sortedArray;
+    return removeDuplicateObjFromArray(sortedArray);
 }
 
 // Fetch More Pokemon Data
@@ -80,15 +91,15 @@ export const sortObjByKeyLength = (obj) => {
 }
 
 // Remove Duplicate Objects from an Array
-export const removeDuplicateObjFromArray = (array) => {
-    const uniqueArray = array.filter((value, index) => {
-        const _value = JSON.stringify(value);
-        return index === array.findIndex(obj => {
-            return JSON.stringify(obj) === _value;
-        });
-    });
-    return uniqueArray;
-}
+// export const removeDuplicateObjFromArray = (array) => {
+//     const uniqueArray = array.filter((value, index) => {
+//         const _value = JSON.stringify(value);
+//         return index === array.findIndex(obj => {
+//             return JSON.stringify(obj) === _value;
+//         });
+//     });
+//     return uniqueArray;
+// }
 
 // If Two Arrays Share Common Values, This Function Will Return The Matching Values
 export const arrayMatches = (array1,array2) => {

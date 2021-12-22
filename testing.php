@@ -28,7 +28,8 @@
     <h1>RIGHT CLICK INSPECT</h1>
     <div class="testing" id="testing"></div>
     <!-- <script type="module" src="./server/functions/testing.js"></script> -->
-    <script type="module" src="./server/db/Pokedex.js"></script>
+    <script type="module" src="./server/db/Evolutions/getEvolutions.js"></script>
+    <!-- <script type="module" src="./server/db/Pokedex.js"></script> -->
 </body>
 
 </html>

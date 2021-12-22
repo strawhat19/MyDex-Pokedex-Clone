@@ -1,43 +1,120 @@
-// export const evolutionChains = [];
+// Imports
+import { capitalize, sortArrayById } from "../../functions/globalFunctions.js";
+import { Evolutions } from "./Evolutions.js";
+export const evolutionChains = [];
 
-// // createEvoChain(evolutions);
-// const getChains = (amount) => {
-//   const generateEvoChain = (id) => {
-//     let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
-//     fetch(pokemonEvURL).then(response => {
-//         if (response.status == 404) {
-//             throw Error(response.statusText + ` - ` + response.url);
-//         }
-//     return response.json();
-//     }).then(evolution => {
-//         let evolutionChain, name, id, evolutionDetails, level, trigger, evolvesTo, finalEv, finalEvLev, finalEvTrigger;
-//         evolutionChain = evolution.chain;
-//         name = evolutionChain.species.name;
-//         id = evolution.id;
-//         evolutionDetails = evolutionChain.evolves_to[0].evolution_details[0];
-//         level = evolutionDetails.min_level;
-//         trigger = evolutionDetails.trigger.name;
-//         evolvesTo = evolutionChain.evolves_to[0].species.name;
-//         finalEv = evolutionChain.evolves_to[0].evolves_to[0].species.name;
-//         finalEvLev = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
-//         finalEvTrigger = evolutionChain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
-//         let chain = {name,id,level,trigger,evolvesTo,finalEv,finalEvLev,finalEvTrigger,evolutionChain};
-//         evolutionChains.push(chain);
-//         let sorted = sortArrayById(evolutionChains);
-//         console.log(sorted);
-//         console.log(str(sorted));
-//         return sorted;
-//     }).catch(function(error) {
-//         console.log(error);
-//     })
-//   }
-//   for (var i = 1; i < amount; i++) {
-//     generateEvoChain(i);
-//   }
-// }
+console.log(`Evolutions`,Evolutions);
+
+// createEvoChain(evolutions);
+const getChains = (amount) => {
+  const generateEvoChain = (id) => {
+    let pokemonEvURL = `https://pokeapi.co/api/v2/evolution-chain/${id}/`;
+    fetch(pokemonEvURL).then(response => {
+        if (response.status == 404) {
+            throw Error(response.statusText + ` - ` + response.url);
+        }
+    return response.json();
+    }).then(evolution => {
+        let chain, name, id, evos, evoDetails, evoCond, atLevel, trigger, evolvesTo;
+        id = evolution.id;
+        chain = evolution.chain;
+        name = evolution.chain.species.name;
+        // Check if Pokemon Evolves
+        if (evolution.chain.evolves_to.length > 0) {
+            evos = evolution.chain.evolves_to;
+            evolvesTo = evolution.chain.evolves_to[0].species.name;
+            evoDetails = evolution.chain.evolves_to[0].evolution_details[0];
+            // If more than 1 trigger check for Special Evolution Conditions
+            if (evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`).length > 1) {
+                trigger = `Via ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[0]) + ` ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[1]);
+            } else {
+                trigger = `Via ` + evolution.chain.evolves_to[0].evolution_details[0].trigger.name;
+            }
+            if (!evolution.chain.evolves_to[0].evolution_details[0].min_level) {
+                let entries = Object.entries(evoDetails);
+                let values = entries.filter(entry => {
+                    if (entry[1] && entry[0] != 'trigger') {
+                        return entry;
+                    }
+                })
+                // If Pokemon Requires more than 1 Special Condition to Evolve
+               if (values.length > 0) {
+                let evolveConditions = [];
+                values.forEach(value => {
+                    let key = value[0];
+                    let val = value[1];
+                    console.log(`key`,key);
+                    console.log(`------------------------------------------------------------------------------`);
+
+                    console.log(`key.split('_')`,key.split(`_`).forEach(split => {
+                        let capSplit = capitalize(split);
+                        let keyString = `${capSplit} `;
+                    }));
+                    if (typeof val == Object) {
+                        let valName = val.name;
+                        evoCond = `${key}: ${valName}`
+                        evolveConditions.push(evoCond);
+                        let evoConds = {
+                            evolveCondition: `In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):`,
+                            evolveConditions
+                        }
+                        let evolutionChain = {name,id,trigger,evolvesTo,evoConds};
+                        evolutionChains.push(evolutionChain);
+                        let chains = sortArrayById(evolutionChains);
+                        console.log(`Object Name chains`,chains);
+                        return chains;
+                    } else {
+                        evoCond = `${key}: ${val}`
+                        evolveConditions.push(evoCond);
+                        let evoConds = {
+                            evolveCondition: `In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):`,
+                            evolveConditions
+                        }
+                        let evolutionChain = {name,id,trigger,evolvesTo,evoConds};
+                        evolutionChains.push(evolutionChain);
+                        let chains = sortArrayById(evolutionChains);
+                        console.log(`Key Val chains`,chains);
+                        return chains;
+                    }
+                })
+               }
+            } else { // No Special Evolution Conditions
+                atLevel = evolution.chain.evolves_to[0].evolution_details[0].min_level;
+                // Check if Pokemon has more Evolutions
+                if (evos[0].evolves_to.length > 0) {
+                    let finalEvolution = evolution.chain.evolves_to[0].evolves_to[0].species.name;
+                    let finalEvolutionLevel = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
+                    let finalEvolutionTrigger = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
+                    if (finalEvolutionTrigger === `level-up`) finalEvolutionTrigger = trigger;
+                    let evolutionChain = {name,id,evolvesTo,atLevel,trigger,finalEvolution,finalEvolutionLevel,finalEvolutionTrigger};
+                    evolutionChains.push(evolutionChain);
+                    let chains = sortArrayById(evolutionChains);
+                    console.log(`Evolve Twice chains`,chains);
+                    return chains;
+
+                } else { // Pokemon Evolves Once
+                    let evolutionChain = {name,id,evolvesTo,atLevel,trigger};
+                    evolutionChains.push(evolutionChain);
+                    let chains = sortArrayById(evolutionChains);
+                    console.log(`Evolve Once chains`,chains);
+                    return chains;
+                }
+            }
+        }
+    }).catch(function(error) {
+        console.log(error);
+    })
+  }
+  for (var i = 1; i < amount; i++) {
+    generateEvoChain(i);
+  }
+}
 
 // Fetch up to Gen 8
-// getChains(495);
+getChains(476);
+
+let chainsSTR = getChains(476);
+console.log(chainsSTR);
 
 //   // Combine and Get Matching Elements
 //   const currentEvoNames = arrayMatches(pokedexNames,evolutionNames);
