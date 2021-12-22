@@ -39,48 +39,14 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
     let pokemonName = pokemonData.name;
 
     let evolutionChain = Evolutions.filter(evo => {
-      if (evo.name == pokemonName || evo.evolvesTo == pokemonName || evo.finalEv == pokemonName) {
+      if (evo.name == pokemonName || evo.evolvesTo == pokemonName || evo.finalEvolution == pokemonName) {
         return evo;
       }
     });
 
     if (evolutionChain[0]) {
 
-      if (evolutionChain[0].finalEvLev) {
-
-        const evolution = {
-          baby: evolutionChain[0].name,
-          evolution1: `${evolutionChain[0].evolvesTo} at level ${evolutionChain[0].level} via ${evolutionChain[0].trigger}`,
-          evolution2: `${evolutionChain[0].finalEv} at level ${evolutionChain[0].finalEvLev} via ${evolutionChain[0].finalEvTrigger}`,
-        }
-        
-        // Creating New Pokedex Entries 
-        const newPokemon = new Pokemon(
-          pokemonData.name,                     // name
-          pokemonData.id,                       // id
-          pokemonData.id - 1,                   // index
-          `Gen ${genNum}`,                      // generation
-          pokemonData.types,                    // types
-          pokemonData.sprites.front_default,    // image
-          pokemonData.sprites.front_shiny,      // shiny
-          pokemonData.stats,                    // stats
-          pokemonData.height,                   // size
-          pokemonData.weight,                   // weight
-          pokeDescription,                      // description
-          pokeDescription2,                     // altDescription
-          evolution                             // evolution
-        );
-    
-        sortObjByKeyLength(newPokemon);
-        genArray.push(newPokemon);
-        const sortedGen = sortArrayById(genArray);
-        // set(`Gen ${genNum}`,str(sortedGen));
-        console.log(sortedGen);
-        return sortedGen;
-
-      } else if (!evolutionChain[0].level) {
-
-        const evolution = `${evolutionChain[0].finalEv} via ${evolutionChain[0].finalEvTrigger}`;
+      const evolution = evolutionChain[0];
 
         // Creating New Pokedex Entries 
         const newPokemon = new Pokemon(
@@ -105,45 +71,9 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
         // set(`Gen ${genNum}`,str(sortedGen));
         console.log(sortedGen);
         return sortedGen;
-
-      } else {
-
-        const evolution = {
-          baby: evolutionChain[0].name,
-          evolution1: `${evolutionChain[0].evolvesTo} at level ${evolutionChain[0].level} via ${evolutionChain[0].trigger}`,
-          evolution2: `${evolutionChain[0].finalEv} via ${evolutionChain[0].finalEvTrigger}`,
-        }
-
-        // Creating New Pokedex Entries 
-        const newPokemon = new Pokemon(
-          pokemonData.name,                     // name
-          pokemonData.id,                       // id
-          pokemonData.id - 1,                   // index
-          `Gen ${genNum}`,                      // generation
-          pokemonData.types,                    // types
-          pokemonData.sprites.front_default,    // image
-          pokemonData.sprites.front_shiny,      // shiny
-          pokemonData.stats,                    // stats
-          pokemonData.height,                   // size
-          pokemonData.weight,                   // weight
-          pokeDescription,                      // description
-          pokeDescription2,                     // altDescription
-          evolution                             // evolution
-        );
-    
-        sortObjByKeyLength(newPokemon);
-        genArray.push(newPokemon);
-        const sortedGen = sortArrayById(genArray);
-        // set(`Gen ${genNum}`,str(sortedGen));
-        console.log(sortedGen);
-        return sortedGen;
-
-      }
 
     } else {
 
-
-      
       // Creating New Pokedex Entries 
       const newPokemon = new Pokemon(
         pokemonData.name,                     // name

@@ -1,5 +1,5 @@
 // Imports
-import { capitalize, sortArrayById } from "../../functions/globalFunctions.js";
+import { capitalize, set, sortArrayById, str } from "../../functions/globalFunctions.js";
 import { Evolutions } from "./Evolutions.js";
 export const evolutionChains = [];
 
@@ -43,37 +43,48 @@ const getChains = (amount) => {
                 values.forEach(value => {
                     let key = value[0];
                     let val = value[1];
-                    console.log(`key`,key);
-                    console.log(`------------------------------------------------------------------------------`);
-
-                    console.log(`key.split('_')`,key.split(`_`).forEach(split => {
-                        let capSplit = capitalize(split);
-                        let keyString = `${capSplit} `;
-                    }));
-                    if (typeof val == Object) {
-                        let valName = val.name;
-                        evoCond = `${key}: ${valName}`
+                    let keySplits = key.split(`_`);
+                    if (keySplits.length > 1) {
+                        let splits = [];
+                        keySplits.forEach((split,index) => {
+                            let lastElement = keySplits.length - 1;
+                            let capSplit = capitalize(split);
+                            if (index === lastElement) {
+                                let keyString = `${capSplit}`;
+                                splits.push(keyString);
+                                key = splits.join(``);
+                                return key;
+                            } else {
+                                let keyString = `${capSplit} `;
+                                splits.push(keyString);
+                                key = splits.join(``);
+                                return key;
+                            }
+                        })
+                    } else {
+                        key = value[0];
+                        return key;
+                    }
+                    if (!isNaN(val)) {
+                        console.log(val);
+                        console.log(typeof val);
+                        evoCond = `${key}: ${val}`;
+                        console.log(evoCond);
                         evolveConditions.push(evoCond);
-                        let evoConds = {
-                            evolveCondition: `In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):`,
-                            evolveConditions
-                        }
-                        let evolutionChain = {name,id,trigger,evolvesTo,evoConds};
+                        let evolutionChain = {name,id,trigger,evolvesTo,evolveConditions};
                         evolutionChains.push(evolutionChain);
                         let chains = sortArrayById(evolutionChains);
-                        console.log(`Object Name chains`,chains);
+                        console.log(`Evolution Chains Not Object`, chains);
+                        localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                         return chains;
                     } else {
-                        evoCond = `${key}: ${val}`
+                        evoCond = `${key}: ${val.name}`;
                         evolveConditions.push(evoCond);
-                        let evoConds = {
-                            evolveCondition: `In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):`,
-                            evolveConditions
-                        }
-                        let evolutionChain = {name,id,trigger,evolvesTo,evoConds};
+                        let evolutionChain = {name,id,trigger,evolvesTo,evolveConditions};
                         evolutionChains.push(evolutionChain);
                         let chains = sortArrayById(evolutionChains);
-                        console.log(`Key Val chains`,chains);
+                        // console.log(`Object Evolution Chains`, chains);
+                        localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                         return chains;
                     }
                 })
@@ -89,14 +100,16 @@ const getChains = (amount) => {
                     let evolutionChain = {name,id,evolvesTo,atLevel,trigger,finalEvolution,finalEvolutionLevel,finalEvolutionTrigger};
                     evolutionChains.push(evolutionChain);
                     let chains = sortArrayById(evolutionChains);
-                    console.log(`Evolve Twice chains`,chains);
+                    // console.log(`Pokemon Evolves multiple time Evolution Chains`, chains);
+                    localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                     return chains;
 
                 } else { // Pokemon Evolves Once
                     let evolutionChain = {name,id,evolvesTo,atLevel,trigger};
                     evolutionChains.push(evolutionChain);
                     let chains = sortArrayById(evolutionChains);
-                    console.log(`Evolve Once chains`,chains);
+                    // console.log(`Pokemon Evolves Once Evolution Chains`, chains);
+                    localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                     return chains;
                 }
             }
