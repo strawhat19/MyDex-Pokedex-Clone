@@ -46,6 +46,12 @@
     }
 }
 
+.registration {
+  .inactive {
+    display: none !important;
+  }
+}
+
 .mobileRegistration {
   @media (max-width: 1140px) {
     display: flex;

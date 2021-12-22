@@ -2,6 +2,7 @@
 @import "../../components/Registration/styles/registration";
 @import "../../components/Search/styles/search";
 @import "../../components/Footer/styles/footer";
+@import "../../components/Banner/styles/banner";
 
 /* Montserrat */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
@@ -162,70 +163,6 @@ a {
 
 .logo {
     max-width: 250px;
-}
-
-.registration {
-  .inactive {
-    display: none !important;
-  }
-}
-
-.banner {
-  opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: white;
-  background: url("../images/pokeballBanner.jpg");
-  margin-top: 53px;
-  background-position: 50% 10%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  transition: var(--transition);
-  .bannerContent {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 60%;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    color: black;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    text-align: center;
-    grid-gap: 0;
-    padding: 4em 0 5em;
-    z-index: 1;
-    transition: var(--transition);
-     p {
-      margin: 0;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-  }
-  &::before {
-    content: '';
-    position: absolute;
-    background: var(--slideBannerBG);
-    height: 100%;
-    width: 100%;
-    z-index: 0;
-    transition: var(--transition);
-  }
 }
 
 .pokeData {

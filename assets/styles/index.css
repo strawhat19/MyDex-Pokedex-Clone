@@ -798,6 +798,10 @@ nav.scrolled {
   }
 }
 
+.registration .inactive {
+  display: none !important;
+}
+
 @media (max-width: 1140px) {
   .mobileRegistration {
     display: -webkit-box;
@@ -972,6 +976,71 @@ footer i,
   color: white;
 }
 
+.banner {
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: white;
+  background: url("../images/pokeballBanner.jpg");
+  margin-top: 53px;
+  background-position: 50% 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  background: var(--slideBannerBG);
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner .bannerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-align: center;
+  grid-gap: 0;
+  padding: 4em 0 5em;
+  z-index: 1;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.banner .bannerContent p {
+  margin: 0;
+  font-weight: 600;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
 /* Montserrat */
 /* Caveat */
 /* 
@@ -1143,75 +1212,6 @@ a {
 
 .logo {
   max-width: 250px;
-}
-
-.registration .inactive {
-  display: none !important;
-}
-
-.banner {
-  opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: white;
-  background: url("../images/pokeballBanner.jpg");
-  margin-top: 53px;
-  background-position: 50% 10%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.banner .bannerContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 60%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: black;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  text-align: center;
-  grid-gap: 0;
-  padding: 4em 0 5em;
-  z-index: 1;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.banner .bannerContent p {
-  margin: 0;
-  font-weight: 600;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
-.banner::before {
-  content: '';
-  position: absolute;
-  background: var(--slideBannerBG);
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
 }
 
 .pokeData {
