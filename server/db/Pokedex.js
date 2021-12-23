@@ -10,14 +10,14 @@ import { Gen1 } from "./Gens/gen1.js";
 import { Gen2 } from "./Gens/gen2.js";
 import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
+import { Gen5 } from "./Gens/gen5.js";
+import { Gen6 } from "./Gens/gen6.js";
+import { Gen7 } from "./Gens/gen7.js";
+import { Gen8 } from "./Gens/gen8.js";
 import { Evolutions } from "./Evolutions/Evolutions.js";
 
-
 // Creating & Exporting Pokedex
-export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
-console.log(`Gen1`,Gen1);
-console.log(`Evolutions`,Evolutions);
-console.log(`Pokedex`,Pokedex);
+export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4).concat(Gen5).concat(Gen6).concat(Gen7).concat(Gen8);
 
 // Generating Pokedex
 export const generatePokedex = (pokemonData, genArray, genNum) => {
@@ -97,7 +97,6 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
       sortObjByKeyLength(newPokemon);
       genArray.push(newPokemon);
       const sortedGen = sortArrayById(genArray);
-      // set(`Gen ${genNum}`,str(sortedGen));
       console.log(sortedGen);
       return sortedGen;
 
@@ -108,43 +107,81 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
 }
 
 // Gen 1 Fetch
-let gen1 = [];
-genFetch(0, 151).then((generation1) => {
-  generation1.results.forEach((poke) => {
-    pokeFetch(poke.url).then((pokemonData) => {
-      generatePokedex(pokemonData, gen1, 1);
-    })
-  });
-});
+// let gen1 = [];
+// genFetch(0, 151).then((generation1) => {
+//   generation1.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen1, 1);
+//     })
+//   });
+// });
 
 // // Gen 2 Fetch
-// // let gen2 = [];
-// // genFetch(151, 100).then((generation2) => {
-// //   generation2.results.forEach((poke) => {
-// //     pokeFetch(poke.url).then((pokemonData) => {
-// //       generateDex(pokemonData, gen2, 2);
-// //     })
-// //   });
-// // });
+// let gen2 = [];
+// genFetch(151, 100).then((generation2) => {
+//   generation2.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen2, 2);
+//     })
+//   });
+// });
 
 // // Gen 3 Fetch
-// // let gen3 = [];
-// // genFetch(251, 135).then((generation3) => {
-// //   generation3.results.forEach((poke) => {
-// //     pokeFetch(poke.url).then((pokemonData) => {
-// //       generateDex(pokemonData, gen3, 3);
-// //     })
-// //   });
-// // });
+// let gen3 = [];
+// genFetch(251, 135).then((generation3) => {
+//   generation3.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen3, 3);
+//     })
+//   });
+// });
 
 // // Gen 4 Fetch
-// // let gen4 = [];
-// // genFetch(386, 107).then((generation4) => {
-// //   generation4.results.forEach((poke) => {
-// //     pokeFetch(poke.url).then((pokemonData) => {
-// //       generateDex(pokemonData, gen4, 4);
-// //     })
-// //   });
-// // });
+// let gen4 = [];
+// genFetch(386, 107).then((generation4) => {
+//   generation4.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen4, 4);
+//     })
+//   });
+// });
 
-// // fetchChains();
+// // Gen 5 Fetch
+// let gen5 = [];
+// genFetch(493, 156).then((generation5) => {
+//   generation5.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen5, 5);
+//     })
+//   });
+// });
+
+// // Gen 6 Fetch
+// let gen6 = [];
+// genFetch(649, 72).then((generation6) => {
+//   generation6.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen6, 6);
+//     })
+//   });
+// });
+
+// // Gen 7 Fetch
+// let gen7 = [];
+// genFetch(721, 88).then((generation7) => {
+//   generation7.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen7, 7);
+//     })
+//   });
+// });
+
+// // Gen 8 Fetch
+// let gen8 = [];
+// genFetch(809, 89).then((generation8) => {
+//   generation8.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen8, 8);
+//     })
+//   });
+// });

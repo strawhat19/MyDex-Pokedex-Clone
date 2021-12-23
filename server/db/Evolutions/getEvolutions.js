@@ -3,8 +3,6 @@ import { capitalize, set, sortArrayById, str } from "../../functions/globalFunct
 import { Evolutions } from "./Evolutions.js";
 export const evolutionChains = [];
 
-console.log(`Evolutions`,Evolutions);
-
 // createEvoChain(evolutions);
 const getChains = (amount) => {
   const generateEvoChain = (id) => {
@@ -124,10 +122,10 @@ const getChains = (amount) => {
 }
 
 // Fetch up to Gen 8
-getChains(476);
+// getChains(476);
 
-let chainsSTR = getChains(476);
-console.log(chainsSTR);
+// let chainsSTR = getChains(476);
+// console.log(chainsSTR);
 
 //   // Combine and Get Matching Elements
 //   const currentEvoNames = arrayMatches(pokedexNames,evolutionNames);
