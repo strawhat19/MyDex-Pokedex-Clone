@@ -85,12 +85,9 @@ export const Evolutions = [
         "id": 10,
         "trigger": "Via Level Up",
         "evolvesTo": "pikachu",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "sandshrew",
@@ -124,24 +121,18 @@ export const Evolutions = [
         "id": 14,
         "trigger": "Via Level Up",
         "evolvesTo": "clefairy",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "igglybuff",
         "id": 16,
         "trigger": "Via Level Up",
         "evolvesTo": "jigglypuff",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "zubat",
@@ -322,12 +313,9 @@ export const Evolutions = [
         "id": 41,
         "trigger": "Via trade",
         "evolvesTo": "steelix",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: metal-coat"
+        ]
     },
     {
         "name": "drowzee",
@@ -369,12 +357,9 @@ export const Evolutions = [
         "id": 48,
         "trigger": "Via Level Up",
         "evolvesTo": "lickilicky",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: rollout"
+        ]
     },
     {
         "name": "koffing",
@@ -398,25 +383,19 @@ export const Evolutions = [
         "id": 51,
         "trigger": "Via Level Up",
         "evolvesTo": "chansey",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]",
-                "Time Of Day: day"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: oval-stone",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "tangela",
         "id": 52,
         "trigger": "Via Level Up",
         "evolvesTo": "tangrowth",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: ancient-power"
+        ]
     },
     {
         "name": "horsea",
@@ -440,24 +419,18 @@ export const Evolutions = [
         "id": 57,
         "trigger": "Via Level Up",
         "evolvesTo": "mr-mime",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: mimic"
+        ]
     },
     {
         "name": "scyther",
         "id": 58,
         "trigger": "Via trade",
         "evolvesTo": "scizor",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: metal-coat"
+        ]
     },
     {
         "name": "smoochum",
@@ -498,12 +471,9 @@ export const Evolutions = [
         "id": 68,
         "trigger": "Via trade",
         "evolvesTo": "porygon2",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: up-grade"
+        ]
     },
     {
         "name": "omanyte",
@@ -524,12 +494,9 @@ export const Evolutions = [
         "id": 72,
         "trigger": "Via Level Up",
         "evolvesTo": "snorlax",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "dratini",
@@ -611,12 +578,9 @@ export const Evolutions = [
         "id": 87,
         "trigger": "Via Level Up",
         "evolvesTo": "togetic",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "natu",
@@ -640,24 +604,18 @@ export const Evolutions = [
         "id": 90,
         "trigger": "Via Level Up",
         "evolvesTo": "marill",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "bonsly",
         "id": 91,
         "trigger": "Via Level Up",
         "evolvesTo": "sudowoodo",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: mimic"
+        ]
     },
     {
         "name": "hoppip",
@@ -674,24 +632,18 @@ export const Evolutions = [
         "id": 93,
         "trigger": "Via Level Up",
         "evolvesTo": "ambipom",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: double-hit"
+        ]
     },
     {
         "name": "yanma",
         "id": 95,
         "trigger": "Via Level Up",
         "evolvesTo": "yanmega",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: ancient-power"
+        ]
     },
     {
         "name": "wooper",
@@ -719,13 +671,10 @@ export const Evolutions = [
         "id": 104,
         "trigger": "Via Level Up",
         "evolvesTo": "gliscor",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]",
-                "Time Of Day: night"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: razor-fang",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "snubbull",
@@ -739,13 +688,10 @@ export const Evolutions = [
         "id": 109,
         "trigger": "Via Level Up",
         "evolvesTo": "weavile",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]",
-                "Time Of Day: night"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: razor-claw",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "teddiursa",
@@ -790,12 +736,9 @@ export const Evolutions = [
         "id": 116,
         "trigger": "Via Level Up",
         "evolvesTo": "mantine",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Party Species: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Party Species: remoraid"
+        ]
     },
     {
         "name": "houndour",
@@ -999,13 +942,10 @@ export const Evolutions = [
         "id": 158,
         "trigger": "Via Level Up",
         "evolvesTo": "roselia",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220",
-                "Time Of Day: day"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "gulpin",
@@ -1106,12 +1046,9 @@ export const Evolutions = [
         "id": 178,
         "trigger": "Via Level Up",
         "evolvesTo": "milotic",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Beauty: 171"
-            ]
-        }
+        "evolveConditions": [
+            "Min Beauty: 171"
+        ]
     },
     {
         "name": "shuppet",
@@ -1135,13 +1072,10 @@ export const Evolutions = [
         "id": 184,
         "trigger": "Via Level Up",
         "evolvesTo": "chimecho",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220",
-                "Time Of Day: night"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "snorunt",
@@ -1165,12 +1099,9 @@ export const Evolutions = [
         "id": 188,
         "trigger": "Via trade",
         "evolvesTo": "huntail",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: deep-sea-tooth"
+        ]
     },
     {
         "name": "bagon",
@@ -1317,12 +1248,9 @@ export const Evolutions = [
         "id": 220,
         "trigger": "Via Level Up",
         "evolvesTo": "lopunny",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "glameow",
@@ -1360,13 +1288,10 @@ export const Evolutions = [
         "id": 232,
         "trigger": "Via Level Up",
         "evolvesTo": "lucario",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220",
-                "Time Of Day: day"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "hippopotas",
@@ -1489,12 +1414,9 @@ export const Evolutions = [
         "id": 269,
         "trigger": "Via Level Up",
         "evolvesTo": "swoobat",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "drilbur",
@@ -1658,12 +1580,9 @@ export const Evolutions = [
         "id": 299,
         "trigger": "Via trade",
         "evolvesTo": "escavalier",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Trade Species: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Trade Species: shelmet"
+        ]
     },
     {
         "name": "foongus",
@@ -1752,12 +1671,9 @@ export const Evolutions = [
         "id": 312,
         "trigger": "Via trade",
         "evolvesTo": "accelgor",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Trade Species: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Trade Species: karrablast"
+        ]
     },
     {
         "name": "mienfoo",
@@ -1921,24 +1837,18 @@ export const Evolutions = [
         "id": 350,
         "trigger": "Via trade",
         "evolvesTo": "aromatisse",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: sachet"
+        ]
     },
     {
         "name": "swirlix",
         "id": 351,
         "trigger": "Via trade",
         "evolvesTo": "slurpuff",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Held Item: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Held Item: whipped-dream"
+        ]
     },
     {
         "name": "inkay",
@@ -2155,12 +2065,9 @@ export const Evolutions = [
         "id": 399,
         "trigger": "Via Level Up",
         "evolvesTo": "silvally",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220"
+        ]
     },
     {
         "name": "jangmo-o",
@@ -2187,12 +2094,9 @@ export const Evolutions = [
         "id": 424,
         "trigger": "Via Level Up",
         "evolvesTo": "naganadel",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Known Move: [object Object]"
-            ]
-        }
+        "evolveConditions": [
+            "Known Move: dragon-pulse"
+        ]
     },
     {
         "name": "grookey",
@@ -2349,13 +2253,20 @@ export const Evolutions = [
         "id": 454,
         "trigger": "Via Level Up",
         "evolvesTo": "frosmoth",
-        "evoConds": {
-            "evolveCondition": "In order for this pokemon to evolve, you will need to get the following item(s) and/or stat(s):",
-            "evolveConditions": [
-                "Min Happiness: 220",
-                "Time Of Day: night"
-            ]
-        }
+        "evolveConditions": [
+            "Min Happiness: 220",
+            "Time Of Day: undefined"
+        ]
+    },
+    {
+        "name": "snom",
+        "id": 454,
+        "trigger": "Via Level Up",
+        "evolvesTo": "frosmoth",
+        "evolveConditions": [
+            "Min Happiness: 220",
+            "Time Of Day: undefined"
+        ]
     },
     {
         "name": "cufant",
@@ -2374,4 +2285,4 @@ export const Evolutions = [
         "finalEvolutionLevel": 60,
         "finalEvolutionTrigger": "Via Level Up"
     }
-];
+]

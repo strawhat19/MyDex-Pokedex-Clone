@@ -12,9 +12,12 @@ import { Gen3 } from "./Gens/gen3.js";
 import { Gen4 } from "./Gens/gen4.js";
 import { Evolutions } from "./Evolutions/Evolutions.js";
 
+
 // Creating & Exporting Pokedex
 export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4);
+console.log(`Gen1`,Gen1);
 console.log(`Evolutions`,Evolutions);
+console.log(`Pokedex`,Pokedex);
 
 // Generating Pokedex
 export const generatePokedex = (pokemonData, genArray, genNum) => {
@@ -44,7 +47,7 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
       }
     });
 
-    if (evolutionChain[0]) {
+    if (evolutionChain.length > 0) {
 
       const evolution = evolutionChain[0];
 
