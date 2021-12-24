@@ -24,6 +24,23 @@ export const renderStatName = (statName) => {
   }
 };
 
+const string = `Hello`;
+const renderRegButton = (pokemon) => {
+  if (typeof pokemon.evolution === typeof string) {
+    const saveButtons = `
+        <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
+    `;
+    // console.log(saveButtons);
+    return saveButtons;
+  } else {
+    const regButtons = `
+      <button title="Save ${pokemon.name}" href="./pokemon?=${pokemon.name}" class="pokeLink">View Evolution</button>
+  `;
+  // console.log(regButtons);
+    return regButtons;
+  }
+}
+
 // Creating the Individual Pokemon Elements
 export const createPokemon = (pokedex, pokemon) => {
   const {name,id,index,image,shiny,size,stats,types,generation,weight,description,altDescription} = pokemon;
@@ -85,7 +102,7 @@ export const createPokemon = (pokedex, pokemon) => {
           </div>
         </div>
         <div class="registerPokemon">
-          <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
+          ${renderRegButton(pokemon)}
         </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
         <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>
@@ -109,7 +126,7 @@ export const createPokemon = (pokedex, pokemon) => {
           </div>
         </div>
         <div class="registerPokemon">
-            <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
+            ${renderRegButton(pokemon)}
           </div>
         <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
         <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>

@@ -14,8 +14,6 @@ document.addEventListener(`DOMContentLoaded`,event => {
     // Storing it in a Variable
     const trainers = users.docs.map(trainer => trainer.data());
 
-    // createPokemon($(`.test`),trainers[0].pokemon[0]);
-
     // Render All Trainers Data
     trainers.map(trainer => {
 
