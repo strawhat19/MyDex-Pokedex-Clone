@@ -472,7 +472,7 @@ main {
       text-align: center;
       padding: 0.2em 1em;
       width: 71%;
-      min-width: 80px !important;
+      min-width: 95px !important;
       margin: 0 auto;
       border-radius: 25px;
       position: relative;
@@ -755,13 +755,21 @@ main {
   .pokeLevel {
     color: white;
     height: 46px;
+    width: 60px;
     background: url(../graphics/arrowRight.svg);
     background-repeat: no-repeat;
     background-size: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-    font-size: 1em;
+    font-size: .85em;
+    font-weight: 600;
   }
 }
 

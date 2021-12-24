@@ -2,6 +2,7 @@
 import { capitalize, set, sortArrayById, str } from "../../functions/globalFunctions.js";
 import { Evolutions } from "./Evolutions.js";
 export const evolutionChains = [];
+export const evolutionsArray = [];
 
 // createEvoChain(evolutions);
 const getChains = (amount) => {
@@ -13,6 +14,14 @@ const getChains = (amount) => {
         }
     return response.json();
     }).then(evolution => {
+        let evolutionTestObj = {
+            id: evolution.id,
+            evolutionChain: evolution.chain,
+            name: evolution.chain.species.name,
+        }
+        evolutionsArray.push(evolutionTestObj);
+        console.log(sortArrayById(evolutionsArray));
+        // Add Evolution Item
         let chain, name, id, evos, evoDetails, evoCond, atLevel, trigger, evolvesTo;
         id = evolution.id;
         chain = evolution.chain;
@@ -116,6 +125,7 @@ const getChains = (amount) => {
         console.log(error);
     })
   }
+//   generateEvoChain(amount);
   for (var i = 1; i < amount; i++) {
     generateEvoChain(i);
   }
@@ -123,6 +133,7 @@ const getChains = (amount) => {
 
 // Fetch up to Gen 8
 // getChains(476);
+getChains(200);
 
 // let chainsSTR = getChains(476);
 // console.log(chainsSTR);

@@ -5,6 +5,7 @@ import { capitalize } from "../server.js";
 
 // Constants
 let pokemonToRender = window.location.search.replace(`?=`,``);
+// const pokemonEvos = $(`#pokemonevos`);
 const pokemonInfo = $(`#pokemonInfo`);
 const evolutions = [];
 
@@ -69,14 +70,20 @@ pokeIndex.forEach(index => {
     if (parseInt(index.innerHTML) == 1) {
         let levelEl = document.createElement(`div`);
         levelEl.classList.add(`pokeLevel`);
-        levelEl.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.atLevel}`;
+        let levelInner = document.createElement(`div`);
+        levelInner.classList.add(`levelInner`);
+        levelInner.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.atLevel}`;
+        levelEl.append(levelInner);
         index.parentElement.insertAdjacentElement(`afterend`,levelEl);
     }
-    if (parseInt(index.innerHTML) == 2) {
+    if (parseInt(index.innerHTML) == 3) {
         let levelEl2 = document.createElement(`div`);
         levelEl2.classList.add(`pokeLevel`);
-        levelEl2.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.finalEvolutionLevel}`;
-        index.parentElement.insertAdjacentElement(`afterend`,levelEl2);
+        let levelInner = document.createElement(`div`);
+        levelInner.classList.add(`levelInner`);
+        levelInner.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.finalEvolutionLevel}`;
+        levelEl2.append(levelInner);
+        index.parentElement.insertAdjacentElement(`beforebegin`,levelEl2);
     } 
 })
 

@@ -14,6 +14,7 @@
     <?php include("./components/Banner/banner.php") ?>
 
     <!-- Pokemon Info Component -->
+    <div class="pokemonEvos" id="pokemonEvos"></div>
     <div class="pokemonInfo pokedex" id="pokemonInfo">
         <!-- Pokemon Data Inserted Here -->
     </div>
