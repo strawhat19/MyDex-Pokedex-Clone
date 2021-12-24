@@ -60,9 +60,24 @@ renderPokemon(pokemonInfo,evolutions);
 // After Function DOM Changes
 // User Document.QuerySelectorAll
 let evoButton = pokemonInfo.find(`.evoButton`);
-let pokeIndex = pokemonInfo.find(`.pokeIndex`);
-console.log(parseInt(pokeIndex.html()));
-if (parseInt(pokeIndex.html()) < 3) {
-    console.log(parseInt(pokeIndex.html()));
-} 
+let pokeIndex = document.querySelectorAll(`.pokeIndex`);
+
+let currentEvolution = $(`.${pokemonToRender}`);
+currentEvolution.addClass(`currentEvolution`);
+
+pokeIndex.forEach(index => {
+    if (parseInt(index.innerHTML) == 1) {
+        let levelEl = document.createElement(`div`);
+        levelEl.classList.add(`pokeLevel`);
+        levelEl.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.atLevel}`;
+        index.parentElement.insertAdjacentElement(`afterend`,levelEl);
+    }
+    if (parseInt(index.innerHTML) == 2) {
+        let levelEl2 = document.createElement(`div`);
+        levelEl2.classList.add(`pokeLevel`);
+        levelEl2.innerHTML = `Lvl. ${pokemonFromDex[0].evolution.finalEvolutionLevel}`;
+        index.parentElement.insertAdjacentElement(`afterend`,levelEl2);
+    } 
+})
+
 evoButton.remove();
