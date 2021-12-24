@@ -9,7 +9,8 @@ export const set = (itemKey,item) => {
 
 // Capitalize First Letter of Word
 export const capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+    let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    return capitalizedWord.split(`-`)[0];
 }
 
 // Shorten Get Item

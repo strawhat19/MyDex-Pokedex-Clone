@@ -368,6 +368,10 @@ main {
   transition: var(--transition);
 }
 
+#pokemonInfo {
+  min-height: 78.3vh;
+}
+
 .pokedex {
   width: 90%;
   display: flex;

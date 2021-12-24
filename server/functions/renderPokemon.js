@@ -30,13 +30,11 @@ const renderRegButton = (pokemon) => {
     const saveButtons = `
         <button title="Save ${pokemon.name}" class="pokeLink">Login to Save</button>
     `;
-    // console.log(saveButtons);
     return saveButtons;
   } else {
     const regButtons = `
-      <button title="Save ${pokemon.name}" href="./pokemon?=${pokemon.name}" class="pokeLink">View Evolution</button>
+      <button title="Save ${pokemon.name}" id="${pokemon.name}" class="pokeLink regButton">View Evolution</button>
   `;
-  // console.log(regButtons);
     return regButtons;
   }
 }
@@ -146,7 +144,6 @@ export const renderPokemon = (domElementToRenderThem,Pokedex) => {
 
   const clickSwitcher = () => {
     pokeDatas.forEach((pokeData) => {
-      // console.log(pokeData.parentElement.children[4]);
       var pokeName = pokeData.parentElement.title;
       var pokeID = document.querySelector(`#${pokeName}ID`);
 

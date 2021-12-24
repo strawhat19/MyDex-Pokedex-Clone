@@ -75,7 +75,8 @@ export const set = (itemKey,item) => {
 
 // Capitalize First Letter of Word
 export const capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+    let capitalizedWord = word.charAt(0).toUpperCase() + word.slice(1);
+    return capitalizedWord.split(`-`)[0];
 }
 
 // Shorten Get Item
@@ -104,11 +105,11 @@ export const pokeFetch = async (url) => {
 };
 
 // Asyncronously Fetch your Own Data or Make Your Own API
-export const fetchData = (fileName) => {
-    return fetch(`./server/db/${fileName}`)
-            .then(response =>
-                response.text().then(text => JSON.parse(text)));
-}
+// export const fetchData = (fileName) => {
+//     return fetch(`./server/db/${fileName}`)
+//             .then(response =>
+//                 response.text().then(text => JSON.parse(text)));
+// }
 
 // Fetch One Generation At A Time
 export const genFetch = async (offset, limit) => {
@@ -312,6 +313,13 @@ document.addEventListener(`DOMContentLoaded`, event => {
     const database = getFirestore(app);
     const db = firebase.firestore();
     console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
+
+    let regButtons = document.querySelectorAll(`.regButton`);
+    regButtons.forEach(button => {
+        button.addEventListener(`click`,event => {
+            window.location.href = `./pokemon?=${button.id}`;
+        })
+    })
 
     // Creating & Calling Database Collections
     const trainersSTR = `Trainers`;

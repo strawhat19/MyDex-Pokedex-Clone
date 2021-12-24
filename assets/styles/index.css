@@ -1041,6 +1041,10 @@ footer i,
   transition: var(--transition);
 }
 
+.pageBanner {
+  padding: 1em 0 0em !important;
+}
+
 /* Montserrat */
 /* Caveat */
 /* 
@@ -1489,6 +1493,10 @@ main {
   min-height: 78.3vh;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+#pokemonInfo {
+  min-height: 78.3vh;
 }
 
 .pokedex {
