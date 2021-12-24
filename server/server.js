@@ -314,8 +314,8 @@ document.addEventListener(`DOMContentLoaded`, event => {
     const db = firebase.firestore();
     console.log(`Successfully Connected To The ${database.type.charAt(0).toUpperCase() + database.type.slice(1)} Server`);
 
-    let regButtons = document.querySelectorAll(`.regButton`);
-    regButtons.forEach(button => {
+    let evoButtons = document.querySelectorAll(`.evoButton`);
+    evoButtons.forEach(button => {
         button.addEventListener(`click`,event => {
             window.location.href = `./pokemon?=${button.id}`;
         })

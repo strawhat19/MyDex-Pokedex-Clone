@@ -1,22 +1,24 @@
-import { Pokedex } from "../db/Pokedex.js";
+// Imports
 import { renderPokemon } from "./renderPokemon.js";
+import { Pokedex } from "../db/Pokedex.js";
 import { capitalize } from "../server.js";
 
-const evolutions = [];
+// Constants
 let pokemonToRender = window.location.search.replace(`?=`,``);
+const pokemonInfo = $(`#pokemonInfo`);
+const evolutions = [];
 
-let banner = $(`.banner`);
+// Variables
 let bannerContent = $(`.bannerContent`);
-let heading = banner.find(`h1`);
-heading.html(`${capitalize(pokemonToRender).split(`-`)[0]} Details`)
-bannerContent.addClass(`pageBanner`);
+let paragraph = bannerContent.find(`p`);
+let heading = bannerContent.find(`h1`);
 
-let paragraph = banner.find(`p`);
+// DOM Changes
+heading.html(`${capitalize(pokemonToRender).split(`-`)[0]} Details`);
+bannerContent.addClass(`pageBanner`);
 paragraph.remove();
 
-let pokemonInfo = $(`#pokemonInfo`);
-// pokemonInfo.html(``);
-
+// Getting Pokemon from DB
 let pokemonFromDex = Pokedex.filter(pokemon => {
     if (pokemon.name === pokemonToRender) {
         return pokemon;
@@ -42,8 +44,25 @@ let pokemon2 = Pokedex.filter(pokemon => {
 
 evolutions.push(pokemon2[0]);
 
-console.log(evolutions);
+let pokemonEntries = Object.entries(pokemonFromDex[0].evolution);
+if (pokemonEntries.length > 5) {
+    let pokemonFinalEv = pokemonFromDex[0].evolution.finalEvolution;
+    let pokemon3 = Pokedex.filter(pokemon => {
+        if (pokemon.name === pokemonFinalEv) {
+            return pokemon;
+        }
+    });
+    evolutions.push(pokemon3[0]);
+}
+
 renderPokemon(pokemonInfo,evolutions);
 
-let regButton1 = pokemonInfo.find(`.regButton`);
-regButton1.remove();
+// After Function DOM Changes
+// User Document.QuerySelectorAll
+let evoButton = pokemonInfo.find(`.evoButton`);
+let pokeIndex = pokemonInfo.find(`.pokeIndex`);
+console.log(parseInt(pokeIndex.html()));
+if (parseInt(pokeIndex.html()) < 3) {
+    console.log(parseInt(pokeIndex.html()));
+} 
+evoButton.remove();

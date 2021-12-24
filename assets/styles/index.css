@@ -1495,10 +1495,6 @@ main {
   transition: var(--transition);
 }
 
-#pokemonInfo {
-  min-height: 78.3vh;
-}
-
 .pokedex {
   width: 90%;
   display: -webkit-box;
@@ -1666,7 +1662,7 @@ main {
   text-align: center;
   padding: 0.2em 1em;
   width: 71%;
-  min-width: 115px !important;
+  min-width: 80px !important;
   margin: 0 auto;
   border-radius: 25px;
   position: relative;
@@ -1974,5 +1970,17 @@ main {
   width: 100%;
   -webkit-transition: var(--transition);
   transition: var(--transition);
+}
+
+#pokemonInfo {
+  min-height: 78.3vh;
+}
+
+#pokemonInfo .pokemon {
+  min-width: 420px;
+}
+
+#pokemonInfo .pokemon .pokeID {
+  font-size: 11em;
 }
 /*# sourceMappingURL=index.css.map */
