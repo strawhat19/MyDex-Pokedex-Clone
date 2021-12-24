@@ -18,6 +18,14 @@
         <div class="pokedex" id="pokedex"></div>
     </main>
 
+    <button onclick="topFunction()" id="topButton" title="Scroll to top" >&gt;</button>
+    <script>
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
     <!-- Footer Component -->
     <?php include("./components/Footer/footer.php") ?>
     <!-- Start Server -->
