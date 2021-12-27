@@ -3225,7 +3225,7 @@ const gen8Dex = [
         "weight": 400,
         "description": "When this Pokémon sounds as if it’s strumming a guitar, it’s actually clawing at the protrusions on its chest to generate electricity.",
         "altDescription": "This short-tempered and aggressive Pokémon chugs stagnant water to absorb any toxins it might contain.",
-        "evolution": "Toxtricity-amped does not evolve"
+        "evolution": "Toxtricity does not evolve"
     },
     {
         "name": "sizzlipede",
@@ -4586,7 +4586,7 @@ const gen8Dex = [
         "weight": 582,
         "description": "It’s highly skilled at tap-dancing. It waves its cane of ice in time with its graceful movements.",
         "altDescription": "Its amusing movements make it very popular. It releases its psychic power from the pattern on its belly.",
-        "evolution": "Mr-rime does not evolve"
+        "evolution": "Mr does not evolve"
     },
     {
         "name": "runerigus",
@@ -5273,7 +5273,7 @@ const gen8Dex = [
         "weight": 890,
         "description": "It drifted in on the flow of ocean waters from a frigid place. It keeps its head iced constantly to make sure it stays nice and cold.",
         "altDescription": "This Pokémon keeps its heat-sensitive head cool with ice. It fishes for its food, dangling its single hair into the sea to lure in prey.",
-        "evolution": "Eiscue-ice does not evolve"
+        "evolution": "Eiscue does not evolve"
     },
     {
         "name": "indeedee-male",
@@ -5352,7 +5352,7 @@ const gen8Dex = [
         "weight": 280,
         "description": "It uses the horns on its head to sense the emotions of others. Males will act as valets for those they serve, looking after their every need.",
         "altDescription": "Through its horns, it can pick up on the emotions of creatures around it. Positive emotions are the source of its strength.",
-        "evolution": "Indeedee-male does not evolve"
+        "evolution": "Indeedee does not evolve"
     },
     {
         "name": "morpeko",
@@ -6318,7 +6318,7 @@ const gen8Dex = [
         "weight": 1100,
         "description": "Known as a legendary hero, this Pokémon absorbs metal particles, transforming them into a weapon it uses to battle.",
         "altDescription": "This Pokémon has slumbered for many years. Some say it’s Zamazenta’s elder sister—others say the two Pokémon are rivals.",
-        "evolution": "Zacian-hero does not evolve"
+        "evolution": "Zacian does not evolve"
     },
     {
         "name": "zamazenta-hero",
@@ -6390,7 +6390,7 @@ const gen8Dex = [
         "weight": 2100,
         "description": "In times past, it worked together with a king of the people to save the Galar region. It absorbs metal that it then uses in battle.",
         "altDescription": "This Pokémon slept for aeons while in the form of a statue. It was asleep for so long, people forgot that it ever existed.",
-        "evolution": "Zamazenta-hero does not evolve"
+        "evolution": "Zamazenta does not evolve"
     },
     {
         "name": "eternatus",
@@ -6620,7 +6620,7 @@ const gen8Dex = [
         "weight": 1050,
         "description": "This form of Urshifu is a strong believer in the one-hit KO. Its strategy is to leap in close to foes and land a devastating blow with a hardened fist.",
         "altDescription": "Inhabiting the mountains of a distant region, this Pokémon races across sheer cliffs, training its legs and refining its moves.",
-        "evolution": "Urshifu-single-strike does not evolve"
+        "evolution": "Urshifu does not evolve"
     },
     {
         "name": "zarude",

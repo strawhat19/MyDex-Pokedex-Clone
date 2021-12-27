@@ -1668,7 +1668,7 @@ const gen7Dex = [
         "weight": 34,
         "description": "It wins the hearts of its enemies with its passionate dancing and then uses the opening it creates to burn them up with blazing flames.",
         "altDescription": "This Oricorio has drunk red nectar. If its Trainer gives the wrong order, this passionate Pokémon becomes fiercely angry.",
-        "evolution": "Oricorio-baile does not evolve"
+        "evolution": "Oricorio does not evolve"
     },
     {
         "name": "cutiefly",
@@ -1988,7 +1988,7 @@ const gen7Dex = [
         "weight": 250,
         "description": "This Lycanroc is calm and cautious. The rocks jutting from its mane are razor sharp.",
         "altDescription": "With swift movements, this Pokémon gradually backs its prey into a corner. Lycanroc’s fangs are always aimed toward opponents’ weak spots.",
-        "evolution": "Lycanroc-midday does not evolve"
+        "evolution": "Lycanroc does not evolve"
     },
     {
         "name": "wishiwashi-solo",
@@ -2060,7 +2060,7 @@ const gen7Dex = [
         "weight": 3,
         "description": "Individually, they’re incredibly weak. It’s by gathering up into schools that they’re able to confront opponents.",
         "altDescription": "When it senses danger, its eyes tear up. The sparkle of its tears signals other Wishiwashi to gather.",
-        "evolution": "Wishiwashi-solo does not evolve"
+        "evolution": "Wishiwashi does not evolve"
     },
     {
         "name": "mareanie",
@@ -4339,7 +4339,7 @@ const gen7Dex = [
         "weight": 400,
         "description": "It lives in the ozone layer, where it becomes food for stronger Pokémon. When it tries to run away, it falls to the ground.",
         "altDescription": "Although its outer shell is uncommonly durable, the shock of falling to the ground smashes the shell to smithereens.",
-        "evolution": "Minior-red-meteor does not evolve"
+        "evolution": "Minior does not evolve"
     },
     {
         "name": "komala",
@@ -4648,7 +4648,7 @@ const gen7Dex = [
         "weight": 7,
         "description": "It wears a rag fashioned into a Pikachu costume in an effort to look less scary. Unfortunately, the costume only makes it creepier.",
         "altDescription": "There was a scientist who peeked under Mimikyu’s old rag in the name of research. The scientist died of a mysterious disease.",
-        "evolution": "Mimikyu-disguised does not evolve"
+        "evolution": "Mimikyu does not evolve"
     },
     {
         "name": "bruxish",
@@ -5221,7 +5221,7 @@ const gen7Dex = [
         "weight": 205,
         "description": "Although it’s called a guardian deity, if a person or Pokémon puts it in a bad mood, it will become a malevolent deity and attack.",
         "altDescription": "The lightning-wielding guardian deity of Melemele, Tapu Koko is brimming with curiosity and appears before people from time to time.",
-        "evolution": "Tapu-koko does not evolve"
+        "evolution": "Tapu does not evolve"
     },
     {
         "name": "tapu-lele",
@@ -5300,7 +5300,7 @@ const gen7Dex = [
         "weight": 186,
         "description": "It heals the wounds of people and Pokémon by sprinkling them with its sparkling scales. This guardian deity is worshiped on Akala.",
         "altDescription": "Although called a guardian deity, Tapu Lele is devoid of guilt about its cruel disposition and can be described as nature incarnate.",
-        "evolution": "Tapu-lele does not evolve"
+        "evolution": "Tapu does not evolve"
     },
     {
         "name": "tapu-bulu",
@@ -5379,7 +5379,7 @@ const gen7Dex = [
         "weight": 455,
         "description": "Although it’s called a guardian deity, it’s violent enough to crush anyone it sees as an enemy.",
         "altDescription": "It makes ringing sounds with its tail to let others know where it is, avoiding unneeded conflicts. This guardian deity of Ula’ula controls plants.",
-        "evolution": "Tapu-bulu does not evolve"
+        "evolution": "Tapu does not evolve"
     },
     {
         "name": "tapu-fini",
@@ -5458,7 +5458,7 @@ const gen7Dex = [
         "weight": 212,
         "description": "The guardian deity of Poni, it can control water. People say it can create pure water that will wash away any uncleanness.",
         "altDescription": "This guardian deity of Poni Island manipulates water. Because it lives deep within a thick fog, it came to be both feared and revered.",
-        "evolution": "Tapu-fini does not evolve"
+        "evolution": "Tapu does not evolve"
     },
     {
         "name": "cosmog",

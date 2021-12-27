@@ -1673,8 +1673,7 @@ const gen6Dex = [
             "atLevel": 19,
             "trigger": "Via Level Up",
             "finalEvolution": "florges",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "shiny-stone"
         }
     },
     {
@@ -1754,8 +1753,7 @@ const gen6Dex = [
             "atLevel": 19,
             "trigger": "Via Level Up",
             "finalEvolution": "florges",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "shiny-stone"
         }
     },
     {
@@ -1835,8 +1833,7 @@ const gen6Dex = [
             "atLevel": 19,
             "trigger": "Via Level Up",
             "finalEvolution": "florges",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "shiny-stone"
         }
     },
     {
@@ -2378,7 +2375,7 @@ const gen6Dex = [
         "weight": 85,
         "description": "Revealing the eyelike patterns on the insides of its ears will unleash its psychic powers. It normally keeps the patterns hidden, however.",
         "altDescription": "The defensive instinct of the males is strong. It’s when they’re protecting themselves or their partners that they unleash their full power.",
-        "evolution": "Meowstic-male does not evolve"
+        "evolution": "Meowstic does not evolve"
     },
     {
         "name": "honedge",
@@ -2464,8 +2461,7 @@ const gen6Dex = [
             "atLevel": 35,
             "trigger": "Via Level Up",
             "finalEvolution": "aegislash",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "dusk-stone"
         }
     },
     {
@@ -2552,8 +2548,7 @@ const gen6Dex = [
             "atLevel": 35,
             "trigger": "Via Level Up",
             "finalEvolution": "aegislash",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "dusk-stone"
         }
     },
     {
@@ -2633,7 +2628,7 @@ const gen6Dex = [
         "weight": 530,
         "description": "In this defensive stance, Aegislash uses its steel body and a force field of spectral power to reduce the damage of any attack.",
         "altDescription": "Its potent spectral powers allow it to manipulate others. It once used its powers to force people and Pokémon to build a kingdom to its liking.",
-        "evolution": "Aegislash-shield does not evolve"
+        "evolution": "Aegislash does not evolve"
     },
     {
         "name": "spritzee",
@@ -2705,15 +2700,7 @@ const gen6Dex = [
         "weight": 5,
         "description": "A scent pouch within this Pokémon’s body allows it to create various scents. A change in its diet will alter the fragrance it produces.",
         "altDescription": "The scent its body gives off enraptures those who smell it. Noble ladies had no shortage of love for Spritzee.",
-        "evolution": {
-            "name": "spritzee",
-            "id": 350,
-            "trigger": "Via trade",
-            "evolvesTo": "aromatisse",
-            "evolveConditions": [
-                "Held Item: sachet"
-            ]
-        }
+        "evolution": "Spritzee does not evolve"
     },
     {
         "name": "aromatisse",
@@ -2785,15 +2772,7 @@ const gen6Dex = [
         "weight": 155,
         "description": "The scent that constantly emits from its fur is so powerful that this Pokémon’s companions will eventually lose their sense of smell.",
         "altDescription": "The scents Aromatisse can produce range from sweet smells that bolster allies to foul smells that sap an opponent’s will to fight.",
-        "evolution": {
-            "name": "spritzee",
-            "id": 350,
-            "trigger": "Via trade",
-            "evolvesTo": "aromatisse",
-            "evolveConditions": [
-                "Held Item: sachet"
-            ]
-        }
+        "evolution": "Aromatisse does not evolve"
     },
     {
         "name": "swirlix",
@@ -2865,15 +2844,7 @@ const gen6Dex = [
         "weight": 35,
         "description": "It eats its own weight in sugar every day. If it doesn’t get enough sugar, it becomes incredibly grumpy.",
         "altDescription": "The sweet smell of cotton candy perfumes Swirlix’s fluffy fur. This Pokémon spits out sticky string to tangle up its enemies.",
-        "evolution": {
-            "name": "swirlix",
-            "id": 351,
-            "trigger": "Via trade",
-            "evolvesTo": "slurpuff",
-            "evolveConditions": [
-                "Held Item: whipped-dream"
-            ]
-        }
+        "evolution": "Swirlix does not evolve"
     },
     {
         "name": "slurpuff",
@@ -2945,15 +2916,7 @@ const gen6Dex = [
         "weight": 50,
         "description": "By taking in a person’s scent, it can sniff out their mental and physical condition. It’s hoped that this skill will have many medical applications.",
         "altDescription": "Slurpuff’s fur contains a lot of air, making it soft to the touch and lighter than it looks.",
-        "evolution": {
-            "name": "swirlix",
-            "id": 351,
-            "trigger": "Via trade",
-            "evolvesTo": "slurpuff",
-            "evolveConditions": [
-                "Held Item: whipped-dream"
-            ]
-        }
+        "evolution": "Slurpuff does not evolve"
     },
     {
         "name": "inkay",
@@ -3698,7 +3661,13 @@ const gen6Dex = [
         "weight": 60,
         "description": "When spread, the frills on its head act like solar panels, generating the power behind this Pokémon’s electric moves.",
         "altDescription": "The sun powers this Pokémon’s electricity generation. Interruption of that process stresses Helioptile to the point of weakness.",
-        "evolution": "Helioptile does not evolve"
+        "evolution": {
+            "name": "helioptile",
+            "id": 356,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "heliolisk"
+        }
     },
     {
         "name": "heliolisk",
@@ -3777,7 +3746,13 @@ const gen6Dex = [
         "weight": 210,
         "description": "A now-vanished desert culture treasured these Pokémon. Appropriately, when Heliolisk came to the Galar region, treasure came with them.",
         "altDescription": "One Heliolisk basking in the sun with its frill outspread is all it would take to produce enough electricity to power a city.",
-        "evolution": "Heliolisk does not evolve"
+        "evolution": {
+            "name": "helioptile",
+            "id": 356,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "heliolisk"
+        }
     },
     {
         "name": "tyrunt",
@@ -4985,7 +4960,7 @@ const gen6Dex = [
         "weight": 50,
         "description": "Spirits that wander this world are placed into Pumpkaboo’s body. They’re then moved on to the afterlife.",
         "altDescription": "The light that streams out from the holes in the pumpkin can hypnotize and control the people and Pokémon that see it.",
-        "evolution": "Pumpkaboo-average does not evolve"
+        "evolution": "Pumpkaboo does not evolve"
     },
     {
         "name": "gourgeist-average",
@@ -5064,7 +5039,7 @@ const gen6Dex = [
         "weight": 125,
         "description": "Eerie cries emanate from its body in the dead of night. The sounds are said to be the wails of spirits who are suffering in the afterlife.",
         "altDescription": "In the darkness of a new-moon night, Gourgeist will come knocking. Whoever answers the door will be swept off to the afterlife.",
-        "evolution": "Gourgeist-average does not evolve"
+        "evolution": "Gourgeist does not evolve"
     },
     {
         "name": "bergmite",

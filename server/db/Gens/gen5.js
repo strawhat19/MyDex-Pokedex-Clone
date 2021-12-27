@@ -1446,7 +1446,13 @@ const gen5Dex = [
         "weight": 105,
         "description": "It shares the leaf on its head with weary-looking Pokémon. These leaves are known to relieve stress.",
         "altDescription": "It’s good at finding berries and gathers them from all over. It’s kind enough to share them with friends.",
-        "evolution": "Pansage does not evolve"
+        "evolution": {
+            "name": "pansage",
+            "id": 262,
+            "trigger": "Via Use Item",
+            "itemName": "leaf-stone",
+            "evolvesTo": "simisage"
+        }
     },
     {
         "name": "simisage",
@@ -1518,7 +1524,13 @@ const gen5Dex = [
         "weight": 305,
         "description": "It attacks enemies with strikes of its thorn-covered tail. This Pokémon is wild tempered.",
         "altDescription": "Ill tempered, it fights by swinging its barbed tail around wildly. The leaf growing on its head is very bitter.",
-        "evolution": "Simisage does not evolve"
+        "evolution": {
+            "name": "pansage",
+            "id": 262,
+            "trigger": "Via Use Item",
+            "itemName": "leaf-stone",
+            "evolvesTo": "simisage"
+        }
     },
     {
         "name": "pansear",
@@ -1590,7 +1602,13 @@ const gen5Dex = [
         "weight": 110,
         "description": "Very intelligent, it roasts berries before eating them. It likes to help people.",
         "altDescription": "This Pokémon lives in caves in volcanoes. The fire within the tuft on its head can reach 600 degrees Fahrenheit.",
-        "evolution": "Pansear does not evolve"
+        "evolution": {
+            "name": "pansear",
+            "id": 263,
+            "trigger": "Via Use Item",
+            "itemName": "fire-stone",
+            "evolvesTo": "simisear"
+        }
     },
     {
         "name": "simisear",
@@ -1662,7 +1680,13 @@ const gen5Dex = [
         "weight": 280,
         "description": "A flame burns inside its body. It scatters embers from its head and tail to sear its opponents.",
         "altDescription": "When it gets excited, embers rise from its head and tail and it gets hot. For some reason, it loves sweets.",
-        "evolution": "Simisear does not evolve"
+        "evolution": {
+            "name": "pansear",
+            "id": 263,
+            "trigger": "Via Use Item",
+            "itemName": "fire-stone",
+            "evolvesTo": "simisear"
+        }
     },
     {
         "name": "panpour",
@@ -1734,7 +1758,13 @@ const gen5Dex = [
         "weight": 135,
         "description": "The water stored inside the tuft on its head is full of nutrients. It waters plants with it using its tail.",
         "altDescription": "The water stored inside the tuft on its head is full of nutrients. Plants that receive its water grow large.",
-        "evolution": "Panpour does not evolve"
+        "evolution": {
+            "name": "panpour",
+            "id": 264,
+            "trigger": "Via Use Item",
+            "itemName": "water-stone",
+            "evolvesTo": "simipour"
+        }
     },
     {
         "name": "simipour",
@@ -1806,7 +1836,13 @@ const gen5Dex = [
         "weight": 290,
         "description": "The high-pressure water expelled from its tail is so powerful, it can destroy a concrete wall.",
         "altDescription": "It prefers places with clean water. When its tuft runs low, it replenishes it by siphoning up water with its tail.",
-        "evolution": "Simipour does not evolve"
+        "evolution": {
+            "name": "panpour",
+            "id": 264,
+            "trigger": "Via Use Item",
+            "itemName": "water-stone",
+            "evolvesTo": "simipour"
+        }
     },
     {
         "name": "munna",
@@ -1878,7 +1914,13 @@ const gen5Dex = [
         "weight": 233,
         "description": "Late at night, it appears beside people’s pillows. As it feeds on dreams, the patterns on its body give off a faint glow.",
         "altDescription": "It eats dreams and releases mist. The mist is pink when it’s eating a good dream, and black when it’s eating a nightmare.",
-        "evolution": "Munna does not evolve"
+        "evolution": {
+            "name": "munna",
+            "id": 265,
+            "trigger": "Via Use Item",
+            "itemName": "moon-stone",
+            "evolvesTo": "musharna"
+        }
     },
     {
         "name": "musharna",
@@ -1950,7 +1992,13 @@ const gen5Dex = [
         "weight": 605,
         "description": "When dark mists emanate from its body, don’t get too near. If you do, your nightmares will become reality.",
         "altDescription": "It drowses and dreams all the time. It’s best to leave it be if it’s just woken up, as it’s a terrible grump when freshly roused from sleep.",
-        "evolution": "Musharna does not evolve"
+        "evolution": {
+            "name": "munna",
+            "id": 265,
+            "trigger": "Via Use Item",
+            "itemName": "moon-stone",
+            "evolvesTo": "musharna"
+        }
     },
     {
         "name": "pidove",
@@ -2442,16 +2490,7 @@ const gen5Dex = [
         "weight": 180,
         "description": "It’s as hard as steel, but apparently a long soak in water will cause it to soften a bit.",
         "altDescription": "When it detects a noise, it starts to move. The energy core inside it makes this Pokémon slightly warm to the touch.",
-        "evolution": {
-            "name": "roggenrola",
-            "id": 268,
-            "evolvesTo": "boldore",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "gigalith",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Roggenrola does not evolve"
     },
     {
         "name": "boldore",
@@ -2523,16 +2562,7 @@ const gen5Dex = [
         "weight": 1020,
         "description": "If you see its orange crystals start to glow, be wary. It’s about to fire off bursts of energy.",
         "altDescription": "It relies on sound in order to monitor what’s in its vicinity. When angered, it will attack without ever changing the direction it’s facing.",
-        "evolution": {
-            "name": "roggenrola",
-            "id": 268,
-            "evolvesTo": "boldore",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "gigalith",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Boldore does not evolve"
     },
     {
         "name": "gigalith",
@@ -2604,16 +2634,7 @@ const gen5Dex = [
         "weight": 2600,
         "description": "This hardy Pokémon can often be found on construction sites and in mines, working alongside people and Copperajah.",
         "altDescription": "Although its energy blasts can blow away a dump truck, they have a limitation— they can only be fired when the sun is out.",
-        "evolution": {
-            "name": "roggenrola",
-            "id": 268,
-            "evolvesTo": "boldore",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "gigalith",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Gigalith does not evolve"
     },
     {
         "name": "woobat",
@@ -3094,16 +3115,7 @@ const gen5Dex = [
         "weight": 125,
         "description": "It loves helping out with construction projects. It loves it so much that if rain causes work to halt, it swings its log around and throws a tantrum.",
         "altDescription": "Timburr that have started carrying logs that are about three times their size are nearly ready to evolve.",
-        "evolution": {
-            "name": "timburr",
-            "id": 272,
-            "evolvesTo": "gurdurr",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "conkeldurr",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Timburr does not evolve"
     },
     {
         "name": "gurdurr",
@@ -3175,16 +3187,7 @@ const gen5Dex = [
         "weight": 400,
         "description": "It shows off its muscles to Machoke and other Gurdurr. If it fails to measure up to the other Pokémon, it lies low for a little while.",
         "altDescription": "Gurdurr excels at demolition—construction is not its forte. In any case, there’s skill in the way this Pokémon wields its metal beam.",
-        "evolution": {
-            "name": "timburr",
-            "id": 272,
-            "evolvesTo": "gurdurr",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "conkeldurr",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Gurdurr does not evolve"
     },
     {
         "name": "conkeldurr",
@@ -3256,16 +3259,7 @@ const gen5Dex = [
         "weight": 870,
         "description": "Concrete mixed by Conkeldurr is much more durable than normal concrete, even when the compositions of the two materials are the same.",
         "altDescription": "When going all out, this Pokémon throws aside its concrete pillars and leaps at opponents to pummel them with its fists.",
-        "evolution": {
-            "name": "timburr",
-            "id": 272,
-            "evolvesTo": "gurdurr",
-            "atLevel": 25,
-            "trigger": "Via Level Up",
-            "finalEvolution": "conkeldurr",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "trade"
-        }
+        "evolution": "Conkeldurr does not evolve"
     },
     {
         "name": "tympole",
@@ -4273,7 +4267,13 @@ const gen5Dex = [
         "weight": 6,
         "description": "It shoots cotton from its body to protect itself. If it gets caught up in hurricane-strength winds, it can get sent to the other side of the Earth.",
         "altDescription": "Weaving together the cotton of both Cottonee and Eldegoss produces exquisite cloth that’s highly prized by many luxury brands.",
-        "evolution": "Cottonee does not evolve"
+        "evolution": {
+            "name": "cottonee",
+            "id": 278,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "whimsicott"
+        }
     },
     {
         "name": "whimsicott",
@@ -4352,7 +4352,13 @@ const gen5Dex = [
         "weight": 66,
         "description": "It scatters cotton all over the place as a prank. If it gets wet, it’ll become too heavy to move and have no choice but to answer for its mischief.",
         "altDescription": "As long as this Pokémon bathes in sunlight, its cotton keeps growing. If too much cotton fluff builds up, Whimsicott tears it off and scatters it.",
-        "evolution": "Whimsicott does not evolve"
+        "evolution": {
+            "name": "cottonee",
+            "id": 278,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "whimsicott"
+        }
     },
     {
         "name": "petilil",
@@ -4424,7 +4430,13 @@ const gen5Dex = [
         "weight": 66,
         "description": "Petilil appears around sources of clean water. Boiling leaves from this Pokémon’s head results in a liquid that’s sometimes used as a bug repellent.",
         "altDescription": "The deeper the color of a Petilil’s leaves, the healthier the Pokémon is. Petilil sometimes makes its home in a well-tended field or flowerbed.",
-        "evolution": "Petilil does not evolve"
+        "evolution": {
+            "name": "petilil",
+            "id": 279,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "lilligant"
+        }
     },
     {
         "name": "lilligant",
@@ -4496,7 +4508,13 @@ const gen5Dex = [
         "weight": 163,
         "description": "It’s believed that even first-rate gardeners have a hard time getting the flower on a Lilligant’s head to bloom.",
         "altDescription": "Essential oils made from Lilligant flowers have a sublime scent, but they’re also staggeringly expensive.",
-        "evolution": "Lilligant does not evolve"
+        "evolution": {
+            "name": "petilil",
+            "id": 279,
+            "trigger": "Via Use Item",
+            "itemName": "sun-stone",
+            "evolvesTo": "lilligant"
+        }
     },
     {
         "name": "basculin-red-striped",
@@ -4568,7 +4586,7 @@ const gen5Dex = [
         "weight": 180,
         "description": "Anglers love the fight this Pokémon puts up on the hook. And there are always more to catch— many people release them into lakes illicitly.",
         "altDescription": "In the past, it often appeared on the dinner table. The meat of red-striped Basculin is on the fatty side, and it’s more popular with the youth.",
-        "evolution": "Basculin-red-striped does not evolve"
+        "evolution": "Basculin does not evolve"
     },
     {
         "name": "sandile",
@@ -4982,7 +5000,7 @@ const gen5Dex = [
         "weight": 929,
         "description": "The thick arms of this hot-blooded Pokémon can deliver punches capable of obliterating a dump truck.",
         "altDescription": "This Pokémon’s power level rises along with the temperature of its fire, which can reach 2,500 degrees Fahrenheit.",
-        "evolution": "Darmanitan-standard does not evolve"
+        "evolution": "Darmanitan does not evolve"
     },
     {
         "name": "maractus",
@@ -6353,7 +6371,13 @@ const gen5Dex = [
         "weight": 58,
         "description": "The way it brushes away grime with its tail can be helpful when cleaning. But its focus on spotlessness can make cleaning more of a hassle.",
         "altDescription": "They pet each other with their tails as a form of greeting. Of the two, the one whose tail is fluffier is a bit more boastful.",
-        "evolution": "Minccino does not evolve"
+        "evolution": {
+            "name": "minccino",
+            "id": 292,
+            "trigger": "Via Use Item",
+            "itemName": "shiny-stone",
+            "evolvesTo": "cinccino"
+        }
     },
     {
         "name": "cinccino",
@@ -6425,7 +6449,13 @@ const gen5Dex = [
         "weight": 75,
         "description": "Its body secretes oil that this Pokémon spreads over its nest as a coating to protect it from dust. Cinccino won’t tolerate even a speck of the stuff.",
         "altDescription": "A special oil that seeps through their fur helps them avoid attacks. The oil fetches a high price at market.",
-        "evolution": "Cinccino does not evolve"
+        "evolution": {
+            "name": "minccino",
+            "id": 292,
+            "trigger": "Via Use Item",
+            "itemName": "shiny-stone",
+            "evolvesTo": "cinccino"
+        }
     },
     {
         "name": "gothita",
@@ -7645,15 +7675,7 @@ const gen5Dex = [
         "weight": 59,
         "description": "Its strange physiology reacts to electrical energy in interesting ways. The presence of a Shelmet will cause this Pokémon to evolve.",
         "altDescription": "It spits a liquid from its mouth to melt through Shelmet’s shell. Karrablast doesn’t eat the shell— it eats only the contents.",
-        "evolution": {
-            "name": "karrablast",
-            "id": 299,
-            "trigger": "Via trade",
-            "evolvesTo": "escavalier",
-            "evolveConditions": [
-                "Trade Species: shelmet"
-            ]
-        }
+        "evolution": "Karrablast does not evolve"
     },
     {
         "name": "escavalier",
@@ -7732,15 +7754,7 @@ const gen5Dex = [
         "weight": 330,
         "description": "They use shells they’ve stolen from Shelmet to arm and protect themselves. They’re very popular Pokémon in the Galar region.",
         "altDescription": "It charges its enemies, lances at the ready. An image of one of its duels is captured in a famous painting of Escavalier clashing with Sirfetch’d.",
-        "evolution": {
-            "name": "karrablast",
-            "id": 299,
-            "trigger": "Via trade",
-            "evolvesTo": "escavalier",
-            "evolveConditions": [
-                "Trade Species: shelmet"
-            ]
-        }
+        "evolution": "Escavalier does not evolve"
     },
     {
         "name": "foongus",
@@ -8814,8 +8828,7 @@ const gen5Dex = [
             "atLevel": 39,
             "trigger": "Via Level Up",
             "finalEvolution": "eelektross",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "thunder-stone"
         }
     },
     {
@@ -8895,8 +8908,7 @@ const gen5Dex = [
             "atLevel": 39,
             "trigger": "Via Level Up",
             "finalEvolution": "eelektross",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "thunder-stone"
         }
     },
     {
@@ -8976,8 +8988,7 @@ const gen5Dex = [
             "atLevel": 39,
             "trigger": "Via Level Up",
             "finalEvolution": "eelektross",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "thunder-stone"
         }
     },
     {
@@ -9220,8 +9231,7 @@ const gen5Dex = [
             "atLevel": 41,
             "trigger": "Via Level Up",
             "finalEvolution": "chandelure",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "dusk-stone"
         }
     },
     {
@@ -9308,8 +9318,7 @@ const gen5Dex = [
             "atLevel": 41,
             "trigger": "Via Level Up",
             "finalEvolution": "chandelure",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "dusk-stone"
         }
     },
     {
@@ -9396,8 +9405,7 @@ const gen5Dex = [
             "atLevel": 41,
             "trigger": "Via Level Up",
             "finalEvolution": "chandelure",
-            "finalEvolutionLevel": null,
-            "finalEvolutionTrigger": "use-item"
+            "finalEvolutionTrigger": "dusk-stone"
         }
     },
     {
@@ -9941,15 +9949,7 @@ const gen5Dex = [
         "weight": 77,
         "description": "When attacked, it tightly shuts the lid of its shell. This reaction fails to protect it from Karrablast, however, because they can still get into the shell.",
         "altDescription": "It has a strange physiology that responds to electricity. When together with Karrablast, Shelmet evolves for some reason.",
-        "evolution": {
-            "name": "shelmet",
-            "id": 312,
-            "trigger": "Via trade",
-            "evolvesTo": "accelgor",
-            "evolveConditions": [
-                "Trade Species: karrablast"
-            ]
-        }
+        "evolution": "Shelmet does not evolve"
     },
     {
         "name": "accelgor",
@@ -10021,15 +10021,7 @@ const gen5Dex = [
         "weight": 253,
         "description": "It moves with blinding speed and lobs poison at foes. Featuring Accelgor as a main character is a surefire way to make a movie or comic popular.",
         "altDescription": "Discarding its shell made it nimble. To keep itself from dehydrating, it wraps its body in bands of membrane.",
-        "evolution": {
-            "name": "shelmet",
-            "id": 312,
-            "trigger": "Via trade",
-            "evolvesTo": "accelgor",
-            "evolveConditions": [
-                "Trade Species: karrablast"
-            ]
-        }
+        "evolution": "Accelgor does not evolve"
     },
     {
         "name": "stunfisk",
@@ -11982,7 +11974,7 @@ const gen5Dex = [
         "weight": 630,
         "description": "The lower half of its body is wrapped in a cloud of energy. It zooms through the sky at 200 mph.",
         "altDescription": "Tornadus expels massive energy from its tail, causing severe storms. Its power is great enough to blow houses away.",
-        "evolution": "Tornadus-incarnate does not evolve"
+        "evolution": "Tornadus does not evolve"
     },
     {
         "name": "thundurus-incarnate",
@@ -12061,7 +12053,7 @@ const gen5Dex = [
         "weight": 610,
         "description": "The spikes on its tail discharge immense bolts of lightning. It flies around the Unova region firing off lightning bolts.",
         "altDescription": "As it flies around, it shoots lightning all over the place and causes forest fires. It is therefore disliked.",
-        "evolution": "Thundurus-incarnate does not evolve"
+        "evolution": "Thundurus does not evolve"
     },
     {
         "name": "reshiram",
@@ -12298,7 +12290,7 @@ const gen5Dex = [
         "weight": 680,
         "description": "Lands visited by Landorus grant such bountiful crops that it has been hailed as “The Guardian of the Fields.”",
         "altDescription": "From the forces of lightning and wind, it creates energy to give nutrients to the soil and make the land abundant.",
-        "evolution": "Landorus-incarnate does not evolve"
+        "evolution": "Landorus does not evolve"
     },
     {
         "name": "kyurem",
@@ -12456,7 +12448,7 @@ const gen5Dex = [
         "weight": 485,
         "description": "Cobalion, Terrakion, and Virizion taught this Pokémon how to fight. It dashes across the world, seeking more opportunities to further its training.",
         "altDescription": "They say that Keldeo must survive harsh battles and fully develop the horn on its forehead before this Pokémon’s true power will awaken.",
-        "evolution": "Keldeo-ordinary does not evolve"
+        "evolution": "Keldeo does not evolve"
     },
     {
         "name": "meloetta-aria",
@@ -12535,7 +12527,7 @@ const gen5Dex = [
         "weight": 65,
         "description": "The melodies sung by Meloetta have the power to make Pokémon that hear them happy or sad.",
         "altDescription": "Its melodies are sung with a special vocalization method that can control the feelings of those who hear it.",
-        "evolution": "Meloetta-aria does not evolve"
+        "evolution": "Meloetta does not evolve"
     },
     {
         "name": "genesect",

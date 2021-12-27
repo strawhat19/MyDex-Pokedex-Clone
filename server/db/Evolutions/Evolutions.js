@@ -90,6 +90,16 @@ export const Evolutions = [
         ]
     },
     {
+        "name": "pichu",
+        "id": 10,
+        "evolvesTo": "pikachu",
+        "minHappiness": 220,
+        "items": "thunder-stone",
+        "trigger": "Via Level Up",
+        "finalEvolution": "raichu",
+        "finalEvolutionTrigger": "use-item"
+    },
+    {
         "name": "sandshrew",
         "id": 11,
         "evolvesTo": "sandslash",
@@ -103,8 +113,7 @@ export const Evolutions = [
         "atLevel": 16,
         "trigger": "Via Level Up",
         "finalEvolution": "nidoqueen",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "moon-stone"
     },
     {
         "name": "nidoran-m",
@@ -113,8 +122,7 @@ export const Evolutions = [
         "atLevel": 16,
         "trigger": "Via Level Up",
         "finalEvolution": "nidoking",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "moon-stone"
     },
     {
         "name": "cleffa",
@@ -126,6 +134,23 @@ export const Evolutions = [
         ]
     },
     {
+        "name": "cleffa",
+        "id": 14,
+        "evolvesTo": "clefairy",
+        "minHappiness": 220,
+        "items": "moon-stone",
+        "trigger": "Via Level Up",
+        "finalEvolution": "clefable",
+        "finalEvolutionTrigger": "use-item"
+    },
+    {
+        "name": "vulpix",
+        "id": 15,
+        "trigger": "Via Use Item",
+        "itemName": "fire-stone",
+        "evolvesTo": "ninetales"
+    },
+    {
         "name": "igglybuff",
         "id": 16,
         "trigger": "Via Level Up",
@@ -133,6 +158,16 @@ export const Evolutions = [
         "evolveConditions": [
             "Min Happiness: 220"
         ]
+    },
+    {
+        "name": "igglybuff",
+        "id": 16,
+        "evolvesTo": "jigglypuff",
+        "minHappiness": 220,
+        "items": "moon-stone",
+        "trigger": "Via Level Up",
+        "finalEvolution": "wigglytuff",
+        "finalEvolutionTrigger": "use-item"
     },
     {
         "name": "zubat",
@@ -151,8 +186,7 @@ export const Evolutions = [
         "atLevel": 21,
         "trigger": "Via Level Up",
         "finalEvolution": "vileplume",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "leaf-stone"
     },
     {
         "name": "paras",
@@ -197,34 +231,20 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
+        "name": "growlithe",
+        "id": 25,
+        "trigger": "Via Use Item",
+        "itemName": "fire-stone",
+        "evolvesTo": "arcanine"
+    },
+    {
         "name": "poliwag",
         "id": 26,
         "evolvesTo": "poliwhirl",
         "atLevel": 25,
         "trigger": "Via Level Up",
         "finalEvolution": "poliwrath",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
-    },
-    {
-        "name": "abra",
-        "id": 27,
-        "evolvesTo": "kadabra",
-        "atLevel": 16,
-        "trigger": "Via Level Up",
-        "finalEvolution": "alakazam",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
-        "name": "machop",
-        "id": 28,
-        "evolvesTo": "machoke",
-        "atLevel": 28,
-        "trigger": "Via Level Up",
-        "finalEvolution": "machamp",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
+        "finalEvolutionTrigger": "water-stone"
     },
     {
         "name": "bellsprout",
@@ -233,8 +253,7 @@ export const Evolutions = [
         "atLevel": 21,
         "trigger": "Via Level Up",
         "finalEvolution": "victreebel",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "leaf-stone"
     },
     {
         "name": "tentacool",
@@ -242,16 +261,6 @@ export const Evolutions = [
         "evolvesTo": "tentacruel",
         "atLevel": 30,
         "trigger": "Via Level Up"
-    },
-    {
-        "name": "geodude",
-        "id": 31,
-        "evolvesTo": "graveler",
-        "atLevel": 25,
-        "trigger": "Via Level Up",
-        "finalEvolution": "golem",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
     },
     {
         "name": "ponyta",
@@ -299,23 +308,11 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
-        "name": "gastly",
-        "id": 40,
-        "evolvesTo": "haunter",
-        "atLevel": 25,
-        "trigger": "Via Level Up",
-        "finalEvolution": "gengar",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
-        "name": "onix",
-        "id": 41,
-        "trigger": "Via trade",
-        "evolvesTo": "steelix",
-        "evolveConditions": [
-            "Held Item: metal-coat"
-        ]
+        "name": "shellder",
+        "id": 39,
+        "trigger": "Via Use Item",
+        "itemName": "water-stone",
+        "evolvesTo": "cloyster"
     },
     {
         "name": "drowzee",
@@ -337,6 +334,13 @@ export const Evolutions = [
         "evolvesTo": "electrode",
         "atLevel": 30,
         "trigger": "Via Level Up"
+    },
+    {
+        "name": "exeggcute",
+        "id": 45,
+        "trigger": "Via Use Item",
+        "itemName": "leaf-stone",
+        "evolvesTo": "exeggutor"
     },
     {
         "name": "cubone",
@@ -369,16 +373,6 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
-        "name": "rhyhorn",
-        "id": 50,
-        "evolvesTo": "rhydon",
-        "atLevel": 42,
-        "trigger": "Via Level Up",
-        "finalEvolution": "rhyperior",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
         "name": "happiny",
         "id": 51,
         "trigger": "Via Level Up",
@@ -398,21 +392,18 @@ export const Evolutions = [
         ]
     },
     {
-        "name": "horsea",
-        "id": 54,
-        "evolvesTo": "seadra",
-        "atLevel": 32,
-        "trigger": "Via Level Up",
-        "finalEvolution": "kingdra",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
         "name": "goldeen",
         "id": 55,
         "evolvesTo": "seaking",
         "atLevel": 33,
         "trigger": "Via Level Up"
+    },
+    {
+        "name": "staryu",
+        "id": 56,
+        "trigger": "Via Use Item",
+        "itemName": "water-stone",
+        "evolvesTo": "starmie"
     },
     {
         "name": "mime-jr",
@@ -424,40 +415,11 @@ export const Evolutions = [
         ]
     },
     {
-        "name": "scyther",
-        "id": 58,
-        "trigger": "Via trade",
-        "evolvesTo": "scizor",
-        "evolveConditions": [
-            "Held Item: metal-coat"
-        ]
-    },
-    {
         "name": "smoochum",
         "id": 59,
         "evolvesTo": "jynx",
         "atLevel": 30,
         "trigger": "Via Level Up"
-    },
-    {
-        "name": "elekid",
-        "id": 60,
-        "evolvesTo": "electabuzz",
-        "atLevel": 30,
-        "trigger": "Via Level Up",
-        "finalEvolution": "electivire",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
-        "name": "magby",
-        "id": 61,
-        "evolvesTo": "magmar",
-        "atLevel": 30,
-        "trigger": "Via Level Up",
-        "finalEvolution": "magmortar",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
     },
     {
         "name": "magikarp",
@@ -467,12 +429,18 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
-        "name": "porygon",
-        "id": 68,
-        "trigger": "Via trade",
-        "evolvesTo": "porygon2",
-        "evolveConditions": [
-            "Held Item: up-grade"
+        "name": "eevee",
+        "id": 67,
+        "trigger": "Via Use Item",
+        "useItemArray": [
+            "water-stone",
+            "thunder-stone",
+            "fire-stone"
+        ],
+        "evolvesToArray": [
+            "vaporeon",
+            "jolteon",
+            "flareon"
         ]
     },
     {
@@ -583,6 +551,16 @@ export const Evolutions = [
         ]
     },
     {
+        "name": "togepi",
+        "id": 87,
+        "evolvesTo": "togetic",
+        "minHappiness": 220,
+        "items": "shiny-stone",
+        "trigger": "Via Level Up",
+        "finalEvolution": "togekiss",
+        "finalEvolutionTrigger": "use-item"
+    },
+    {
         "name": "natu",
         "id": 88,
         "evolvesTo": "xatu",
@@ -637,6 +615,13 @@ export const Evolutions = [
         ]
     },
     {
+        "name": "sunkern",
+        "id": 94,
+        "trigger": "Via Use Item",
+        "itemName": "sun-stone",
+        "evolvesTo": "sunflora"
+    },
+    {
         "name": "yanma",
         "id": 95,
         "trigger": "Via Level Up",
@@ -651,6 +636,20 @@ export const Evolutions = [
         "evolvesTo": "quagsire",
         "atLevel": 20,
         "trigger": "Via Level Up"
+    },
+    {
+        "name": "murkrow",
+        "id": 97,
+        "trigger": "Via Use Item",
+        "itemName": "dusk-stone",
+        "evolvesTo": "honchkrow"
+    },
+    {
+        "name": "misdreavus",
+        "id": 98,
+        "trigger": "Via Use Item",
+        "itemName": "dusk-stone",
+        "evolvesTo": "mismagius"
     },
     {
         "name": "wynaut",
@@ -828,8 +827,7 @@ export const Evolutions = [
         "atLevel": 14,
         "trigger": "Via Level Up",
         "finalEvolution": "ludicolo",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "water-stone"
     },
     {
         "name": "seedot",
@@ -838,8 +836,7 @@ export const Evolutions = [
         "atLevel": 14,
         "trigger": "Via Level Up",
         "finalEvolution": "shiftry",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "leaf-stone"
     },
     {
         "name": "taillow",
@@ -914,6 +911,13 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
+        "name": "skitty",
+        "id": 148,
+        "trigger": "Via Use Item",
+        "itemName": "moon-stone",
+        "evolvesTo": "delcatty"
+    },
+    {
         "name": "aron",
         "id": 151,
         "evolvesTo": "lairon",
@@ -946,6 +950,16 @@ export const Evolutions = [
             "Min Happiness: 220",
             "Time Of Day: undefined"
         ]
+    },
+    {
+        "name": "budew",
+        "id": 158,
+        "evolvesTo": "roselia",
+        "minHappiness": 220,
+        "items": "shiny-stone",
+        "trigger": "Via Level Up",
+        "finalEvolution": "roserade",
+        "finalEvolutionTrigger": "use-item"
     },
     {
         "name": "gulpin",
@@ -1058,16 +1072,6 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
-        "name": "duskull",
-        "id": 182,
-        "evolvesTo": "dusclops",
-        "atLevel": 37,
-        "trigger": "Via Level Up",
-        "finalEvolution": "dusknoir",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
         "name": "chingling",
         "id": 184,
         "trigger": "Via Level Up",
@@ -1093,15 +1097,6 @@ export const Evolutions = [
         "finalEvolution": "walrein",
         "finalEvolutionLevel": 44,
         "finalEvolutionTrigger": "Via Level Up"
-    },
-    {
-        "name": "clamperl",
-        "id": 188,
-        "trigger": "Via trade",
-        "evolvesTo": "huntail",
-        "evolveConditions": [
-            "Held Item: deep-sea-tooth"
-        ]
     },
     {
         "name": "bagon",
@@ -1383,6 +1378,34 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
+        "name": "pansage",
+        "id": 262,
+        "trigger": "Via Use Item",
+        "itemName": "leaf-stone",
+        "evolvesTo": "simisage"
+    },
+    {
+        "name": "pansear",
+        "id": 263,
+        "trigger": "Via Use Item",
+        "itemName": "fire-stone",
+        "evolvesTo": "simisear"
+    },
+    {
+        "name": "panpour",
+        "id": 264,
+        "trigger": "Via Use Item",
+        "itemName": "water-stone",
+        "evolvesTo": "simipour"
+    },
+    {
+        "name": "munna",
+        "id": 265,
+        "trigger": "Via Use Item",
+        "itemName": "moon-stone",
+        "evolvesTo": "musharna"
+    },
+    {
         "name": "pidove",
         "id": 266,
         "evolvesTo": "tranquill",
@@ -1400,16 +1423,6 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
-        "name": "roggenrola",
-        "id": 268,
-        "evolvesTo": "boldore",
-        "atLevel": 25,
-        "trigger": "Via Level Up",
-        "finalEvolution": "gigalith",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
-    },
-    {
         "name": "woobat",
         "id": 269,
         "trigger": "Via Level Up",
@@ -1424,16 +1437,6 @@ export const Evolutions = [
         "evolvesTo": "excadrill",
         "atLevel": 31,
         "trigger": "Via Level Up"
-    },
-    {
-        "name": "timburr",
-        "id": 272,
-        "evolvesTo": "gurdurr",
-        "atLevel": 25,
-        "trigger": "Via Level Up",
-        "finalEvolution": "conkeldurr",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "trade"
     },
     {
         "name": "tympole",
@@ -1464,6 +1467,20 @@ export const Evolutions = [
         "finalEvolution": "scolipede",
         "finalEvolutionLevel": 30,
         "finalEvolutionTrigger": "Via Level Up"
+    },
+    {
+        "name": "cottonee",
+        "id": 278,
+        "trigger": "Via Use Item",
+        "itemName": "sun-stone",
+        "evolvesTo": "whimsicott"
+    },
+    {
+        "name": "petilil",
+        "id": 279,
+        "trigger": "Via Use Item",
+        "itemName": "sun-stone",
+        "evolvesTo": "lilligant"
     },
     {
         "name": "sandile",
@@ -1532,6 +1549,13 @@ export const Evolutions = [
         "trigger": "Via Level Up"
     },
     {
+        "name": "minccino",
+        "id": 292,
+        "trigger": "Via Use Item",
+        "itemName": "shiny-stone",
+        "evolvesTo": "cinccino"
+    },
+    {
         "name": "gothita",
         "id": 293,
         "evolvesTo": "gothorita",
@@ -1574,15 +1598,6 @@ export const Evolutions = [
         "evolvesTo": "sawsbuck",
         "atLevel": 34,
         "trigger": "Via Level Up"
-    },
-    {
-        "name": "karrablast",
-        "id": 299,
-        "trigger": "Via trade",
-        "evolvesTo": "escavalier",
-        "evolveConditions": [
-            "Trade Species: shelmet"
-        ]
     },
     {
         "name": "foongus",
@@ -1629,8 +1644,7 @@ export const Evolutions = [
         "atLevel": 39,
         "trigger": "Via Level Up",
         "finalEvolution": "eelektross",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "thunder-stone"
     },
     {
         "name": "elgyem",
@@ -1646,8 +1660,7 @@ export const Evolutions = [
         "atLevel": 41,
         "trigger": "Via Level Up",
         "finalEvolution": "chandelure",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "dusk-stone"
     },
     {
         "name": "axew",
@@ -1665,15 +1678,6 @@ export const Evolutions = [
         "evolvesTo": "beartic",
         "atLevel": 37,
         "trigger": "Via Level Up"
-    },
-    {
-        "name": "shelmet",
-        "id": 312,
-        "trigger": "Via trade",
-        "evolvesTo": "accelgor",
-        "evolveConditions": [
-            "Trade Species: karrablast"
-        ]
     },
     {
         "name": "mienfoo",
@@ -1798,8 +1802,7 @@ export const Evolutions = [
         "atLevel": 19,
         "trigger": "Via Level Up",
         "finalEvolution": "florges",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
+        "finalEvolutionTrigger": "shiny-stone"
     },
     {
         "name": "skiddo",
@@ -1829,26 +1832,7 @@ export const Evolutions = [
         "atLevel": 35,
         "trigger": "Via Level Up",
         "finalEvolution": "aegislash",
-        "finalEvolutionLevel": null,
-        "finalEvolutionTrigger": "use-item"
-    },
-    {
-        "name": "spritzee",
-        "id": 350,
-        "trigger": "Via trade",
-        "evolvesTo": "aromatisse",
-        "evolveConditions": [
-            "Held Item: sachet"
-        ]
-    },
-    {
-        "name": "swirlix",
-        "id": 351,
-        "trigger": "Via trade",
-        "evolvesTo": "slurpuff",
-        "evolveConditions": [
-            "Held Item: whipped-dream"
-        ]
+        "finalEvolutionTrigger": "dusk-stone"
     },
     {
         "name": "inkay",
@@ -1877,6 +1861,13 @@ export const Evolutions = [
         "evolvesTo": "clawitzer",
         "atLevel": 37,
         "trigger": "Via Level Up"
+    },
+    {
+        "name": "helioptile",
+        "id": 356,
+        "trigger": "Via Use Item",
+        "itemName": "sun-stone",
+        "evolvesTo": "heliolisk"
     },
     {
         "name": "tyrunt",
@@ -2259,16 +2250,6 @@ export const Evolutions = [
         ]
     },
     {
-        "name": "snom",
-        "id": 454,
-        "trigger": "Via Level Up",
-        "evolvesTo": "frosmoth",
-        "evolveConditions": [
-            "Min Happiness: 220",
-            "Time Of Day: undefined"
-        ]
-    },
-    {
         "name": "cufant",
         "id": 459,
         "evolvesTo": "copperajah",
@@ -2285,4 +2266,4 @@ export const Evolutions = [
         "finalEvolutionLevel": 60,
         "finalEvolutionTrigger": "Via Level Up"
     }
-]
+];

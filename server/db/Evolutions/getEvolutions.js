@@ -38,7 +38,6 @@ const getChains = (amount) => {
                         evolvesToArray.push(evolvesTo);
                         let evolutionChain = {name,id,trigger,useItemArray,evolvesToArray};
                         evolutionChains.push(evolutionChain);
-                        console.log(evolutionChain);
                         let chains = sortArrayById(evolutionChains);
                         localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                         return chains;
@@ -140,6 +139,20 @@ const getChains = (amount) => {
                     return chains;
                 }
             }
+            if (name != `growlithe` || name != `vulpix`) {
+                let capitalizedTriggerName = capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[0]) + ` ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[1]);
+                trigger = `Via ` + capitalizedTriggerName;
+                evolvesTo = evolution.chain.evolves_to[0].species.name;
+                let items = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].item.name;
+                let finalEvolution = evolution.chain.evolves_to[0].evolves_to[0].species.name;
+                let finalEvolutionTrigger = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
+                let minHappiness = chain.evolves_to[0].evolution_details[0].min_happiness;
+                let evolutionChain = {name,id,evolvesTo,minHappiness,items,trigger,finalEvolution,finalEvolutionTrigger};
+                evolutionChains.push(evolutionChain);
+                let chains = sortArrayById(evolutionChains);
+                localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
+                return chains;
+            }
         }
     }).catch(function(error) {
         console.log(error);
@@ -153,7 +166,7 @@ const getChains = (amount) => {
 
 // Fetch up to Gen 8
 // getChains(476);
-getChains(200);
+getChains(476);
 
 // let chainsSTR = getChains(476);
 // console.log(chainsSTR);
