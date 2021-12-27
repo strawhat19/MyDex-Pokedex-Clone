@@ -14,14 +14,6 @@ const getChains = (amount) => {
         }
     return response.json();
     }).then(evolution => {
-        let evolutionTestObj = {
-            id: evolution.id,
-            evolutionChain: evolution.chain,
-            name: evolution.chain.species.name,
-        }
-        evolutionsArray.push(evolutionTestObj);
-        console.log(sortArrayById(evolutionsArray));
-        // Add Evolution Item
         let chain, name, id, evos, evoDetails, evoCond, atLevel, trigger, evolvesTo;
         id = evolution.id;
         chain = evolution.chain;
@@ -31,9 +23,34 @@ const getChains = (amount) => {
             evos = evolution.chain.evolves_to;
             evolvesTo = evolution.chain.evolves_to[0].species.name;
             evoDetails = evolution.chain.evolves_to[0].evolution_details[0];
+            let capitalizedTriggerName = capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[0]) + ` ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[1]);
             // If more than 1 trigger check for Special Evolution Conditions
-            if (evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`).length > 1) {
-                trigger = `Via ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[0]) + ` ` + capitalize(evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`)[1]);
+            if (evolution.chain.evolves_to[0].evolution_details[0].trigger.name.split(`-`).length > 1) { // Growlithe
+                trigger = `Via ` + capitalizedTriggerName;
+                if (capitalizedTriggerName === `Use Item`) {
+                    if (name === `eevee`) {
+                        let evolvesToArray = [];
+                        let useItemArray = [];
+                       chain.evolves_to.forEach(evol => {
+                        let itemName = evol.evolution_details[0].item.name;
+                        evolvesTo = evol.species.name;
+                        useItemArray.push(itemName);
+                        evolvesToArray.push(evolvesTo);
+                        let evolutionChain = {name,id,trigger,useItemArray,evolvesToArray};
+                        evolutionChains.push(evolutionChain);
+                        console.log(evolutionChain);
+                        let chains = sortArrayById(evolutionChains);
+                        localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
+                        return chains;
+                       })
+                    }
+                    let itemName = evolution.chain.evolves_to[0].evolution_details[0].item.name;
+                    let evolutionChain = {name,id,trigger,itemName,evolvesTo};
+                    evolutionChains.push(evolutionChain);
+                    let chains = sortArrayById(evolutionChains);
+                    localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
+                    return chains;
+                }
             } else {
                 trigger = `Via ` + evolution.chain.evolves_to[0].evolution_details[0].trigger.name;
             }
@@ -73,15 +90,11 @@ const getChains = (amount) => {
                         return key;
                     }
                     if (!isNaN(val)) {
-                        console.log(val);
-                        console.log(typeof val);
                         evoCond = `${key}: ${val}`;
-                        console.log(evoCond);
                         evolveConditions.push(evoCond);
                         let evolutionChain = {name,id,trigger,evolvesTo,evolveConditions};
                         evolutionChains.push(evolutionChain);
                         let chains = sortArrayById(evolutionChains);
-                        console.log(`Evolution Chains Not Object`, chains);
                         localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                         return chains;
                     } else {
@@ -103,19 +116,26 @@ const getChains = (amount) => {
                     let finalEvolution = evolution.chain.evolves_to[0].evolves_to[0].species.name;
                     let finalEvolutionLevel = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level;
                     let finalEvolutionTrigger = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name;
-                    if (finalEvolutionTrigger === `level-up`) finalEvolutionTrigger = trigger;
-                    let evolutionChain = {name,id,evolvesTo,atLevel,trigger,finalEvolution,finalEvolutionLevel,finalEvolutionTrigger};
-                    evolutionChains.push(evolutionChain);
-                    let chains = sortArrayById(evolutionChains);
-                    // console.log(`Pokemon Evolves multiple time Evolution Chains`, chains);
-                    localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
-                    return chains;
+                    if (finalEvolutionTrigger === `level-up`) {
+                        finalEvolutionTrigger = trigger;
+                        let evolutionChain = {name,id,evolvesTo,atLevel,trigger,finalEvolution,finalEvolutionLevel,finalEvolutionTrigger};
+                        evolutionChains.push(evolutionChain);
+                        let chains = sortArrayById(evolutionChains);
+                        localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
+                        return chains;
+                    } else if (finalEvolutionTrigger === `use-item`) {
+                        finalEvolutionTrigger = evolution.chain.evolves_to[0].evolves_to[0].evolution_details[0].item.name;
+                        let evolutionChain = {name,id,evolvesTo,atLevel,trigger,finalEvolution,finalEvolutionTrigger};
+                        evolutionChains.push(evolutionChain);
+                        let chains = sortArrayById(evolutionChains);
+                        localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
+                        return chains;
+                    }
 
                 } else { // Pokemon Evolves Once
                     let evolutionChain = {name,id,evolvesTo,atLevel,trigger};
                     evolutionChains.push(evolutionChain);
                     let chains = sortArrayById(evolutionChains);
-                    // console.log(`Pokemon Evolves Once Evolution Chains`, chains);
                     localStorage.setItem(`Evolution Chains`, JSON.stringify(chains));
                     return chains;
                 }
