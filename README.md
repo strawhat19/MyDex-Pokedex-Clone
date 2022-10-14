@@ -15,7 +15,7 @@ This app was made using XAMPP Apache Server with PHP & SASS for Templating and G
 * [Questions](#questions)
 
 ## Usage
-You can view the deployed application at https://blues-login.herokuapp.com/
+You can view the deployed application at https://mydex-pokedex-clone.herokuapp.com/
 
 ## Installation
 ```
