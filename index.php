@@ -12,7 +12,7 @@
 
     <!-- Banner Component -->
     <?php include("./components/Banner/banner.php") ?>
-    
+
     <main class="main">
         <?php include("./components/Search/search.php") ?>
         <div class="pokedex" id="pokedex"></div>
