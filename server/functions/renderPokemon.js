@@ -102,7 +102,7 @@ export const createPokemon = (pokedex, pokemon) => {
         <div class="registerPokemon">
           ${renderPokeButtons(pokemon)}
         </div>
-        <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
+        <div class="pokeID" id="${pokemon.name}ID">${pokedex.children().length + 1}</div>
         <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>
         `
     );
@@ -126,7 +126,7 @@ export const createPokemon = (pokedex, pokemon) => {
         <div class="registerPokemon">
             ${renderPokeButtons(pokemon)}
           </div>
-        <div class="pokeID" id="${pokemon.name}ID">${pokemon.id}</div>
+        <div class="pokeID" id="${pokemon.name}ID">${pokedex.children().length + 1}</div>
         <div class="pokeIndex" id="${pokemon.name}Index">${pokedex.children().length + 1}</div>
         `
     );
@@ -196,4 +196,4 @@ export const renderPokemon = (domElementToRenderThem,Pokedex) => {
   clickSwitcher();
 };
 
-renderPokemon(pokedexContainer,Pokedex);
+renderPokemon(pokedexContainer, Pokedex);

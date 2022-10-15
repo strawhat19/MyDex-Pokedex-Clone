@@ -14,10 +14,11 @@ import { Gen5 } from "./Gens/gen5.js";
 import { Gen6 } from "./Gens/gen6.js";
 import { Gen7 } from "./Gens/gen7.js";
 import { Gen8 } from "./Gens/gen8.js";
+import { Gen9 } from "./Gens/gen9.js";
 import { Evolutions } from "./Evolutions/Evolutions.js";
 
 // Creating & Exporting Pokedex
-export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4).concat(Gen5).concat(Gen6).concat(Gen7).concat(Gen8);
+export const Pokedex = Gen1.concat(Gen2).concat(Gen3).concat(Gen4).concat(Gen5).concat(Gen6).concat(Gen7).concat(Gen8).concat(Gen9);
 
 // Generating Pokedex
 export const generatePokedex = (pokemonData, genArray, genNum) => {
@@ -99,7 +100,6 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
       const sortedGen = sortArrayById(genArray);
       console.log(sortedGen);
       return sortedGen;
-
     }
 
   });
@@ -182,6 +182,16 @@ export const generatePokedex = (pokemonData, genArray, genNum) => {
 //   generation8.results.forEach((poke) => {
 //     pokeFetch(poke.url).then((pokemonData) => {
 //       generatePokedex(pokemonData, gen8, 8);
+//     })
+//   });
+// });
+
+// Gen 9 Fetch
+// let gen9 = [];
+// genFetch(898, 256).then((generation9) => {
+//   generation9.results.forEach((poke) => {
+//     pokeFetch(poke.url).then((pokemonData) => {
+//       generatePokedex(pokemonData, gen9, 9);
 //     })
 //   });
 // });
