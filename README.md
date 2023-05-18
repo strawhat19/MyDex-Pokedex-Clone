@@ -1,4 +1,4 @@
-# MyDex-Pokedex-Clone (In Development Now)
+# MyDex-Pokedex-Clone
 
 [![License Badge: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
