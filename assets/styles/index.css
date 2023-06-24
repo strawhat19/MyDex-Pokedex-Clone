@@ -8,57 +8,35 @@ header {
   position: fixed;
   top: 0;
   z-index: 10;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
   width: 100%;
 }
 
 nav {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: var(--transition);
+  justify-content: space-between;
+  align-items: center;
   transition: var(--transition);
 }
-
 nav i {
-  -webkit-transition: var(--transition);
   transition: var(--transition);
   color: black !important;
 }
-
 nav .nav-link {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   place-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   padding: 15px;
   margin: 0;
   color: black !important;
   height: 41%;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 nav .nav-link i {
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 nav .nav-link a {
   padding: 0 15px;
   margin: 0 15px;
@@ -70,110 +48,74 @@ nav .nav-link a {
   letter-spacing: 1px;
   border-right: 1px solid white;
   border-left: 1px solid white;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 nav .nav-link:hover {
   background: black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 nav .nav-link:hover a {
   border-right: 1px solid var(--secondary);
   border-left: 1px solid var(--secondary);
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 nav .nav-link:hover i {
   color: var(--main) !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 @media (min-width: 1140px) {
   nav .desktop-menu-option.mobile-Menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     place-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     padding: 15px;
     margin: 0;
     color: black !important;
-    -webkit-transition: var(--transition);
     transition: var(--transition);
   }
 }
-
 @media (max-width: 992px) {
   nav {
     padding: 0px 0px;
     background: var(--main);
     position: fixed;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     top: 0;
     z-index: 3;
     -webkit-backdrop-filter: blur(3px) !important;
             backdrop-filter: blur(3px) !important;
-    -webkit-transition: var(--transition);
     transition: var(--transition);
   }
 }
 
 a.nav-link.Home {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   grid-gap: 1em;
   font-weight: 600;
-  font-family: 'montserrat';
+  font-family: "montserrat";
   color: white !important;
-  margin-right: .7em;
+  margin-right: 0.7em;
   border-right: 3px solid black;
   text-transform: uppercase;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 @media (max-width: 992px) {
   a.nav-link.Home {
     padding-bottom: 1em;
   }
 }
-
 a.nav-link.Home:hover {
   background: black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 a.nav-link.Home:hover .separator {
   border-right: 3px solid var(--main);
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -184,7 +126,6 @@ a.nav-link.Home:hover .separator {
   font-size: 20px;
   border-radius: 100%;
   padding: 8px 3px 8px 7px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -193,7 +134,6 @@ a.nav-link.Home:hover .separator {
   font-size: 20px;
   border-radius: 100%;
   padding: 5px 10px 4px 8px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -214,7 +154,6 @@ a.nav-link.Home:hover .separator {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeOut {
   0% {
     opacity: 1;
@@ -223,7 +162,6 @@ a.nav-link.Home:hover .separator {
     opacity: 0;
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -232,29 +170,18 @@ a.nav-link.Home:hover .separator {
     opacity: 0;
   }
 }
-
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   z-index: 2;
   width: 100%;
   height: 50px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 @media (max-width: 992px) {
   .header {
     width: 102%;
-    -webkit-transition: var(--transition);
     transition: var(--transition);
   }
 }
@@ -265,15 +192,12 @@ nav.scrolled {
 
 .desktop-menu-option.mobile-Menu div.nav-link {
   border-bottom: 3px solid black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .desktop-menu-option.mobile-Menu div.nav-link:hover {
   cursor: pointer;
   background: rgba(0, 0, 0, 0.75);
   border-color: black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -285,11 +209,8 @@ nav.scrolled {
   padding-right: 15px;
   display: none;
 }
-
 @media (max-width: 1140px) {
   .mobile-menu-option {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -297,7 +218,6 @@ nav.scrolled {
 .mobile-menu {
   font-size: 15px;
   padding: 0px 15px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -306,33 +226,25 @@ nav.scrolled {
   cursor: pointer;
   background: white;
   color: #181a1b;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 #menuToggle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border-right: 3px solid black;
   border-left: 3px solid black;
   padding: 0px 15px 0px 15px;
   margin: 0px;
   place-items: center;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 #menuToggle:hover {
   cursor: pointer;
   background: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 13px 15px;
   margin: 0px;
   place-items: center;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -344,34 +256,26 @@ nav.scrolled {
   position: relative;
   background: white;
   border-radius: 0px;
-  -webkit-transform-origin: 4px 0px;
-          transform-origin: 4px 0px;
-  -webkit-transition: -webkit-transform var(--transition);
-  transition: -webkit-transform var(--transition);
+  transform-origin: 4px 0px;
   transition: transform var(--transition);
-  transition: transform var(--transition), -webkit-transform var(--transition);
 }
 
 #menuToggle:hover span:nth-child(2n) {
   background: var(--main);
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 #menuToggle span:first-child:first-child {
-  -webkit-transform-origin: 0% 0%;
-          transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
 }
 
 #menuToggle span:nth-last-child(2):nth-last-child(2) {
-  -webkit-transform-origin: 0% 100%;
-          transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
 }
 
 #openMenuToggler.clicked span {
   opacity: 1;
-  -webkit-transform: rotate(-45deg) translate(0px, 0px);
-          transform: rotate(-45deg) translate(0px, 0px);
+  transform: rotate(-45deg) translate(0px, 0px);
 }
 
 #openMenuToggler.clicked:hover span {
@@ -383,14 +287,12 @@ nav.scrolled {
 }
 
 #openMenuToggler.clicked span:nth-last-child(2) {
-  -webkit-transform: rotate(45deg) translate(-3px, -4px);
-          transform: rotate(45deg) translate(-3px, -4px);
+  transform: rotate(45deg) translate(-3px, -4px);
 }
 
 #openMenuToggler.clicked span:nth-last-child(3) {
   opacity: 0;
-  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
-          transform: rotate(0deg) scale(0.2, 0.2);
+  transform: rotate(0deg) scale(0.2, 0.2);
 }
 
 .openMenu {
@@ -398,7 +300,6 @@ nav.scrolled {
   border-right: 1px solid gray;
   border-left: 1px solid gray;
   border-radius: 0;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -407,7 +308,6 @@ nav.scrolled {
   border-right: 1px solid gray;
   border-left: 1px solid gray;
   border-radius: 0;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -415,22 +315,17 @@ nav.scrolled {
   border-right: 1px solid gray;
   border-left: 1px solid gray;
   border-radius: 0;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .desktop-menu-option {
   z-index: -5;
   opacity: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: absolute;
   top: -450%;
   left: 0;
   right: 0;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
   display: none;
 }
@@ -455,13 +350,8 @@ nav.scrolled {
 .desktop-menu-option.open-mobile-menu {
   width: 100%;
   opacity: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   position: absolute;
   top: 100%;
   left: 0;
@@ -474,7 +364,6 @@ nav.scrolled {
   -webkit-backdrop-filter: blur(3px) !important;
           backdrop-filter: blur(3px) !important;
   background: rgba(167, 167, 167, 0.9) !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -496,19 +385,12 @@ nav.scrolled {
 }
 
 .innerSocialLinks {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 90%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
 }
-
 .innerSocialLinks a {
   width: 2% !important;
 }
@@ -518,18 +400,11 @@ nav.scrolled {
   font-family: "Montserrat";
   font-weight: 500;
   letter-spacing: 0.2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   width: auto;
 }
-
 .mainNavLink .aboutLink {
   padding: 5px 9px !important;
 }
@@ -537,10 +412,9 @@ nav.scrolled {
 /* Mobile Menu+ */
 @media screen and (max-width: 1500px) {
   .header,
-  #Projects .header {
+#Projects .header {
     text-align: center;
     margin: 0 auto;
-    -webkit-transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: 0.15s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
   #socialLinksMain {
@@ -550,14 +424,12 @@ nav.scrolled {
     width: 30%;
   }
 }
-
 @media screen and (max-width: 1489px) {
   #socialLinksContact {
     width: 100%;
     padding-top: 90px;
   }
 }
-
 @media screen and (min-width: 1499px) {
   .opening-header {
     padding: 85px 55px 30px;
@@ -576,40 +448,28 @@ nav.scrolled {
     top: 127px;
   }
 }
-
 /* Social Links */
 @media screen and (min-width: 1235px) {
   #socialLinksMain {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }
-
 @media screen and (max-width: 1235px) {
   .desktop-menu-option.open-mobile-menu {
     margin: 0.2em 0px 0 -5px;
     width: 101%;
   }
 }
-
 @media screen and (min-width: 1280px) {
   #socialLinksMain {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-flex: 0%;
-        -ms-flex: 0%;
-            flex: 0%;
-    -webkit-column-gap: 15px;
-            column-gap: 15px;
+    flex: 0%;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
   }
 }
-
 @media screen and (max-width: 1280px) {
   #socialLinks {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     grid-gap: 0em;
     padding-top: 15px;
@@ -618,32 +478,27 @@ nav.scrolled {
     width: 100%;
   }
 }
-
 /* iPhone and iPad */
 @media screen and (max-width: 768px) {
   .opening-header {
     font-size: 45px;
   }
 }
-
 /* iPhone */
 @media screen and (max-width: 667px) {
   .opening-header {
     font-size: 36px;
   }
 }
-
 /* Smaller Screens */
 @media screen and (max-width: 520px) {
   .opening-header {
     font-size: 22px;
   }
 }
-
 .social-with-text a {
   font-size: 20px;
   padding: 5px 9px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -651,7 +506,6 @@ nav.scrolled {
   font-size: 16px !important;
   font-weight: 600 !important;
   padding: 5px 9px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -660,7 +514,6 @@ nav.scrolled {
   color: white;
   background: #0a66c2;
   font-size: 20px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -669,7 +522,6 @@ nav.scrolled {
   color: white;
   background: #2b4261;
   font-size: 20px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -677,13 +529,10 @@ nav.scrolled {
   font-size: 20px;
   background: black;
   padding: 5px 9px 4px 8px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .social-links .githubLink:hover i {
   color: var(--main) !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -693,7 +542,6 @@ nav.scrolled {
   background: #88205b;
   font-size: 20px;
   font-weight: 600 !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -701,19 +549,15 @@ nav.scrolled {
   padding: 5px 9px 4px 8px !important;
   background: white;
   font-size: 20px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .social-links .emailLink:hover i {
   color: var(--main) !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .social-links {
   display: none;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -722,46 +566,25 @@ nav.scrolled {
 }
 
 .registration {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
-
 .registration form {
   max-width: 452px;
 }
-
 .registration .registrationButtons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
-
 .registration .registrationButtons a {
   line-height: 1.25em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   grid-gap: 0.4em;
   width: auto;
   padding: 0 15px;
@@ -775,23 +598,17 @@ nav.scrolled {
   border-right: 3px solid black;
   border-left: 3px solid black;
   cursor: pointer;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .registration .registrationButtons a:hover {
   padding: 15px 15px 15.8px;
   background: black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .registration .registrationButtons a:hover i {
   color: var(--main) !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 @media (max-width: 1140px) {
   .registration {
     display: none;
@@ -804,32 +621,22 @@ nav.scrolled {
 
 @media (max-width: 1140px) {
   .mobileRegistration {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }
 
 .logoutButton:hover {
   cursor: pointer;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   grid-gap: 1em;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
-
 form input {
   background: white;
   border: 3px solid black;
@@ -837,41 +644,28 @@ form input {
   padding: 0.5em 1em;
   color: black;
   width: 100%;
-  font-family: 'montserrat';
+  font-family: "montserrat";
   font-weight: 600;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
-form input::-webkit-input-placeholder {
+form input::-moz-placeholder {
   text-transform: capitalize;
   color: var(--secondary);
-  font-family: 'montserrat';
-  -webkit-transition: var(--transition);
+  font-family: "montserrat";
+  -moz-transition: var(--transition);
   transition: var(--transition);
 }
-
 form input:-ms-input-placeholder {
   text-transform: capitalize;
   color: var(--secondary);
-  font-family: 'montserrat';
-  -webkit-transition: var(--transition);
+  font-family: "montserrat";
+  -ms-transition: var(--transition);
   transition: var(--transition);
 }
-
-form input::-ms-input-placeholder {
-  text-transform: capitalize;
-  color: var(--secondary);
-  font-family: 'montserrat';
-  -webkit-transition: var(--transition);
-  transition: var(--transition);
-}
-
 form input::placeholder {
   text-transform: capitalize;
   color: var(--secondary);
-  font-family: 'montserrat';
-  -webkit-transition: var(--transition);
+  font-family: "montserrat";
   transition: var(--transition);
 }
 
@@ -880,39 +674,24 @@ form input::placeholder {
   width: 90%;
   min-width: 90%;
   padding: 0.5em 0 1em;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   color: black;
   font-weight: 600;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-size: 3em;
   margin: 0 auto;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .searchFilter .inputs {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   grid-gap: 1em;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   text-align: center;
 }
-
 .searchFilter .inputs input {
   text-align: center;
 }
@@ -929,18 +708,11 @@ footer {
   height: 40px;
   -webkit-backdrop-filter: blur(8px);
           backdrop-filter: blur(8px);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 0;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   font-weight: 600 !important;
   font-size: 1.1em;
   grid-gap: 0px;
@@ -949,21 +721,14 @@ footer {
   bottom: 0;
   width: 100% !important;
   border-top: 3px solid black;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 footer .innerFooter {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 95%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin: 0 auto;
 }
-
 footer a {
   color: black !important;
   font-family: "Montserrat";
@@ -978,15 +743,9 @@ footer i,
 
 .banner {
   opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   color: white;
   background: url("../images/pokeballBanner.jpg");
@@ -995,49 +754,33 @@ footer i,
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .banner::before {
-  content: '';
+  content: "";
   position: absolute;
   background: var(--slideBannerBG);
   height: 100%;
   width: 100%;
   z-index: 0;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .banner .bannerContent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 60%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   color: black;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
   grid-gap: 0;
   padding: 4em 0 5em;
   z-index: 1;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .banner .bannerContent p {
   margin: 0;
   font-weight: 600;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1048,9 +791,9 @@ footer i,
 /* Montserrat */
 /* Caveat */
 /* 
-    // --grass: #72902a;
-    --grass: #00cf40;
-  */
+  // --grass: #72902a;
+  --grass: #00cf40;
+*/
 :root {
   --main: #18b17f;
   --silver: #c5c5c5;
@@ -1164,35 +907,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 ::-moz-selection {
   background: var(--main);
   color: white;
-  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
   transition: var(--transition);
 }
 
 ::selection {
   background: var(--main);
   color: white;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1200,7 +932,6 @@ a {
   color: var(--main) !important;
   font-family: "Montserrat";
   text-decoration: none;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1211,7 +942,6 @@ a {
   border-right: 3px solid black;
   height: 100%;
   margin: 0 -0.5em 0 -0.8em;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1238,20 +968,18 @@ html, body {
   padding: 10px 15px;
   border-radius: 0px;
   font-size: 18px;
-  font-family: 'montserrat' !important;
+  font-family: "montserrat" !important;
   font-weight: 500;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
+  transform: rotate(-90deg);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   -webkit-animation: fadeIn 300ms ease-in-out;
           animation: fadeIn 300ms ease-in-out;
-  -webkit-transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 #topButton::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -1259,18 +987,13 @@ html, body {
   top: 0;
   left: 0;
   z-index: -1;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  -webkit-transform: scale(1, 0);
-          transform: scale(1, 0);
-  -webkit-transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transform-origin: top;
+  transform: scale(1, 0);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 #topButton:hover::before {
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  -webkit-transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transform: scale(1, 1);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
@@ -1278,39 +1001,25 @@ html, body {
   background-color: rgba(13, 189, 180, 0.8);
   border-color: var(--main);
   color: var(--main);
-  -webkit-transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 #topButton:active {
   background: rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
-          box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.8);
   color: var(--main);
-  -webkit-transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
   transition: 0.3s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 .pokeData {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokeData:hover {
   cursor: pointer;
 }
@@ -1320,123 +1029,77 @@ html, body {
   width: 100%;
   height: 100%;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   z-index: 1;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .defaultPic {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 100%;
   text-align: center;
   background-repeat: no-repeat !important;
   background-position: center center !important;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   border-radius: 25px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .shinyPic {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 100%;
   text-align: center;
   background-repeat: no-repeat !important;
   background-position: center center !important;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   border-radius: 25px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .shiny .pokeID {
   background: black !important;
 }
-
 .shiny .pokeIndex {
   color: white !important;
 }
-
 .shiny .pokeLower {
   background: var(--main);
   color: white;
 }
-
 .shiny .stats {
   color: white !important;
 }
-
 .shiny .registerPokemon button {
   background: white !important;
   color: black !important;
 }
 
 .inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 80% !important;
   margin: 0 auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  justify-content: center;
+  align-items: baseline;
   grid-gap: 1em;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .descriptions {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-transition: var(--transition);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   transition: var(--transition);
 }
 
@@ -1446,9 +1109,8 @@ html, body {
   text-align: center;
   max-width: 240px;
   height: 100%;
-  font-size: .95em;
+  font-size: 0.95em;
   font-weight: 600;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1457,58 +1119,30 @@ html, body {
 }
 
 main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding: 2em 0;
   min-height: 78.3vh;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .pokedex {
   width: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 0 auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   grid-gap: 1em;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   min-width: 480px;
   min-height: 480px;
@@ -1516,23 +1150,15 @@ main {
   border-radius: 25px !important;
   border: 3px solid black !important;
   padding-bottom: 2em;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon .pokeID {
   position: absolute;
   top: 0px;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   font-size: 15em;
@@ -1541,23 +1167,15 @@ main {
   z-index: 0;
   cursor: pointer;
   border-radius: 22px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon .pokeIndex {
   position: absolute;
   top: 0px;
   left: -10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  justify-content: end;
+  align-items: baseline;
   height: 100%;
   width: 100%;
   font-size: 3em;
@@ -1566,74 +1184,46 @@ main {
   z-index: 0;
   cursor: pointer;
   border-radius: 22px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon .statsRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 5em;
   position: relative;
   bottom: -70px;
   width: 90%;
   cursor: pointer;
 }
-
 .pokedex .pokemon .statsRow .stats {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   font-size: 0.84em;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   color: black;
   pointer-events: none;
   grid-gap: 1em;
 }
-
 .pokedex .pokemon .statsRow .stats .stat {
   width: 100%;
   text-align: center;
   font-weight: 600;
 }
-
 .pokedex .pokemon .pokeImage {
   width: 160px;
   height: 118px;
   background-repeat: no-repeat !important;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-position: 50% 120% !important;
   overflow: visible !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon .poke {
   text-transform: capitalize !important;
   font-size: 0.9em;
@@ -1649,10 +1239,8 @@ main {
   position: relative;
   top: 10px;
   pointer-events: none;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .pokedex .pokemon .poke mark {
   background: var(--main);
   text-transform: capitalize !important;
@@ -1665,25 +1253,16 @@ main {
   top: -10px;
   color: white !important;
   text-transform: capitalize;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   grid-gap: 1em;
   width: 75%;
   margin-top: 11em;
   pointer-events: none;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .types .type {
   font-family: "Flexo-Medium", arial, sans-serif;
   width: 40%;
@@ -1693,30 +1272,21 @@ main {
   line-height: 18px;
   max-width: 110px;
   font-size: 0.8em;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-weight: 600 !important;
   pointer-events: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .types .type.single {
   width: 100%;
   margin: 0 auto;
   text-align: center;
   position: relative !important;
   top: 0px !important;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
@@ -1724,10 +1294,8 @@ main {
   width: 71%;
   margin: 0 auto;
   z-index: 1;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .registerPokemon button {
   color: white !important;
   background: black;
@@ -1737,10 +1305,8 @@ main {
   font-weight: 600;
   padding: 0.2em 0;
   border-radius: 25px;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
-
 .registerPokemon button:hover {
   cursor: pointer;
 }
@@ -1749,19 +1315,13 @@ main {
   top: 35px;
 }
 
-::-webkit-input-placeholder {
+::-moz-placeholder {
   font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
 }
 
 :-ms-input-placeholder {
-  font-family: "Montserrat";
-  color: var(--secondary);
-  letter-spacing: 1.8;
-}
-
-::-ms-input-placeholder {
   font-family: "Montserrat";
   color: var(--secondary);
   letter-spacing: 1.8;
@@ -1798,7 +1358,6 @@ main {
     width: 100% !important;
   }
 }
-
 @media (max-width: 530px) {
   .searchFilter {
     width: 75%;
@@ -1811,14 +1370,12 @@ main {
   }
   .pokedex .pokemon {
     margin: -1em auto 0;
-    -webkit-transform: scale(0.9);
-            transform: scale(0.9);
+    transform: scale(0.9);
   }
   footer {
-    font-size: .85em;
+    font-size: 0.85em;
   }
 }
-
 @media (max-width: 485px) {
   header {
     width: 103% !important;
@@ -1835,8 +1392,7 @@ main {
     font-size: 1.1em;
   }
   .pokedex .pokemon {
-    -webkit-transform: scale(0.65);
-            transform: scale(0.65);
+    transform: scale(0.65);
     margin: -4.5em auto -8em -10px;
   }
   .pokedex .pokemon .poke {
@@ -1876,20 +1432,18 @@ main {
   }
   .pokedex .pokemon .registerPokemon button {
     font-size: 1.2em;
-    padding: .3em 0;
+    padding: 0.3em 0;
   }
   footer .innerFooter {
     width: 85%;
   }
 }
-
 /* iPhone SE */
 @media only screen and (max-width: 480px) {
   body {
     width: 100vw;
   }
 }
-
 @media (max-width: 415px) {
   header {
     width: 103% !important;
@@ -1898,7 +1452,7 @@ main {
     width: 103%;
   }
   header nav a.nav-link.Home {
-    font-size: .75em;
+    font-size: 0.75em;
     padding: 18px 15px;
     border-width: 2.9px;
   }
@@ -1925,46 +1479,34 @@ main {
     border-width: 2px;
   }
 }
-
 .pokeLower {
   position: relative;
   top: 60px !important;
   margin: 0 -2em !important;
   background: black;
   color: white;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .Pic {
   max-width: 150px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 #pokemonInfo {
   min-height: 78.3vh;
 }
-
 #pokemonInfo .pokemon {
   min-width: 420px;
 }
-
 #pokemonInfo .pokemon .pokeID {
   font-size: 11em;
 }
-
 #pokemonInfo .pokeLevel {
   color: white;
   height: 46px;
@@ -1972,27 +1514,19 @@ main {
   background: url(../graphics/arrowRight.svg);
   background-repeat: no-repeat;
   background-size: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  font-size: .85em;
+  font-size: 0.85em;
   font-weight: 600;
 }
 
 .currentEvolution .stats {
   color: white !important;
 }
-
 .currentEvolution .description {
   color: white !important;
 }
-
 .currentEvolution .pokeID {
   color: rgba(255, 255, 255, 0.7) !important;
   background: var(--pokeballRed) !important;
@@ -2000,5 +1534,4 @@ main {
 
 .currentEvolution.shiny .pokeID {
   background: black !important;
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
